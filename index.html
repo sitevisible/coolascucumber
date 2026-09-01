@@ -13,17 +13,18 @@
 
 <style>
   :root{
-    --bg: #F1F3E4;
-    --bg-card: #FBFAF1;
-    --bg-dark: #223223;
-    --bg-dark-soft: #2C3F28;
-    --ink: #1F2E1A;
-    --ink-soft: #4B5D42;
-    --cream: #E9EEDC;
-    --green: #4F7A46;
-    --green-deep: #33512C;
-    --lime: #A8C24A;
+    --bg: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-dark: #094B3C;
+    --bg-dark-soft: #0F5F4C;
+    --ink: #0C2A22;
+    --ink-soft: #43584E;
+    --cream: #FFFFFF;
+    --green: #2F6E52;
+    --green-deep: #094B3C;
+    --lime: #AEC469;
     --soil: #8C7355;
+    --orange: #FF682C;
     --line: rgba(31,46,26,0.14);
     --line-dark: rgba(233,238,220,0.18);
     --shadow: 0 20px 40px -24px rgba(31,46,26,0.35);
@@ -75,7 +76,7 @@
   /* ---------- NAV ---------- */
   header.site-nav{
     position: fixed; top:0; left:0; right:0; z-index: 50;
-    background: rgba(241,243,228,0.86);
+    background: rgba(255,255,255,0.86);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
@@ -105,8 +106,8 @@
     padding: 13px 26px; border-radius: 999px; text-decoration:none;
     transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   }
-  .btn-primary{ background: var(--green-deep); color: var(--cream); box-shadow: var(--shadow); }
-  .btn-primary:hover{ background: var(--green); transform: translateY(-2px); }
+  .btn-primary{ background: var(--orange); color: #FFFFFF; box-shadow: var(--shadow); }
+  .btn-primary:hover{ background: #E85720; transform: translateY(-2px); }
   .btn-ghost{ color: var(--green-deep); border: 1px solid var(--line); background: transparent; }
   .btn-ghost:hover{ border-color: var(--soil); background: rgba(140,115,85,0.08); }
   .on-dark .btn-ghost{ color: var(--cream); border-color: var(--line-dark); }
@@ -201,10 +202,10 @@
   @media (max-width: 820px){ .promesses-grid{ grid-template-columns: 1fr; } }
   .promise-card{
     background: var(--bg-card); border-radius: var(--radius); padding: 34px 28px;
-    box-shadow: var(--shadow); border: 1px solid var(--line);
+    box-shadow: var(--shadow); border: 1px solid rgba(9,75,60,0.14);
   }
   .promise-card .icon{
-    width: 46px; height: 46px; border-radius: 50%; background: var(--cream);
+    width: 46px; height: 46px; border-radius: 50%; background: rgba(174,196,105,0.22);
     display:flex; align-items:center; justify-content:center; font-size: 1.4rem; margin-bottom: 18px;
   }
   .promise-card h3{ font-size: 1.2rem; margin-bottom: 10px; }
@@ -262,7 +263,7 @@
   .vine-mobile-list li{ position:relative; padding: 4px 0 26px 26px; }
   .vine-mobile-list li::before{
     content:""; position:absolute; left:-7px; top:2px; width:12px; height:12px; border-radius:50%;
-    background: var(--lime);
+    background: var(--orange);
   }
   .vine-mobile-list .tag{ font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--lime); display:block; margin-bottom:4px; }
   .vine-mobile-list p{ margin:0; color: rgba(233,238,220,0.82); font-size:0.94rem; }
@@ -326,15 +327,15 @@
     <div class="hero-art" aria-hidden="true">
       <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg">
         <path class="sprout-stem" d="M160 360 C 150 300, 170 260, 160 210 C 150 160, 170 130, 160 90"
-              stroke="#33512C" stroke-width="6" stroke-linecap="round"/>
+              stroke="#094B3C" stroke-width="6" stroke-linecap="round"/>
         <g class="sprout-leaf l1">
-          <path d="M160 250 C 110 235, 90 190, 105 150 C 150 160, 175 205, 160 250 Z" fill="#4F7A46"/>
+          <path d="M160 250 C 110 235, 90 190, 105 150 C 150 160, 175 205, 160 250 Z" fill="#2F6E52"/>
         </g>
         <g class="sprout-leaf l2">
-          <path d="M160 190 C 210 178, 232 135, 218 98 C 172 108, 148 152, 160 190 Z" fill="#5C8A52"/>
+          <path d="M160 190 C 210 178, 232 135, 218 98 C 172 108, 148 152, 160 190 Z" fill="#7FA85E"/>
         </g>
         <g class="sprout-leaf l3">
-          <path d="M160 90 C 138 60, 138 30, 160 8 C 182 30, 182 60, 160 90 Z" fill="#A8C24A"/>
+          <path d="M160 90 C 138 60, 138 30, 160 8 C 182 30, 182 60, 160 90 Z" fill="#AEC469"/>
         </g>
       </svg>
     </div>
@@ -471,10 +472,10 @@
         <div class="vine-desktop">
           <svg viewBox="0 0 1160 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path class="vine-path" d="M20 100 C 220 20, 340 180, 560 90 C 780 0, 900 170, 1140 60"/>
-            <circle class="vine-node" cx="20" cy="100" r="9" fill="#A8C24A"/>
-            <circle class="vine-node" cx="400" cy="112" r="9" fill="#A8C24A"/>
-            <circle class="vine-node" cx="770" cy="60" r="9" fill="#A8C24A"/>
-            <circle class="vine-node" cx="1140" cy="60" r="9" fill="#A8C24A"/>
+            <circle class="vine-node" cx="20" cy="100" r="9" fill="#FF682C"/>
+            <circle class="vine-node" cx="400" cy="112" r="9" fill="#FF682C"/>
+            <circle class="vine-node" cx="770" cy="60" r="9" fill="#FF682C"/>
+            <circle class="vine-node" cx="1140" cy="60" r="9" fill="#FF682C"/>
           </svg>
           <div class="vine-labels">
             <div class="stage"><span class="tag">🌱 Graine</span><p>Premiers espaces plantés, premières habitudes.</p></div>
