@@ -97,6 +97,17 @@
     white-space:nowrap; padding: 4px 2px; border-bottom: 1px solid transparent;
     transition: color .2s ease, border-color .2s ease;
   }
+  .logo{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;
+    display:flex; align-items:center; gap:0.5em; text-decoration:none; color:var(--ink);
+    white-space: nowrap;
+  }
+  .logo span.mark{ font-size:1.2em; transform: translateY(-1px); }
+  .logo-img{
+    height: 32px;
+    width: auto;
+    display: block;
+  }
   nav.links a:hover{ color: var(--green-deep); border-color: var(--soil); }
 
   /* ---------- BUTTONS ---------- */
@@ -293,7 +304,7 @@
 
 <header class="site-nav">
   <div class="nav-inner">
-    <a href="#accueil" class="logo"><span class="mark">🥒</span> Cool As Cucumber</a>
+    <a href="#accueil" class="logo"><img src="images/logo.png" alt="Cool As Cucumber" class="logo-img"> Cool As Cucumber</a>
     <nav class="links">
       <a href="#mission">Mission</a>
       <a href="#approche">Approche</a>
