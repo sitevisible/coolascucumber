@@ -137,11 +137,13 @@
 
   /* ---------- HERO ---------- */
   .hero{
-    padding: 20px 10px;
+    padding: 90px 10px 20px;
     display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items:center;
   }
   @media (max-width: 880px){ .hero{ grid-template-columns: 1fr; padding: 70px 0 30px; } }
-
+  section{
+      scroll-margin-top: 90px;
+  }
   .hero h1{
     font-size: clamp(2.3rem, 4.6vw, 3.6rem);
     line-height: 1.12;
