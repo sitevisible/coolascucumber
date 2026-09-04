@@ -158,39 +158,42 @@
   .hero-art svg{ width: 100%; height: auto; }
 
   /* ---------- SPROUT ANIMATION (hero) ---------- */
-  .sprout-stem{
-    stroke-dasharray: 260; stroke-dashoffset: 260;
-    animation: draw 1.6s cubic-bezier(.4,0,.2,1) 0.2s forwards;
-    animation: draw 1.9s cubic-bezier(.65,0,.35,1) 0.15s forwards;
-  }
-  .sprout-leaf{
-    opacity: 0; transform-origin: center bottom;
-    transform: scale(0.3) rotate(-14deg) translateY(12px);
-  }
-  .sprout-leaf.l1{
-    animation: pop 0.9s cubic-bezier(.34,1.56,.64,1) 0.9s forwards,
-               sway 5s ease-in-out 2.2s infinite;
-  }
-  .sprout-leaf.l2{
-    animation: pop 0.9s cubic-bezier(.34,1.56,.64,1) 1.25s forwards,
-               sway 5.6s ease-in-out 2.6s infinite;
-  }
-  .sprout-leaf.l3{
-    animation: pop 0.9s cubic-bezier(.34,1.56,.64,1) 1.6s forwards,
-               sway 6.2s ease-in-out 3s infinite;
-  }
-  .sprout-leaf{ opacity: 0; transform-origin: center; transform: scale(0.4); }
-  .sprout-leaf.l1{ animation: pop 0.6s ease 1.1s forwards; }
-  .sprout-leaf.l2{ animation: pop 0.6s ease 1.4s forwards; }
-  .sprout-leaf.l3{ animation: pop 0.6s ease 1.7s forwards; }
-  @keyframes draw{ to{ stroke-dashoffset: 0; } }
-  @keyframes pop{ to{ opacity:1; transform: scale(1); } }
-  @keyframes pop{ to{ opacity:1; transform: scale(1) rotate(0deg) translateY(0); } }
-  @keyframes sway{
-    0%, 100%{ transform: rotate(0deg); }
-    50%{ transform: rotate(3deg); }
-  }
+    .hero-art{ position: relative; }
+  .hero-art svg{ width: 100%; height: auto; overflow: visible; }
 
+  /* ---------- MODERN HERO ART ---------- */
+  .blob-a, .blob-b, .blob-c{
+    opacity: 0; transform-box: fill-box; transform-origin: center;
+  }
+  .blob-a{ animation: blobIn 0.9s cubic-bezier(.22,1,.36,1) 0.1s forwards, breatheA 10s ease-in-out 1s infinite; }
+  .blob-b{ animation: blobIn 0.9s cubic-bezier(.22,1,.36,1) 0.28s forwards, breatheB 13s ease-in-out 1.2s infinite; }
+  .blob-c{ animation: blobIn 0.9s cubic-bezier(.22,1,.36,1) 0.46s forwards, breatheC 9s ease-in-out 1.4s infinite; }
+  @keyframes blobIn{ from{ opacity:0; transform: scale(0.85); } to{ opacity:1; transform: scale(1); } }
+  @keyframes breatheA{ 0%,100%{ transform: scale(1) rotate(0deg); } 50%{ transform: scale(1.035) rotate(2deg); } }
+  @keyframes breatheB{ 0%,100%{ transform: scale(1) rotate(0deg); } 50%{ transform: scale(1.05) rotate(-3deg); } }
+  @keyframes breatheC{ 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.12); } }
+
+  .hero-ring{
+    opacity: 0; transform-box: fill-box; transform-origin: center;
+    animation: ringIn 0.7s ease 0.6s forwards, ringSpin 50s linear 1.3s infinite;
+  }
+  @keyframes ringIn{ to{ opacity: 0.55; } }
+  @keyframes ringSpin{ to{ transform: rotate(360deg); } }
+
+  .hero-line-icon{
+    stroke-dasharray: 480; stroke-dashoffset: 480;
+    animation: drawLine 1.6s cubic-bezier(.65,0,.35,1) 0.9s forwards;
+  }
+  @keyframes drawLine{ to{ stroke-dashoffset: 0; } }
+
+  .particle{ opacity: 0; }
+  .particle-1{ animation: floatUp 6s ease-in-out 2.4s infinite; }
+  .particle-2{ animation: floatUp 7.5s ease-in-out 3s infinite; }
+  @keyframes floatUp{
+    0%{ opacity: 0; transform: translateY(0); }
+    15%{ opacity: 0.9; } 85%{ opacity: 0.6; }
+    100%{ opacity: 0; transform: translateY(-40px); }
+  }
   /* ---------- DARK SECTION ---------- */
   .on-dark{ background: var(--bg-dark); color: var(--cream); }
   .on-dark h2, .on-dark h3{ color: var(--cream); }
@@ -359,19 +362,24 @@
         <a class="text-link" href="#methode">Voir la méthode ↓</a>
       </div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg">
-        <path class="sprout-stem" d="M160 360 C 150 300, 170 260, 160 210 C 150 160, 170 130, 160 90"
-              stroke="#094B3C" stroke-width="6" stroke-linecap="round"/>
-        <g class="sprout-leaf l1">
-          <path d="M160 250 C 110 235, 90 190, 105 150 C 150 160, 175 205, 160 250 Z" fill="#2F6E52"/>
-        </g>
-        <g class="sprout-leaf l2">
-          <path d="M160 190 C 210 178, 232 135, 218 98 C 172 108, 148 152, 160 190 Z" fill="#7FA85E"/>
-        </g>
-        <g class="sprout-leaf l3">
-          <path d="M160 90 C 138 60, 138 30, 160 8 C 182 30, 182 60, 160 90 Z" fill="#AEC469"/>
-        </g>
+        <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+        <circle class="hero-ring" cx="200" cy="210" r="185" fill="none" stroke="#AEC469" stroke-width="2" stroke-dasharray="3 11"/>
+
+        <path class="blob-a" fill="#094B3C" d="M190 60 C280 60 340 130 335 215 C330 310 260 380 175 378
+                 C90 376 45 300 50 205 C55 115 110 60 190 60 Z"/>
+        <path class="blob-b" fill="#AEC469" d="M260 230 C320 225 360 270 352 325 C345 375 290 400 245 385
+                 C205 372 195 320 215 280 C228 255 240 232 260 230 Z"/>
+        <circle class="blob-c" cx="320" cy="88" r="26" fill="#FF682C"/>
+
+        <path class="hero-line-icon" fill="none" stroke="#FFFFFF" stroke-width="4"
+              stroke-linecap="round" stroke-linejoin="round"
+              d="M190 300 C190 260 185 230 190 195
+                 M190 195 C160 195 140 175 138 148 C165 150 188 168 190 195
+                 M190 195 C220 190 238 165 235 138 C208 145 190 168 190 195"/>
+
+        <circle class="particle particle-1" cx="70" cy="130" r="4" fill="#FF682C"/>
+        <circle class="particle particle-2" cx="330" cy="300" r="4" fill="#094B3C"/>
       </svg>
     </div>
   </section>
