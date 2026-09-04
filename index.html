@@ -161,38 +161,37 @@
     .hero-art{ position: relative; }
   .hero-art svg{ width: 100%; height: auto; overflow: visible; }
 
-  /* ---------- MODERN HERO ART ---------- */
-  .blob-a, .blob-b, .blob-c{
-    opacity: 0; transform-box: fill-box; transform-origin: center;
+  /* ---------- MODERN HERO ART (minimal) ---------- */
+  .hero-glow{
+    opacity: 0;
+    animation: glowIn 1.4s ease 0.1s forwards, glowPulse 8s ease-in-out 1.5s infinite;
   }
-  .blob-a{ animation: blobIn 0.9s cubic-bezier(.22,1,.36,1) 0.1s forwards, breatheA 10s ease-in-out 1s infinite; }
-  .blob-b{ animation: blobIn 0.9s cubic-bezier(.22,1,.36,1) 0.28s forwards, breatheB 13s ease-in-out 1.2s infinite; }
-  .blob-c{ animation: blobIn 0.9s cubic-bezier(.22,1,.36,1) 0.46s forwards, breatheC 9s ease-in-out 1.4s infinite; }
-  @keyframes blobIn{ from{ opacity:0; transform: scale(0.85); } to{ opacity:1; transform: scale(1); } }
-  @keyframes breatheA{ 0%,100%{ transform: scale(1) rotate(0deg); } 50%{ transform: scale(1.035) rotate(2deg); } }
-  @keyframes breatheB{ 0%,100%{ transform: scale(1) rotate(0deg); } 50%{ transform: scale(1.05) rotate(-3deg); } }
-  @keyframes breatheC{ 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.12); } }
+  @keyframes glowIn{ to{ opacity: 1; } }
+  @keyframes glowPulse{
+    0%,100%{ transform: scale(1); opacity: 0.5; }
+    50%{ transform: scale(1.04); opacity: 0.7; }
+  }
 
   .hero-ring{
-    opacity: 0; transform-box: fill-box; transform-origin: center;
-    animation: ringIn 0.7s ease 0.6s forwards, ringSpin 50s linear 1.3s infinite;
+    opacity: 0;
+    animation: ringIn 0.8s ease 0.3s forwards;
   }
-  @keyframes ringIn{ to{ opacity: 0.55; } }
-  @keyframes ringSpin{ to{ transform: rotate(360deg); } }
+  @keyframes ringIn{ to{ opacity: 0.4; } }
 
   .hero-line-icon{
-    stroke-dasharray: 480; stroke-dashoffset: 480;
-    animation: drawLine 1.6s cubic-bezier(.65,0,.35,1) 0.9s forwards;
+    stroke-dasharray: 420; stroke-dashoffset: 420;
+    animation: drawLine 1.8s cubic-bezier(.65,0,.35,1) 0.5s forwards;
   }
   @keyframes drawLine{ to{ stroke-dashoffset: 0; } }
 
-  .particle{ opacity: 0; }
-  .particle-1{ animation: floatUp 6s ease-in-out 2.4s infinite; }
-  .particle-2{ animation: floatUp 7.5s ease-in-out 3s infinite; }
-  @keyframes floatUp{
-    0%{ opacity: 0; transform: translateY(0); }
-    15%{ opacity: 0.9; } 85%{ opacity: 0.6; }
-    100%{ opacity: 0; transform: translateY(-40px); }
+  .accent-dot{
+    opacity: 0; transform-box: fill-box; transform-origin: center;
+    animation: dotIn 0.6s ease 2.1s forwards, dotFloat 4.5s ease-in-out 2.7s infinite;
+  }
+  @keyframes dotIn{ to{ opacity: 1; } }
+  @keyframes dotFloat{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-8px); }
   }
   /* ---------- DARK SECTION ---------- */
   .on-dark{ background: var(--bg-dark); color: var(--cream); }
@@ -362,24 +361,25 @@
         <a class="text-link" href="#methode">Voir la méthode ↓</a>
       </div>
     </div>
-        <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
-        <circle class="hero-ring" cx="200" cy="210" r="185" fill="none" stroke="#AEC469" stroke-width="2" stroke-dasharray="3 11"/>
+            <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="softGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#AEC469" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#AEC469" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
 
-        <path class="blob-a" fill="#094B3C" d="M190 60 C280 60 340 130 335 215 C330 310 260 380 175 378
-                 C90 376 45 300 50 205 C55 115 110 60 190 60 Z"/>
-        <path class="blob-b" fill="#AEC469" d="M260 230 C320 225 360 270 352 325 C345 375 290 400 245 385
-                 C205 372 195 320 215 280 C228 255 240 232 260 230 Z"/>
-        <circle class="blob-c" cx="320" cy="88" r="26" fill="#FF682C"/>
+        <circle class="hero-glow" cx="200" cy="200" r="170" fill="url(#softGlow)"/>
+        <circle class="hero-ring" cx="200" cy="200" r="140" fill="none" stroke="#094B3C" stroke-width="1"/>
 
-        <path class="hero-line-icon" fill="none" stroke="#FFFFFF" stroke-width="4"
+        <path class="hero-line-icon" fill="none" stroke="#094B3C" stroke-width="3.5"
               stroke-linecap="round" stroke-linejoin="round"
-              d="M190 300 C190 260 185 230 190 195
-                 M190 195 C160 195 140 175 138 148 C165 150 188 168 190 195
-                 M190 195 C220 190 238 165 235 138 C208 145 190 168 190 195"/>
+              d="M200 270 C200 230 196 200 200 165
+                 M200 165 C172 165 152 145 150 118 C176 121 198 140 200 165
+                 M200 165 C228 160 246 135 243 108 C216 115 200 138 200 165"/>
 
-        <circle class="particle particle-1" cx="70" cy="130" r="4" fill="#FF682C"/>
-        <circle class="particle particle-2" cx="330" cy="300" r="4" fill="#094B3C"/>
+        <circle class="accent-dot" cx="272" cy="140" r="6" fill="#FF682C"/>
       </svg>
     </div>
   </section>
