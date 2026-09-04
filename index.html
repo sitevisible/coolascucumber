@@ -154,36 +154,26 @@
   }
   .hero-cta{ display:flex; align-items:center; gap: 22px; flex-wrap: wrap; }
 
-  .hero-art{ position: relative; }
-  .hero-art svg{ width: 100%; height: auto; }
+      <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+        <circle class="hero-ring" cx="200" cy="210" r="185" fill="none" stroke="#AEC469" stroke-width="2" stroke-dasharray="3 11"/>
 
-  /* ---------- SPROUT ANIMATION (hero) ---------- */
-  .sprout-stem{
-    stroke-dasharray: 260; stroke-dashoffset: 260;
-    animation: draw 1.9s cubic-bezier(.65,0,.35,1) 0.15s forwards;
-  }
-  .sprout-leaf{
-    opacity: 0; transform-origin: center bottom;
-    transform: scale(0.3) rotate(-14deg) translateY(12px);
-  }
-  .sprout-leaf.l1{
-    animation: pop 0.9s cubic-bezier(.34,1.56,.64,1) 0.9s forwards,
-               sway 5s ease-in-out 2.2s infinite;
-  }
-  .sprout-leaf.l2{
-    animation: pop 0.9s cubic-bezier(.34,1.56,.64,1) 1.25s forwards,
-               sway 5.6s ease-in-out 2.6s infinite;
-  }
-  .sprout-leaf.l3{
-    animation: pop 0.9s cubic-bezier(.34,1.56,.64,1) 1.6s forwards,
-               sway 6.2s ease-in-out 3s infinite;
-  }
-  @keyframes draw{ to{ stroke-dashoffset: 0; } }
-  @keyframes pop{ to{ opacity:1; transform: scale(1) rotate(0deg) translateY(0); } }
-  @keyframes sway{
-    0%, 100%{ transform: rotate(0deg); }
-    50%{ transform: rotate(3deg); }
-  }
+        <path class="blob-a" fill="#094B3C" d="M190 60 C280 60 340 130 335 215 C330 310 260 380 175 378
+                 C90 376 45 300 50 205 C55 115 110 60 190 60 Z"/>
+        <path class="blob-b" fill="#AEC469" d="M260 230 C320 225 360 270 352 325 C345 375 290 400 245 385
+                 C205 372 195 320 215 280 C228 255 240 232 260 230 Z"/>
+        <circle class="blob-c" cx="320" cy="88" r="26" fill="#FF682C"/>
+
+        <path class="hero-line-icon" fill="none" stroke="#FFFFFF" stroke-width="4"
+              stroke-linecap="round" stroke-linejoin="round"
+              d="M190 300 C190 260 185 230 190 195
+                 M190 195 C160 195 140 175 138 148 C165 150 188 168 190 195
+                 M190 195 C220 190 238 165 235 138 C208 145 190 168 190 195"/>
+
+        <circle class="particle particle-1" cx="70" cy="130" r="4" fill="#FF682C"/>
+        <circle class="particle particle-2" cx="330" cy="300" r="4" fill="#094B3C"/>
+      </svg>
+    </div>
 
   /* ---------- DARK SECTION ---------- */
   .on-dark{ background: var(--bg-dark); color: var(--cream); }
