@@ -150,26 +150,13 @@
   }
   .hero-cta{ display:flex; align-items:center; gap: 22px; flex-wrap: wrap; }
   
-  /* ---------- HERO VISUAL: photo ---------- */
+    /* ---------- HERO VISUAL: photo ---------- */
   .hero-art{ position: relative; }
-  .hero-photo{
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 360px;
-    order: -1;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    opacity: 0;
-    animation: photoIn 0.8s cubic-bezier(.22,1,.36,1) forwards;
-  }
-    .hero-photo-wrap{ position: relative; order: -1; }
+  .hero-photo-wrap{ position: relative; order: -1; width: 100%; max-width: 360px; }
   .hero-photo-accent{
     position: absolute;
     bottom: -18px; left: -18px;
     width: 100%;
-    max-width: 360px;
     height: 100%;
     background: var(--lime);
     border-radius: var(--radius);
@@ -178,6 +165,16 @@
     animation: accentIn 0.8s cubic-bezier(.22,1,.36,1) 0.15s forwards;
   }
   @keyframes accentIn{ to{ opacity: 0.35; } }
+  .hero-photo{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    animation: photoIn 0.8s cubic-bezier(.22,1,.36,1) forwards;
   }
   @keyframes photoIn{ to{ opacity: 1; } }
   .hero-photo img{
@@ -186,7 +183,6 @@
     display: block;
     object-fit: cover;
   }
-
   /* ---------- DARK SECTION ---------- */
   .on-dark{ background: var(--bg-dark); color: var(--cream); }
   .on-dark h2, .on-dark h3{ color: var(--cream); }
