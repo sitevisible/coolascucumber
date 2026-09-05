@@ -133,10 +133,18 @@
   @media (max-width: 880px){ .hero{ grid-template-columns: 1fr; padding: 70px 0 30px; } }
 
   .hero h1{
-    font-size: clamp(2.3rem, 4.6vw, 3.6rem);
-    line-height: 1.12;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
-  .hero h1 .accent-line{ display:block; font-style: italic; color: var(--green); font-weight: 500; }
+  .hero h1 .accent-line{
+    display:block;
+    font-style: normal;
+    color: var(--green-deep);
+    font-weight: 400;
+    font-size: 0.62em;
+    margin-top: 0.35em;
+  }
   .hero p.lead{
     margin: 26px 0 34px; max-width: 46ch; color: var(--ink-soft); font-size: 1.08rem;
   }
@@ -170,16 +178,6 @@
     animation: accentIn 0.8s cubic-bezier(.22,1,.36,1) 0.15s forwards;
   }
   @keyframes accentIn{ to{ opacity: 0.35; } }
-  .hero-photo-caption{
-    margin-top: 14px;
-    font-family:'Space Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--green-deep);
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
   }
   @keyframes photoIn{ to{ opacity: 1; } }
   .hero-photo img{
@@ -364,7 +362,6 @@
         <div class="hero-photo">
           <img src="imagebureau.png" alt="Bureau aménagé avec des plantes">
         </div>
-        <p class="hero-photo-caption">🌱 Un espace où le vivant s'installe</p>
       </div>
     </div>
   </section>
