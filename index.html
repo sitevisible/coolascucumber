@@ -145,14 +145,41 @@
   /* ---------- HERO VISUAL: photo ---------- */
   .hero-art{ position: relative; }
   .hero-photo{
+    position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 360px;
     order: -1;
-    border-radius: 24px;
+    border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
     opacity: 0;
     animation: photoIn 0.8s cubic-bezier(.22,1,.36,1) forwards;
+  }
+    .hero-photo-wrap{ position: relative; order: -1; }
+  .hero-photo-accent{
+    position: absolute;
+    bottom: -18px; left: -18px;
+    width: 100%;
+    max-width: 360px;
+    height: 100%;
+    background: var(--lime);
+    border-radius: var(--radius);
+    z-index: 0;
+    opacity: 0;
+    animation: accentIn 0.8s cubic-bezier(.22,1,.36,1) 0.15s forwards;
+  }
+  @keyframes accentIn{ to{ opacity: 0.35; } }
+  .hero-photo-caption{
+    margin-top: 14px;
+    font-family:'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
   }
   @keyframes photoIn{ to{ opacity: 1; } }
   .hero-photo img{
@@ -332,8 +359,12 @@
     </div>
 
         <div class="hero-art" aria-hidden="true">
-      <div class="hero-photo">
-        <img src="imagebureau.png" alt="Bureau aménagé avec des plantes">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-accent"></div>
+        <div class="hero-photo">
+          <img src="imagebureau.png" alt="Bureau aménagé avec des plantes">
+        </div>
+        <p class="hero-photo-caption">🌱 Un espace où le vivant s'installe</p>
       </div>
     </div>
   </section>
