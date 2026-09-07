@@ -250,16 +250,23 @@
   .mission-point p{ margin:0; font-size:0.9rem; color: var(--ink-soft); font-weight:500; }
 
     /* ---------- APPROCHE ---------- */
-          .approche-list-grid{
-    display:grid; grid-template-columns: 1fr 0.55fr; gap: 0 50px; align-items:start;
+            .approche-list-grid{
+    display:grid; grid-template-columns: 1fr 0.55fr; gap: 0 50px;
     margin-top: 30px;
   }
   @media (max-width: 900px){
     .approche-list-grid{ grid-template-columns: 1fr; gap: 30px; }
   }
 
-  .approche-art{ position: relative; max-width: 260px; justify-self: end; align-self: center; }
-  @media (max-width: 900px){ .approche-art{ max-width: 320px; justify-self: start; } }
+  .approche-art{
+    position: sticky;
+    top: 120px;
+    max-width: 260px;
+    justify-self: end;
+  }
+  @media (max-width: 900px){
+    .approche-art{ position: static; max-width: 320px; justify-self: start; top: auto; }
+  }
 
   .approche-photo{
     position: relative;
