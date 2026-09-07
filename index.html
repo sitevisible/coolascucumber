@@ -250,15 +250,16 @@
   .mission-point p{ margin:0; font-size:0.9rem; color: var(--ink-soft); font-weight:500; }
 
     /* ---------- APPROCHE ---------- */
-        .approche-grid{
-    display:grid; grid-template-columns: 1.3fr 0.7fr; gap: 0 40px; align-items:start;
+          .approche-list-grid{
+    display:grid; grid-template-columns: 1fr 0.55fr; gap: 0 50px; align-items:start;
+    margin-top: 30px;
   }
   @media (max-width: 900px){
-    .approche-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .approche-list-grid{ grid-template-columns: 1fr; gap: 30px; }
   }
 
-  .approche-art{ position: relative; margin-top: 60px; max-width: 280px; justify-self: end; }
-  @media (max-width: 900px){ .approche-art{ margin-top: 0; max-width: 320px; justify-self: start; } }
+  .approche-art{ position: relative; max-width: 260px; justify-self: end; align-self: center; }
+  @media (max-width: 900px){ .approche-art{ max-width: 320px; justify-self: start; } }
 
   .approche-photo{
     position: relative;
@@ -544,18 +545,20 @@
     <!-- APPROCHE -->
     <section id="approche" class="wrap reveal">
     <div class="approche-content">
+          <div>
       <p class="eyebrow">Ce que nous faisons</p>
-        <h2 style="max-width: 26ch; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height:1.2;">
-          Une démarche construite <span style="color: var(--orange);">avec vos équipes, pas pour elles</span>
-        </h2>
+      <h2 style="max-width: 26ch; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height:1.2;">
+        Une démarche construite <span style="color: var(--orange);">avec vos équipes, pas pour elles</span>
+      </h2>
 
-        <p style="margin-top:18px;">
+      <p style="margin-top:18px; max-width: 60ch;">
         Nous accompagnons la création d'espaces de travail plus vivants en impliquant les collaborateurs
         à chaque étape du projet.
       </p>
 
-      <div class="approche-list">
-                <div class="approche-item">
+      <div class="approche-list-grid">
+        <div class="approche-list">
+          <div class="approche-item">
           <span class="approche-num">01</span>
           <div class="approche-item-body">
             <span class="approche-icon">
@@ -624,20 +627,22 @@
             <p>Ils développent une véritable communauté autour du vivant.</p>
           </div>
         </div>
-      </div>
-</div>
+                </div>
+        </div>
 
-      <div class="approche-art" aria-hidden="true">
-        <div class="approche-photo">
-          <img src="atelier.png" alt="Atelier participatif de plantation en équipe">
-        </div>
-        <div class="approche-glass">
-          <div class="num">05<span>/</span>05</div>
-          <p>étapes menées avec les équipes, main dans la main.</p>
+        <div class="approche-art" aria-hidden="true">
+          <div class="approche-photo">
+            <img src="atelier.png" alt="Atelier participatif de plantation en équipe">
+          </div>
+          <div class="approche-glass">
+            <div class="num">05<span>/</span>05</div>
+            <p>étapes menées avec les équipes, main dans la main.</p>
+          </div>
         </div>
       </div>
+
       <hr class="approche-divider">
-      <p>
+      <p style="max-width: 62ch;">
         Le végétal devient alors un support pour améliorer la QVT, renforcer le sentiment d'appartenance,
         créer des échanges entre collaborateurs, et rendre la démarche RSE concrète au quotidien.
       </p>
