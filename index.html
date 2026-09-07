@@ -235,9 +235,17 @@
     padding-right: 28px; border-right: 1px solid var(--line);
   }
   .mission-point:last-child{ border-right:none; padding-right:0; }
-  .mission-point .icon{
+    .mission-point .icon{
     width: 46px; height: 46px; border-radius:50%; background: rgba(174,196,105,0.22);
-    display:flex; align-items:center; justify-content:center; font-size:1.3rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .mission-point .icon svg{
+    width: 22px; height: 22px;
+    stroke: var(--green-deep);
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
   .mission-point p{ margin:0; font-size:0.9rem; color: var(--ink-soft); font-weight:500; }
 
@@ -430,10 +438,39 @@
           Notre rôle n'est donc pas d'installer des plantes. Notre rôle est de créer une dynamique durable
           autour du vivant.
         </p>
-        <div class="mission-points">
-          <div class="mission-point"><div class="icon">🌱</div><p>Un bien-être<br>durable</p></div>
-          <div class="mission-point"><div class="icon">🤝</div><p>Une dynamique<br>collective</p></div>
-          <div class="mission-point"><div class="icon">♻️</div><p>Des espaces<br>plus vivants</p></div>
+                <div class="mission-points">
+          <div class="mission-point">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 21V10"/>
+                <path d="M12 10C12 6 9 4 5 4C5 8 7 11 12 10Z"/>
+                <path d="M12 13C12 9.5 14.5 7.5 18 7.5C18 11.5 16 14 12 13Z"/>
+              </svg>
+            </div>
+            <p>Un bien-être<br>durable</p>
+          </div>
+          <div class="mission-point">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="8.5" cy="8" r="2.6"/>
+                <circle cx="16" cy="9" r="2.1"/>
+                <path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/>
+                <path d="M14 14.4c2.4.2 4 2.1 4 4.6"/>
+              </svg>
+            </div>
+            <p>Une dynamique<br>collective</p>
+          </div>
+          <div class="mission-point">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M17.5 6.5H8a4.5 4.5 0 0 0 0 9h1.5"/>
+                <path d="M14.5 4 17.5 6.5 14.5 9"/>
+                <path d="M6.5 17.5H16a4.5 4.5 0 0 0 0-9h-1.5"/>
+                <path d="M9.5 20 6.5 17.5 9.5 15"/>
+              </svg>
+            </div>
+            <p>Des espaces<br>plus vivants</p>
+          </div>
         </div>
       </div>
     </div>
