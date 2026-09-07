@@ -335,22 +335,56 @@
 
   .approche-divider{ border:none; border-top: 1px solid var(--line); margin: 8px 0 22px; width: 60px; }
 
-  /* ---------- DIFFERENCE ---------- */
-  .diff-compare{
-    display:grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0 34px;
+    /* ---------- DIFFERENCE (full-bleed) ---------- */
+  .diff-section{ padding: 0; }
+  .diff-media{
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
   }
-  @media (max-width: 700px){ .diff-compare{ grid-template-columns: 1fr; } }
+  .diff-media img{
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+  }
+  .diff-media::after{
+    content:"";
+    position: absolute; inset:0; z-index: 1;
+    background: linear-gradient(100deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.78) 36%, rgba(255,255,255,0) 60%);
+  }
+  .diff-panel{
+    position: relative; z-index: 2;
+    max-width: 480px;
+    margin: 0 0 0 max(28px, calc((100% - var(--maxw)) / 2 + 28px));
+    padding: 10px 0;
+  }
+  @media (max-width: 900px){
+    .diff-media{ min-height: auto; align-items: flex-start; }
+    .diff-media::after{
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.9) 55%, rgba(255,255,255,0.6) 100%);
+    }
+    .diff-panel{ margin: 40px 28px; max-width: none; }
+  }
+
+  .diff-compare{ display:flex; flex-direction: column; gap: 14px; margin: 26px 0 30px; }
   .diff-card{
-    border: 1px solid var(--line-dark); border-radius: var(--radius); padding: 30px 28px;
+    border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(6px);
   }
-  .diff-card.no{ opacity: 0.55; }
+  .diff-card.no{ opacity: 0.6; }
   .diff-card.no p{ text-decoration: line-through; text-decoration-color: var(--soil); }
-  .diff-card.yes{ background: rgba(168,194,74,0.09); border-color: rgba(168,194,74,0.4); }
+  .diff-card.yes{ background: rgba(174,196,105,0.25); border-color: rgba(174,196,105,0.55); }
   .diff-card p{
-    font-family:'Fraunces', serif; font-size: 1.35rem; font-style: italic; line-height:1.35; margin:0;
-    color: var(--cream);
+    font-family:'Fraunces', serif; font-size: 1.15rem; font-style: italic; line-height:1.3; margin:0;
+    color: var(--ink);
   }
-  .diff-card.yes p{ color: var(--lime); font-style: normal; font-weight: 600; }
+  .diff-card.yes p{ color: var(--green-deep); font-style: normal; font-weight: 600; }
+
+  .diff-text{ color: var(--ink-soft); margin: 0 0 16px; max-width: 46ch; }
+  .diff-quote{
+    font-family:'Fraunces', serif; font-style: italic; font-size: 1.2rem; color: var(--green-deep); margin: 0; max-width: 42ch;
+  }
 
   /* ---------- PROMESSES ---------- */
   .promesses-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 20px; }
@@ -655,21 +689,24 @@
     </div>
   </section>
 
-  <!-- DIFFERENCE (dark) -->
-  <section id="difference" class="on-dark reveal">
-    <div class="wrap">
-      <p class="eyebrow">Ce qui nous différencie</p>
-      <div class="diff-compare">
-        <div class="diff-card no"><p>La plupart des entreprises vendent des plantes.</p></div>
-        <div class="diff-card yes"><p>Nous vendons une transformation progressive.</p></div>
+    <!-- DIFFERENCE -->
+  <section id="difference" class="diff-section reveal">
+    <div class="diff-media">
+      <img src="racine.png" alt="Plantes à différents stades de croissance, racines visibles, devant un bureau végétalisé">
+      <div class="diff-panel">
+        <p class="eyebrow">Ce qui nous différencie</p>
+        <div class="diff-compare">
+          <div class="diff-card no"><p>La plupart des entreprises vendent des plantes.</p></div>
+          <div class="diff-card yes"><p>Nous vendons une transformation progressive.</p></div>
+        </div>
+        <p class="diff-text">
+          Nous ne croyons pas aux actions ponctuelles. Nous croyons aux projets qui prennent le temps de
+          s'enraciner. Comme une culture d'entreprise, le vivant ne pousse pas en un jour.
+        </p>
+        <p class="diff-quote">
+          Notre objectif est simple : que deux ans après notre passage, le projet soit encore vivant.
+        </p>
       </div>
-      <p style="max-width: 58ch;">
-        Nous ne croyons pas aux actions ponctuelles. Nous croyons aux projets qui prennent le temps de
-        s'enraciner. Comme une culture d'entreprise, le vivant ne pousse pas en un jour.
-      </p>
-      <p style="max-width: 58ch; font-family:'Fraunces', serif; font-style: italic; font-size: 1.15rem; color: var(--cream);">
-        Notre objectif est simple : que deux ans après notre passage, le projet soit encore vivant.
-      </p>
     </div>
   </section>
 
