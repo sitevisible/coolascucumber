@@ -250,20 +250,20 @@
   .mission-point p{ margin:0; font-size:0.9rem; color: var(--ink-soft); font-weight:500; }
 
     /* ---------- APPROCHE ---------- */
-      .approche-grid{
-    display:grid; grid-template-columns: 1fr 0.85fr; gap: 0 40px; align-items:start;
+        .approche-grid{
+    display:grid; grid-template-columns: 1.3fr 0.7fr; gap: 0 40px; align-items:start;
   }
   @media (max-width: 900px){
     .approche-grid{ grid-template-columns: 1fr; gap: 40px; }
   }
 
-  .approche-art{ position: relative; margin-top: 60px; }
-  @media (max-width: 900px){ .approche-art{ margin-top: 0; } }
+  .approche-art{ position: relative; margin-top: 60px; max-width: 280px; justify-self: end; }
+  @media (max-width: 900px){ .approche-art{ margin-top: 0; max-width: 320px; justify-self: start; } }
 
   .approche-photo{
     position: relative;
-    aspect-ratio: 3/3.4;
-    border-radius: 28px;
+    aspect-ratio: 3/3.6;
+    border-radius: 24px;
     overflow: hidden;
     box-shadow: var(--shadow);
   }
@@ -276,8 +276,8 @@
 
   .approche-glass{
     position: absolute;
-    left: -34px; bottom: 32px;
-    width: 190px;
+    left: -28px; bottom: 24px;
+    width: 165px;
     padding: 20px 22px;
     background: rgba(255,255,255,0.72);
     backdrop-filter: blur(14px);
@@ -298,24 +298,34 @@
     margin: 6px 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height:1.35;
   }
 
-  .approche-list{ list-style:none; margin: 26px 0 0; padding:0; display:flex; flex-direction:column; gap: 20px; }
-  .approche-item{ display:flex; align-items:flex-start; gap: 16px; }
+    .approche-list{ list-style:none; margin: 30px 0 0; padding:0; display:flex; flex-direction:column; }
+  .approche-item{
+    display:grid; grid-template-columns: 48px 1fr; gap: 18px; align-items:start;
+    padding: 20px 4px; border-top: 1px solid var(--line);
+    transition: padding-left .25s ease;
+  }
+  .approche-item:hover{ padding-left: 12px; }
+  .approche-item:last-child{ border-bottom: 1px solid var(--line); }
+
   .approche-num{
-    flex-shrink:0; width: 34px; height: 34px; border-radius: 50%; background: rgba(174,196,105,0.28);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Space Mono', monospace; font-size: 0.8rem; font-weight:700; color: var(--green-deep);
+    font-family:'Space Mono', monospace; font-size: 0.78rem; font-weight:600;
+    color: var(--soil); padding-top: 2px;
   }
+  .approche-item-body{ display:flex; align-items:flex-start; gap: 14px; }
   .approche-icon{
-    flex-shrink:0; width: 42px; height: 42px; border-radius: 50%; background: rgba(174,196,105,0.18);
+    flex-shrink:0; width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(174,196,105,0.16);
     display:flex; align-items:center; justify-content:center;
+    transition: background .25s ease;
   }
+  .approche-item:hover .approche-icon{ background: rgba(174,196,105,0.32); }
   .approche-icon svg{
-    width: 21px; height: 21px; stroke: var(--green-deep); fill:none;
+    width: 19px; height: 19px; stroke: var(--green-deep); fill:none;
     stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
   }
-  .approche-item p{ margin:0; padding-top: 8px; font-size: 1.01rem; color: var(--ink); }
+  .approche-item p{ margin:0; padding-top: 8px; font-size: 1rem; color: var(--ink); }
 
-  .approche-divider{ border:none; border-top: 1px solid var(--line); margin: 32px 0 22px; width: 60px; }
+  .approche-divider{ border:none; border-top: 1px solid var(--line); margin: 8px 0 22px; width: 60px; }
 
   /* ---------- DIFFERENCE ---------- */
   .diff-compare{
@@ -545,64 +555,74 @@
       </p>
 
       <div class="approche-list">
-        <div class="approche-item">
+                <div class="approche-item">
           <span class="approche-num">01</span>
-          <span class="approche-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M12 21V10"/>
-              <path d="M12 10C12 6 9 4 5 4C5 8 7 11 12 10Z"/>
-            </svg>
-          </span>
-          <p>Ils choisissent les aménagements et les espèces plantées.</p>
+          <div class="approche-item-body">
+            <span class="approche-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 21V10"/>
+                <path d="M12 10C12 6 9 4 5 4C5 8 7 11 12 10Z"/>
+              </svg>
+            </span>
+            <p>Ils choisissent les aménagements et les espèces plantées.</p>
+          </div>
         </div>
 
-        <div class="approche-item">
+                <div class="approche-item">
           <span class="approche-num">02</span>
-          <span class="approche-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M12 21v-8"/>
-              <path d="M12 13C9 13 7.5 11 7.5 8.5 10.5 8.5 12 10 12 13Z"/>
-              <path d="M12 13c3 0 4.5-2 4.5-4.5-3 0-4.5 1.5-4.5 4.5Z"/>
-              <rect x="9" y="19" width="6" height="2.5" rx="0.5"/>
-            </svg>
-          </span>
-          <p>Ils réalisent eux-mêmes une partie des installations.</p>
+          <div class="approche-item-body">
+            <span class="approche-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 21v-8"/>
+                <path d="M12 13C9 13 7.5 11 7.5 8.5 10.5 8.5 12 10 12 13Z"/>
+                <path d="M12 13c3 0 4.5-2 4.5-4.5-3 0-4.5 1.5-4.5 4.5Z"/>
+                <rect x="9" y="19" width="6" height="2.5" rx="0.5"/>
+              </svg>
+            </span>
+            <p>Ils réalisent eux-mêmes une partie des installations.</p>
+          </div>
         </div>
 
-        <div class="approche-item">
+                <div class="approche-item">
           <span class="approche-num">03</span>
-          <span class="approche-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M3 14h9l3-2h5l-3 3-3 1H8l-5-1"/>
-              <path d="M14 12V6h4l1 3"/>
-              <path d="M17 6.5c1-1 2-1 2.5 0"/>
-            </svg>
-          </span>
-          <p>Ils apprennent à prendre soin des plantes au quotidien.</p>
+          <div class="approche-item-body">
+            <span class="approche-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 14h9l3-2h5l-3 3-3 1H8l-5-1"/>
+                <path d="M14 12V6h4l1 3"/>
+                <path d="M17 6.5c1-1 2-1 2.5 0"/>
+              </svg>
+            </span>
+            <p>Ils apprennent à prendre soin des plantes au quotidien.</p>
+          </div>
         </div>
-
-        <div class="approche-item">
+        
+                <div class="approche-item">
           <span class="approche-num">04</span>
-          <span class="approche-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="12" cy="8" r="3"/>
-              <path d="M6.5 20c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2"/>
-            </svg>
-          </span>
-          <p>Ils deviennent progressivement autonomes.</p>
+          <div class="approche-item-body">
+            <span class="approche-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="12" cy="8" r="3"/>
+                <path d="M6.5 20c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2"/>
+              </svg>
+            </span>
+            <p>Ils deviennent progressivement autonomes.</p>
+          </div>
         </div>
 
-        <div class="approche-item">
+                <div class="approche-item">
           <span class="approche-num">05</span>
-          <span class="approche-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="8.5" cy="8" r="2.6"/>
-              <circle cx="16" cy="9" r="2.1"/>
-              <path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/>
-              <path d="M14 14.4c2.4.2 4 2.1 4 4.6"/>
-            </svg>
-          </span>
-          <p>Ils développent une véritable communauté autour du vivant.</p>
+          <div class="approche-item-body">
+            <span class="approche-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="8.5" cy="8" r="2.6"/>
+                <circle cx="16" cy="9" r="2.1"/>
+                <path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/>
+                <path d="M14 14.4c2.4.2 4 2.1 4 4.6"/>
+              </svg>
+            </span>
+            <p>Ils développent une véritable communauté autour du vivant.</p>
+          </div>
         </div>
       </div>
 </div>
