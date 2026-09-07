@@ -250,25 +250,52 @@
   .mission-point p{ margin:0; font-size:0.9rem; color: var(--ink-soft); font-weight:500; }
 
     /* ---------- APPROCHE ---------- */
-    .approche-content{ max-width: 70ch; }
+      .approche-grid{
+    display:grid; grid-template-columns: 1fr 0.85fr; gap: 0 40px; align-items:start;
+  }
+  @media (max-width: 900px){
+    .approche-grid{ grid-template-columns: 1fr; gap: 40px; }
+  }
 
-  .approche-photo-inline{
-    float: right;
-    width: 340px;
-    margin: 4px 0 24px 36px;
-    border-radius: var(--radius);
+  .approche-art{ position: relative; margin-top: 60px; }
+  @media (max-width: 900px){ .approche-art{ margin-top: 0; } }
+
+  .approche-photo{
+    position: relative;
+    aspect-ratio: 3/3.4;
+    border-radius: 28px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    shape-outside: margin-box;
   }
-  .approche-photo-inline img{ width: 100%; height: auto; display:block; }
-  .approche-photo-caption{
-    font-family:'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.06em;
-    color: var(--soil); margin-top: 10px; text-align: right;
+  .approche-photo img{ width:100%; height:100%; object-fit: cover; display:block; }
+  .approche-photo::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(200deg, rgba(9,75,60,0.28) 0%, rgba(9,75,60,0) 55%);
   }
 
-  @media (max-width: 700px){
-    .approche-photo-inline{ float: none; width: 100%; margin: 24px 0; }
+  .approche-glass{
+    position: absolute;
+    left: -34px; bottom: 32px;
+    width: 190px;
+    padding: 20px 22px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 16px;
+    box-shadow: 0 16px 34px -14px rgba(31,46,26,0.35);
+  }
+  @media (max-width: 900px){ .approche-glass{ left: 20px; } }
+  @media (max-width: 480px){ .approche-glass{ width: 160px; padding: 16px 18px; left: 14px; } }
+
+  .approche-glass .num{
+    font-family:'Fraunces', serif; font-size: 2.1rem; font-weight:600;
+    color: var(--green-deep); line-height:1;
+  }
+  .approche-glass .num span{ color: var(--orange); }
+  .approche-glass p{
+    margin: 6px 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height:1.35;
   }
 
   .approche-list{ list-style:none; margin: 26px 0 0; padding:0; display:flex; flex-direction:column; gap: 20px; }
@@ -508,16 +535,11 @@
     <section id="approche" class="wrap reveal">
     <div class="approche-content">
       <p class="eyebrow">Ce que nous faisons</p>
-      <h2 style="max-width: 26ch; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height:1.2;">
-        Une démarche construite <span style="color: var(--orange);">avec vos équipes, pas pour elles</span>
-      </h2>
+        <h2 style="max-width: 26ch; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height:1.2;">
+          Une démarche construite <span style="color: var(--orange);">avec vos équipes, pas pour elles</span>
+        </h2>
 
-      <figure class="approche-photo-inline">
-        <img src="atelier.png" alt="Atelier participatif de plantation en équipe">
-        <figcaption class="approche-photo-caption">Chantier participatif</figcaption>
-      </figure>
-
-      <p style="margin-top:18px;">
+        <p style="margin-top:18px;">
         Nous accompagnons la création d'espaces de travail plus vivants en impliquant les collaborateurs
         à chaque étape du projet.
       </p>
@@ -583,7 +605,17 @@
           <p>Ils développent une véritable communauté autour du vivant.</p>
         </div>
       </div>
+</div>
 
+      <div class="approche-art" aria-hidden="true">
+        <div class="approche-photo">
+          <img src="atelier.png" alt="Atelier participatif de plantation en équipe">
+        </div>
+        <div class="approche-glass">
+          <div class="num">05<span>/</span>05</div>
+          <p>étapes menées avec les équipes, main dans la main.</p>
+        </div>
+      </div>
       <hr class="approche-divider">
       <p>
         Le végétal devient alors un support pour améliorer la QVT, renforcer le sentiment d'appartenance,
