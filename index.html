@@ -366,20 +366,27 @@
     .diff-panel{ margin: 40px 28px; max-width: none; }
   }
 
-  .diff-compare{ display:flex; flex-direction: column; gap: 14px; margin: 26px 0 30px; }
+    .diff-compare{ display:flex; flex-direction: column; gap: 10px; margin: 26px 0 30px; }
   .diff-card{
-    border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px;
+    border: 1px solid var(--line); border-radius: 14px; padding: 16px 22px;
     background: rgba(255,255,255,0.55);
     backdrop-filter: blur(6px);
+    display: flex; align-items: baseline; gap: 10px;
   }
-  .diff-card.no{ opacity: 0.6; }
-  .diff-card.no p{ text-decoration: line-through; text-decoration-color: var(--soil); }
+  .diff-card .diff-label{
+    font-family:'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em;
+    text-transform: uppercase; flex-shrink: 0;
+  }
+  .diff-card.no{ background: rgba(255,255,255,0.4); }
+  .diff-card.no .diff-label{ color: var(--soil); }
+  .diff-card.no p{ color: var(--ink-soft); }
   .diff-card.yes{ background: rgba(174,196,105,0.25); border-color: rgba(174,196,105,0.55); }
+  .diff-card.yes .diff-label{ color: var(--green-deep); }
+  .diff-card.yes p{ color: var(--green-deep); font-weight: 600; }
   .diff-card p{
-    font-family:'Fraunces', serif; font-size: 1.15rem; font-style: italic; line-height:1.3; margin:0;
-    color: var(--ink);
+    font-family:'Fraunces', serif; font-size: 1.1rem; font-style: italic; line-height:1.3; margin:0;
   }
-  .diff-card.yes p{ color: var(--green-deep); font-style: normal; font-weight: 600; }
+  .diff-card.yes p{ font-style: normal; }
 
   .diff-text{ color: var(--ink-soft); margin: 0 0 16px; max-width: 46ch; }
   .diff-quote{
@@ -695,9 +702,15 @@
       <img src="racine.png" alt="Plantes à différents stades de croissance, racines visibles, devant un bureau végétalisé">
       <div class="diff-panel">
         <p class="eyebrow">Ce qui nous différencie</p>
-        <div class="diff-compare">
-          <div class="diff-card no"><p>La plupart des entreprises vendent des plantes.</p></div>
-          <div class="diff-card yes"><p>Nous vendons une transformation progressive.</p></div>
+                <div class="diff-compare">
+          <div class="diff-card no">
+            <span class="diff-label">Elles</span>
+            <p>vendent des plantes.</p>
+          </div>
+          <div class="diff-card yes">
+            <span class="diff-label">Nous</span>
+            <p>vendons une transformation progressive.</p>
+          </div>
         </div>
         <p class="diff-text">
           Nous ne croyons pas aux actions ponctuelles. Nous croyons aux projets qui prennent le temps de
