@@ -148,19 +148,31 @@
   .hero p.lead{
     margin: 26px 0 34px; max-width: 46ch; color: var(--ink-soft); font-size: 1.08rem;
   }
-    .hero-cta{ display:flex; align-items:center; gap: 22px; flex-wrap: wrap; margin-top: 8px; }
+  .hero-cta{ display:flex; align-items:center; gap: 22px; flex-wrap: wrap; }
 
-  /* ---------- HERO VISUAL: photo (format large) ---------- */
-  .hero-art{ position: relative; width: 100%; }
-
+      /* ---------- HERO VISUAL: photo ---------- */
+  .hero-art{ position: relative; }
+  .hero-photo-wrap{ position: relative; order: -1; width: 100%; max-width: 440px; }
+  .hero-photo-accent{
+    position: absolute;
+    bottom: -20px; left: -20px;
+    width: 100%;
+    height: 100%;
+    background: var(--lime);
+    border-radius: var(--radius);
+    z-index: 0;
+    opacity: 0;
+    animation: accentIn 0.8s cubic-bezier(.22,1,.36,1) 0.15s forwards;
+  }
+  @keyframes accentIn{ to{ opacity: 0.28; } }
   .hero-photo{
     position: relative;
     z-index: 1;
     width: 100%;
-    aspect-ratio: 16 / 11;
-    border-radius: 22px;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 30px 60px -30px rgba(9,75,60,0.35);
+    box-shadow: var(--shadow);
     opacity: 0;
     animation: photoIn 0.8s cubic-bezier(.22,1,.36,1) forwards;
   }
@@ -171,25 +183,21 @@
     display: block;
     object-fit: cover;
   }
-  .hero-photo::after{
-    content:"";
-    position:absolute; inset:0;
-    background: linear-gradient(200deg, rgba(9,75,60,0.22) 0%, rgba(9,75,60,0) 45%);
-    pointer-events: none;
-  }
-
-    .hero-caption{
-    display:flex; align-items:center; gap: 12px;
-    margin-top: 18px;
+  .hero-photo-badge{
+    position: absolute;
+    top: 16px; left: 16px;
+    z-index: 2;
+    background: var(--orange);
+    color: #FFFFFF;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 9px 16px;
+    border-radius: 999px;
     opacity: 0;
-    animation: badgeIn 0.6s ease 0.6s forwards;
+    animation: badgeIn 0.6s cubic-bezier(.34,1.56,.64,1) 0.6s forwards;
   }
   @keyframes badgeIn{ to{ opacity: 1; } }
-  .hero-caption .line{ width: 26px; height: 2px; background: var(--orange); flex-shrink:0; }
-  .hero-caption p{
-    margin:0; font-family:'Space Mono', monospace; font-size: 0.78rem;
-    letter-spacing: 0.04em; color: var(--ink-soft);
-  }
   /* ---------- DARK SECTION ---------- */
   .on-dark{ background: var(--bg-dark); color: var(--cream); }
   .on-dark h2, .on-dark h3{ color: var(--cream); }
@@ -427,7 +435,7 @@
 
   .promesses-list-item h3{ font-size: 1.2rem; margin: 0; line-height: 1.25; }
   .promesses-list-item p{ color: var(--ink-soft); margin: 0; font-size: 0.96rem; max-width: 26ch; }
-  
+
   /* ---------- METHODE ---------- */
   .methode-list{ margin-top: 40px; }
   .methode-item{
@@ -539,13 +547,12 @@
     </div>
 
         <div class="hero-art" aria-hidden="true">
-      <div class="hero-photo">
-        <img src="mission1.png" alt="Équipe en atelier de plantation dans un bureau lumineux">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-accent"></div>
+        <div class="hero-photo">
+          <img src="imagebureau.png" alt="Bureau aménagé avec des plantes">
+        </div>
       </div>
-          </div>
-    <div class="hero-caption">
-      <span class="line"></span>
-      <p>Une équipe en atelier de plantation</p>
     </div>
   </section>
 
@@ -556,7 +563,7 @@
         <div class="mission-shape-dark"></div>
         <div class="mission-shape-light"></div>
         <div class="mission-photo">
-          <img src="mission1.png" alt="Espace de travail avec des plantes et une équipe">
+          <img src="mission.png" alt="Espace de travail avec des plantes et une équipe">
         </div>
         <div class="mission-shape-ring"></div>
       </div>
@@ -669,7 +676,7 @@
             <p>Ils apprennent à prendre soin des plantes au quotidien.</p>
           </div>
         </div>
-        
+
                 <div class="approche-item">
           <span class="approche-num">04</span>
           <div class="approche-item-body">
@@ -747,15 +754,23 @@
 
     <!-- PROMESSES -->
   <section id="promesses" class="wrap reveal">
-        <div class="promesses-header">
+    <div class="promesses-header">
       <h2 style="font-size: clamp(1.7rem, 3vw, 2.3rem);">
         Ce que le vivant <span style="color: var(--orange);">change, concrètement</span>
       </h2>
     </div>
 
-    <div class="promesses-list">
-      <div class="promesses-list-item">
+                      <div class="promesses-list-item">
         <div class="icon-blob">
+                    <span class="icon">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="10.5" r="3.4"/>
+              <path d="M9 25v-2c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5v2"/>
+              <path class="accent" d="M16 3v2.6"/>
+              <path class="accent" d="M11 4.4 12.3 6.6"/>
+              <path class="accent" d="M21 4.4 19.7 6.6"/>
+              <path d="M6 17c1.5-3 3.5-4 6-3.4-.4 3-2.2 4.6-6 3.4Z"/>
+              <path d="M26 18.5c-1.6-2.8-3.7-3.6-6.1-2.7 0 3 2 4.4 6.1 2.7Z"/>
                              <span class="icon">
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="stroke:none;">
               <g fill="var(--orange)">
@@ -777,6 +792,15 @@
 
       <div class="promesses-list-item">
         <div class="icon-blob">
+                    <span class="icon">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="9" cy="11" r="3"/>
+              <circle cx="23" cy="11" r="3"/>
+              <circle cx="16" cy="9.5" r="3.2"/>
+              <path d="M4 25v-1.5c0-3 2.2-5.3 5-5.3s5 2.3 5 5.3V25"/>
+              <path d="M18 25v-1.5c0-3 2.2-5.3 5-5.3s5 2.3 5 5.3V25"/>
+              <path class="accent" d="M16 26v-8c-2.4 0-3.6-1.4-3.8-3.4 2.4 0 3.8 1.4 3.8 3.4Z"/>
+              <path class="accent" d="M16 22c2.6.1 3.9-1.3 4.1-3.4-2.6 0-4 1.3-4.1 3.4Z"/>
                               <span class="icon">
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="fill:none;">
               <circle cx="9" cy="12" r="3" stroke="#FFFFFF" stroke-width="1.6"/>
@@ -796,6 +820,17 @@
 
       <div class="promesses-list-item">
         <div class="icon-blob">
+                    <span class="icon">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 10c0 2.2-1.7 3-1.7 5A1.7 1.7 0 0 0 6 16.7 1.7 1.7 0 0 0 7.7 15C7.7 13 6 12.2 6 10Z"/>
+              <path d="M16 8v10"/>
+              <path d="M16 12c-3 0-4.6-2-4.9-4.6C14 7.4 16 9.2 16 12Z"/>
+              <path d="M16 14c3 .1 4.7-1.7 5.1-4.3-3-.2-4.9 1.5-5.1 4.3Z"/>
+              <rect x="21" y="17" width="7" height="8" rx="1"/>
+              <path d="M20.5 17h8"/>
+              <path d="M23 17v-1.6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V17"/>
+              <path class="accent" d="M9 21a6 6 0 0 1 9-5.2"/>
+              <path class="accent" d="M17 14l1.4 1.8L16 17"/>
                               <span class="icon">
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="fill:none;">
               <g fill="var(--orange)" stroke="none">
@@ -817,9 +852,8 @@
         </div>
         <h3>Faire vivre la RSE</h3>
         <span class="accent-line"></span>
-                <p>Grâce à des pratiques concrètes : bouturage, compost, transmission des savoirs, récupération d'eau.</p>
+        <p>Grâce à des pratiques concrètes : bouturage, compost, transmission des savoirs, récupération d'eau.</p>
       </div>
-    </div>
   </section>
 
   <!-- METHODE -->
