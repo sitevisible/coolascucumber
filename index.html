@@ -399,8 +399,16 @@
       .promesses-list{
     display:grid; grid-template-columns: repeat(3,1fr); gap: 36px 32px;
   }
-  @media (max-width: 820px){
-    .promesses-list{ grid-template-columns: 1fr; gap: 44px; max-width: 380px; margin: 0 auto; }
+    @media (max-width: 820px){
+    .promesses-list{
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 24px;
+      overflow-x: auto;
+      max-width: 100%;
+      margin: 0;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 
   .promesses-list-item{
