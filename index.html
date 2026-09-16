@@ -444,20 +444,71 @@
   .promesses-list-item h3{ font-size: 1.2rem; margin: 0; line-height: 1.25; }
   .promesses-list-item p{ color: var(--ink-soft); margin: 0; font-size: 0.96rem; max-width: 26ch; }
 
-  /* ---------- METHODE ---------- */
-  .methode-list{ margin-top: 40px; }
+    /* ---------- METHODE ---------- */
+  .methode-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items:center; }
+  @media (max-width: 900px){ .methode-grid{ grid-template-columns: 1fr; gap: 50px; } }
+
+  .methode-art{ position: relative; width: 100%; aspect-ratio: 4/4.4; isolation: isolate; }
+  .methode-leaf{
+    position: absolute; top: -6%; left: -4%; width: 46%; height: 40%;
+    background: var(--green-deep);
+    border-radius: 0% 100% 100% 100% / 0% 100% 100% 100%;
+    transform: rotate(-18deg);
+    z-index: 0;
+  }
+  .methode-light-shape{
+    position: absolute; bottom: -4%; right: -6%; width: 55%; height: 55%;
+    background: rgba(174,196,105,0.35);
+    border-radius: 100% 40% 100% 40% / 100% 40% 100% 40%;
+    z-index: 0;
+  }
+  .methode-photo{
+    position: relative; z-index: 1; width: 92%; height: 92%; margin: 4% auto 0;
+    overflow: hidden;
+    border-radius: 48% 52% 45% 55% / 55% 45% 55% 45%;
+    box-shadow: var(--shadow);
+  }
+  .methode-photo img{ width: 100%; height: 100%; object-fit: cover; display:block; }
+
+  .methode-header .eyebrow-mark{
+    display:inline-flex; align-items:center; gap: 4px; margin-right: 10px; vertical-align: middle;
+  }
+  .methode-header h2{ display:flex; align-items:center; gap: 10px; font-size: clamp(1.9rem, 3.2vw, 2.5rem); }
+  .methode-header .subtitle{ color: var(--ink-soft); font-size: 1.05rem; margin: 10px 0 0; }
+
+  .methode-list{ margin-top: 34px; }
   .methode-item{
-    display:grid; grid-template-columns: 90px 1fr; gap: 24px; padding: 26px 0;
-    border-top: 1px solid var(--line);
+    display:grid; grid-template-columns: 64px 1fr; gap: 22px; align-items:flex-start;
+    padding: 22px 0; border-top: 1px solid var(--line);
   }
   .methode-item:last-child{ border-bottom: 1px solid var(--line); }
-  .methode-item .step-num{
-    font-family:'Fraunces', serif; font-size: 2rem; color: var(--soil); font-style: italic;
+
+  .methode-icon-wrap{ position: relative; width: 64px; height: 64px; flex-shrink:0; }
+  .methode-icon{
+    position: absolute; top: 4px; left: 4px; width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(174,196,105,0.28);
+    display:flex; align-items:center; justify-content:center;
   }
-  .methode-item h3{ font-size: 1.25rem; margin-bottom: 6px; }
-  .methode-item p{ margin:0; color: var(--ink-soft); max-width: 56ch; }
+  .methode-icon svg{
+    width: 26px; height: 26px; stroke: var(--green-deep); fill:none;
+    stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .methode-accent{ position: absolute; top: -3px; left: 6px; z-index: 2; }
+  .methode-accent svg{ width: 20px; height: 16px; stroke: var(--orange); stroke-width: 1.6; stroke-linecap: round; fill:none; }
+  .methode-num-badge{
+    position: absolute; bottom: -2px; right: -4px; z-index: 2;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--green-deep); color: #FFFFFF;
+    font-family:'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
+    display:flex; align-items:center; justify-content:center;
+    border: 3px solid var(--bg);
+  }
+
+  .methode-item h3{ font-size: 1.2rem; margin-bottom: 6px; }
+  .methode-item p{ margin:0; color: var(--ink-soft); max-width: 52ch; }
+
   @media (max-width: 560px){
-    .methode-item{ grid-template-columns: 1fr; gap: 6px; }
+    .methode-item{ grid-template-columns: 1fr; gap: 10px; }
   }
 
   /* ---------- PARCOURS (signature vine) ---------- */
@@ -837,34 +888,140 @@
     </div>
   </section>
 
-  <!-- METHODE -->
+    <!-- METHODE -->
   <section id="methode" class="wrap reveal">
-    <p class="eyebrow">La méthode</p>
-    <h2 style="font-size: clamp(1.7rem, 3vw, 2.3rem);">Cinq étapes, dans l'ordre</h2>
-    <div class="methode-list">
-      <div class="methode-item">
-        <span class="step-num">01</span>
-        <div><h3>Observer</h3><p>Comprendre les usages, les attentes et le potentiel des espaces.</p></div>
+    <div class="methode-grid">
+      <div class="methode-art" aria-hidden="true">
+        <div class="methode-leaf"></div>
+        <div class="methode-light-shape"></div>
+        <div class="methode-photo">
+          <img src="methode.png" alt="Équipe en atelier de plantation autour d'une table">
+        </div>
       </div>
-      <div class="methode-item">
-        <span class="step-num">02</span>
-        <div><h3>Co-construire</h3><p>Imaginer le projet avec les collaborateurs, pas pour eux.</p></div>
-      </div>
-      <div class="methode-item">
-        <span class="step-num">03</span>
-        <div><h3>Planter</h3><p>Créer ensemble les premiers espaces végétalisés, lors d'un chantier participatif.</p></div>
-      </div>
-      <div class="methode-item">
-        <span class="step-num">04</span>
-        <div><h3>Faire vivre</h3><p>Former les équipes, animer la communauté, transmettre les gestes qui durent.</p></div>
-      </div>
-      <div class="methode-item">
-        <span class="step-num">05</span>
-        <div><h3>Faire grandir</h3><p>Accompagner l'entreprise dans son parcours de maturité, sur la durée.</p></div>
+
+      <div>
+        <div class="methode-header">
+          <h2>
+            <span class="eyebrow-mark" aria-hidden="true">
+              <svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 1 3 5" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+                <path d="M1 8h4" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+                <path d="M4 12l2-3" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+              </svg>
+            </span>
+            La méthode
+          </h2>
+          <p class="subtitle">Cinq étapes, dans l'ordre</p>
+        </div>
+
+        <div class="methode-list">
+          <div class="methode-item">
+            <div class="methode-icon-wrap">
+              <span class="methode-accent" aria-hidden="true">
+                <svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 1 3 5"/><path d="M1 8h4"/><path d="M4 12l2-3"/>
+                </svg>
+              </span>
+              <span class="methode-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M2 12c2.5-4.5 6-6.5 10-6.5s7.5 2 10 6.5c-2.5 4.5-6 6.5-10 6.5S4.5 16.5 2 12Z"/>
+                  <circle cx="12" cy="12" r="2.6"/>
+                </svg>
+              </span>
+              <span class="methode-num-badge">01</span>
+            </div>
+            <div>
+              <h3>Observer</h3>
+              <p>Comprendre les usages, les attentes et le potentiel des espaces.</p>
+            </div>
+          </div>
+
+          <div class="methode-item">
+            <div class="methode-icon-wrap">
+              <span class="methode-accent" aria-hidden="true">
+                <svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 1 3 5"/><path d="M1 8h4"/><path d="M4 12l2-3"/>
+                </svg>
+              </span>
+              <span class="methode-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="12" cy="7.5" r="2.6"/>
+                  <circle cx="5.5" cy="9.5" r="2"/>
+                  <circle cx="18.5" cy="9.5" r="2"/>
+                  <path d="M6.5 20c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2"/>
+                  <path d="M2.5 19c0-2.3 1.6-4.2 3.5-4.6"/>
+                  <path d="M21.5 19c0-2.3-1.6-4.2-3.5-4.6"/>
+                </svg>
+              </span>
+              <span class="methode-num-badge">02</span>
+            </div>
+            <div>
+              <h3>Co-construire</h3>
+              <p>Imaginer le projet avec les collaborateurs, pas pour eux.</p>
+            </div>
+          </div>
+
+          <div class="methode-item">
+            <div class="methode-icon-wrap">
+              <span class="methode-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 21v-8"/>
+                  <path d="M12 13C9 13 7.5 11 7.5 8.5 10.5 8.5 12 10 12 13Z"/>
+                  <path d="M12 13c3 0 4.5-2 4.5-4.5-3 0-4.5 1.5-4.5 4.5Z"/>
+                  <rect x="9" y="19" width="6" height="2.5" rx="0.5"/>
+                </svg>
+              </span>
+              <span class="methode-num-badge">03</span>
+            </div>
+            <div>
+              <h3>Planter</h3>
+              <p>Créer ensemble les premiers espaces végétalisés, lors d'un chantier participatif.</p>
+            </div>
+          </div>
+
+          <div class="methode-item">
+            <div class="methode-icon-wrap">
+              <span class="methode-accent" aria-hidden="true">
+                <svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 1 3 5"/><path d="M1 8h4"/><path d="M4 12l2-3"/>
+                </svg>
+              </span>
+              <span class="methode-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 4 2 8.5 12 13l10-4.5Z"/>
+                  <path d="M6 10.5V15c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/>
+                </svg>
+              </span>
+              <span class="methode-num-badge">04</span>
+            </div>
+            <div>
+              <h3>Faire vivre</h3>
+              <p>Former les équipes, animer la communauté, transmettre les gestes qui durent.</p>
+            </div>
+          </div>
+
+          <div class="methode-item">
+            <div class="methode-icon-wrap">
+              <span class="methode-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M4 20V13"/>
+                  <path d="M10 20V9"/>
+                  <path d="M16 20v-7"/>
+                  <path d="M4 9l6-4 6 3 5-4" class="accent" stroke="var(--orange)"/>
+                  <path d="M17 4h4v4" class="accent" stroke="var(--orange)"/>
+                </svg>
+              </span>
+              <span class="methode-num-badge">05</span>
+            </div>
+            <div>
+              <h3>Faire grandir</h3>
+              <p>Accompagner l'entreprise dans son parcours de maturité, sur la durée.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
   <!-- PARCOURS (dark, signature vine) -->
   <section id="parcours" class="on-dark reveal">
     <div class="wrap">
