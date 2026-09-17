@@ -150,29 +150,28 @@
   }
   .hero-cta{ display:flex; align-items:center; gap: 22px; flex-wrap: wrap; }
 
-      /* ---------- HERO VISUAL: photo ---------- */
-  .hero-art{ position: relative; }
-  .hero-photo-wrap{ position: relative; order: -1; width: 100%; max-width: 440px; }
-  .hero-photo-accent{
-    position: absolute;
-    bottom: -20px; left: -20px;
-    width: 100%;
-    height: 100%;
-    background: var(--lime);
-    border-radius: var(--radius);
-    z-index: 0;
-    opacity: 0;
-    animation: accentIn 0.8s cubic-bezier(.22,1,.36,1) 0.15s forwards;
+        /* ---------- HERO VISUAL: photo (moderne) ---------- */
+  .hero-art{ position: relative; width: 100%; isolation: isolate; }
+
+  .hero-glow{
+    position: absolute; top: -12%; right: -10%; width: 65%; height: 65%;
+    background: radial-gradient(circle, var(--lime) 0%, transparent 72%);
+    opacity: 0.5; filter: blur(4px); z-index: 0; pointer-events:none;
   }
-  @keyframes accentIn{ to{ opacity: 0.28; } }
+  .hero-glow.two{
+    top: auto; left: -10%; bottom: -10%; right: auto; width: 45%; height: 45%;
+    background: radial-gradient(circle, var(--orange) 0%, transparent 75%);
+    opacity: 0.16;
+  }
+
   .hero-photo{
     position: relative;
     z-index: 1;
     width: 100%;
-    aspect-ratio: 3 / 2;
-    border-radius: var(--radius);
+    aspect-ratio: 4 / 3.3;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: var(--shadow);
+    box-shadow: 0 30px 60px -28px rgba(9,75,60,0.4);
     opacity: 0;
     animation: photoIn 0.8s cubic-bezier(.22,1,.36,1) forwards;
   }
@@ -183,21 +182,33 @@
     display: block;
     object-fit: cover;
   }
-  .hero-photo-badge{
-    position: absolute;
-    top: 16px; left: 16px;
-    z-index: 2;
-    background: var(--orange);
-    color: #FFFFFF;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 600;
-    font-size: 0.82rem;
-    padding: 9px 16px;
-    border-radius: 999px;
-    opacity: 0;
-    animation: badgeIn 0.6s cubic-bezier(.34,1.56,.64,1) 0.6s forwards;
+  .hero-photo::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(200deg, rgba(9,75,60,0.24) 0%, rgba(9,75,60,0) 48%);
+    pointer-events: none;
+  }
+
+  .hero-trust{
+    display:flex; align-items:center; gap: 26px; margin-top: 32px; flex-wrap: wrap;
+    opacity: 0; animation: badgeIn 0.6s ease 0.6s forwards;
   }
   @keyframes badgeIn{ to{ opacity: 1; } }
+  .hero-trust-item{ display:flex; align-items:center; gap: 10px; }
+  .hero-trust-item .icon{
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(174,196,105,0.28);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .hero-trust-item .icon svg{
+    width: 16px; height: 16px; stroke: var(--green-deep); fill:none;
+    stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .hero-trust-item span{ font-size: 0.86rem; color: var(--ink-soft); font-weight: 500; }
+
+  @media (max-width: 880px){
+    .hero-glow{ display:none; }
+  }
   /* ---------- DARK SECTION ---------- */
   .on-dark{ background: var(--bg-dark); color: var(--cream); }
   .on-dark h2, .on-dark h3{ color: var(--cream); }
@@ -599,18 +610,51 @@
         Vos équipes cultivent le vivant.
         <span class="accent-line">Le vivant cultive votre entreprise.</span>
       </h1>
-      <p class="lead">
+            <p class="lead">
         Chez Cool As Cucumber, chaque pot posé est le début d'une <strong style="color: var(--green-deep); font-weight: 600;">transformation progressive et durable</strong>
         de vos espaces de travail, portée par une méthode rigoureuse et participative.
       </p>
+
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="8.5" cy="8" r="2.6"/>
+              <circle cx="16" cy="9" r="2.1"/>
+              <path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/>
+              <path d="M14 14.4c2.4.2 4 2.1 4 4.6"/>
+            </svg>
+          </span>
+          <span>Démarche participative</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 21V10"/>
+              <path d="M12 10C12 6 9 4 5 4C5 8 7 11 12 10Z"/>
+            </svg>
+          </span>
+          <span>Impact durable</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 20h6"/>
+              <path d="M12 20v-6"/>
+              <path d="M12 14c-3 0-4.5-2-4.5-4.5C10 9.5 12 10 12 14Z"/>
+              <path d="M12 14c3 0 4.5-2.3 4.5-5C14 9 12 9.5 12 14Z"/>
+            </svg>
+          </span>
+          <span>Suivi sur la durée</span>
+        </div>
+      </div>
     </div>
 
-        <div class="hero-art" aria-hidden="true">
-      <div class="hero-photo-wrap">
-        <div class="hero-photo-accent"></div>
-        <div class="hero-photo">
-          <img src="missionBIS.png" alt="Bureau aménagé avec des plantes">
-        </div>
+                <div class="hero-art" aria-hidden="true">
+      <div class="hero-glow"></div>
+      <div class="hero-glow two"></div>
+      <div class="hero-photo">
+        <img src="missionBIS.png" alt="Bureau aménagé avec des plantes">
       </div>
     </div>
   </section>
