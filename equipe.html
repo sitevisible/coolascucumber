@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qui sommes-nous — Cool As Cucumber</title>
+<meta name="description" content="L'équipe de Cool As Cucumber : qui sommes-nous et pourquoi nous faisons entrer le vivant dans les entreprises.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.85em%22 font-size=%2290%22>🥒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --ink: #0C2A22;
+    --ink-soft: #43584E;
+    --green-deep: #094B3C;
+    --lime: #AEC469;
+    --soil: #8C7355;
+    --orange: #FF682C;
+    --line: rgba(31,46,26,0.14);
+    --shadow: 0 20px 40px -24px rgba(31,46,26,0.35);
+    --radius: 18px;
+    --maxw: 1120px;
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; background: var(--bg); color: var(--ink);
+    font-family: 'Work Sans', sans-serif; font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; color: var(--ink); margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+  a{ color: inherit; }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--green-deep);
+    display:flex; align-items:center; gap:0.6em; margin-bottom: 1.1em;
+  }
+  .eyebrow::before{ content:""; width: 26px; height: 2px; background: var(--lime); display:inline-block; }
+
+  /* NAV */
+  header.site-nav{ position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 18px 28px 0; pointer-events: none; }
+  .nav-inner{
+    pointer-events: auto; max-width: 980px; margin: 0 auto; padding: 10px 10px 10px 24px;
+    background: rgba(255,255,255,0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(31,46,26,0.08); border-radius: 999px;
+    box-shadow: 0 14px 34px -18px rgba(9,75,60,0.28);
+    display:flex; align-items:center; justify-content:space-between; gap: 16px;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;
+    display:flex; align-items:center; gap:0.5em; text-decoration:none; color:var(--ink);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .logo-img{ height: 34px; width: auto; display: block; }
+  nav.links{ display:flex; gap: 4px; overflow-x:auto; scrollbar-width:none; }
+  nav.links::-webkit-scrollbar{ display:none; }
+  nav.links a{
+    text-decoration:none; font-size:0.88rem; font-weight: 500; color: var(--ink-soft);
+    white-space:nowrap; padding: 8px 14px; border-radius: 999px;
+    transition: color .2s ease, background .2s ease;
+  }
+  nav.links a:hover{ color: var(--green-deep); background: rgba(174,196,105,0.22); }
+  .nav-cta{
+    flex-shrink: 0; background: var(--orange); color: #FFFFFF;
+    font-family:'Work Sans', sans-serif; font-weight: 600; font-size: 0.86rem;
+    text-decoration: none; padding: 10px 20px; border-radius: 999px; white-space: nowrap;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ background: #E85720; transform: translateY(-1px); }
+  @media (max-width: 760px){
+    header.site-nav{ padding: 14px 14px 0; }
+    .nav-inner{ padding: 8px 8px 8px 16px; gap: 10px; }
+    .logo-img{ height: 28px; }
+    .nav-cta{ display:none; }
+  }
+
+  main.wrap{ padding-top: 200px; padding-bottom: 100px; }
+
+  /* INTRO */
+  .team-intro{ max-width: 62ch; margin-bottom: 70px; }
+  .team-intro h1{ font-size: clamp(2rem, 4vw, 2.7rem); line-height: 1.2; }
+  .team-intro p{ color: var(--ink-soft); margin-top: 18px; }
+
+  /* TEAM GRID */
+  .team-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  @media (max-width: 800px){ .team-grid{ grid-template-columns: 1fr; gap: 50px; } }
+
+  .team-card{
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: 24px;
+    padding: 38px; box-shadow: var(--shadow);
+  }
+  .team-avatar{
+    width: 68px; height: 68px; border-radius: 50%;
+    background: var(--green-deep); color: #FFFFFF;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-size: 1.5rem; font-weight: 600;
+    margin-bottom: 22px;
+  }
+  .team-card h2{ font-size: 1.4rem; }
+  .team-role{
+    font-family:'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--orange); margin-top: 6px; display:block;
+  }
+  .team-card p.bio{ color: var(--ink-soft); margin-top: 18px; }
+
+  .team-tags{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .team-tag{
+    font-size: 0.8rem; font-weight: 500; color: var(--green-deep);
+    background: rgba(174,196,105,0.22); padding: 6px 12px; border-radius: 999px;
+  }
+
+  /* VALUES STRIP */
+  .team-values{ margin-top: 80px; padding-top: 50px; border-top: 1px solid var(--line); }
+  .team-values h2{ font-size: clamp(1.5rem, 2.6vw, 2rem); max-width: 30ch; }
+  .values-list{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 34px; }
+  @media (max-width: 800px){ .values-list{ grid-template-columns: 1fr; } }
+  .value-item h3{ font-size: 1.05rem; margin-bottom: 8px; }
+  .value-item p{ color: var(--ink-soft); margin:0; font-size: 0.96rem; }
+
+  footer{
+    padding: 40px 0 60px; text-align:center;
+    font-family:'Space Mono', monospace; font-size: 0.82rem; color: var(--ink-soft);
+  }
+  footer .tagline{ display:block; margin-top: 6px; color: var(--soil); }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logoCC.png" alt="Cool As Cucumber" class="logo-img"></a>
+    <nav class="links">
+      <a href="index.html#mission">Mission</a>
+      <a href="index.html#approche">Approche</a>
+      <a href="index.html#promesses">Promesses</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="equipe.html">Équipe</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="team-intro">
+    <p class="eyebrow">Qui sommes-nous</p>
+    <h1>Deux parcours, une conviction commune : le vivant transforme durablement l'entreprise.</h1>
+    <p>
+      Cool As Cucumber est né de la rencontre entre une expertise en pilotage de la performance
+      et une expérience solide en relation client et gestion de projet. Deux profils complémentaires,
+      réunis par la même envie : accompagner les entreprises dans une transformation concrète et durable.
+    </p>
+  </div>
+
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-avatar">ML</div>
+      <h2>Mélanie Lesage</h2>
+      <span class="team-role">Pilotage &amp; performance</span>
+      <p class="bio">
+        Contrôleuse de gestion depuis 5 ans, Mélanie a piloté la performance retail et digitale
+        chez Flunch et La Voix du Nord, avant de rejoindre Toshiba. Elle apporte à Cool As Cucumber
+        sa rigueur analytique et sa culture data-driven : mesurer l'impact réel de chaque projet,
+        construire des budgets et des indicateurs de suivi qui font sens pour les équipes comme
+        pour la direction.
+      </p>
+      <div class="team-tags">
+        <span class="team-tag">Pilotage de la performance</span>
+        <span class="team-tag">Analyse de données</span>
+        <span class="team-tag">Budgets &amp; forecasts</span>
+        <span class="team-tag">Business partner</span>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar">VD</div>
+      <h2>Valentin Dechevre</h2>
+      <span class="team-role">Relation client &amp; projets</span>
+      <p class="bio">
+        Conseiller clientèle chez Solly Azar depuis 2019, Valentin a développé une vraie expertise
+        de la relation client et de la gestion de projets transverses, après une formation en
+        entrepreneuriat et management de la PME. Chez Cool As Cucumber, il porte l'écoute des
+        équipes sur le terrain et la coordination des projets participatifs, du premier atelier
+        jusqu'au suivi dans la durée.
+      </p>
+      <div class="team-tags">
+        <span class="team-tag">Relation client</span>
+        <span class="team-tag">Gestion de projet</span>
+        <span class="team-tag">Management</span>
+        <span class="team-tag">Esprit d'équipe</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="team-values">
+    <p class="eyebrow">Ce qui nous relie</p>
+    <h2>Des parcours différents, la même exigence.</h2>
+    <div class="values-list">
+      <div class="value-item">
+        <h3>Rigueur</h3>
+        <p>Chaque projet est mesuré, suivi et ajusté — comme un budget, comme une plante.</p>
+      </div>
+      <div class="value-item">
+        <h3>Écoute</h3>
+        <p>Nous construisons avec les équipes, jamais à leur place.</p>
+      </div>
+      <div class="value-item">
+        <h3>Durée</h3>
+        <p>Notre réussite se mesure deux ans après notre passage, pas le jour du chantier.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Cool As Cucumber — Conseil en QVT &amp; RSE par le vivant
+  <span class="tagline">Restez frais. Cultivez du vivant.</span>
+</footer>
+
+</body>
+</html>
