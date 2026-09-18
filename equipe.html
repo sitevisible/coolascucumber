@@ -14,6 +14,7 @@
 <style>
   :root{
     --bg: #FFFFFF;
+    --bg-soft: #F7F8EF;
     --bg-card: #FFFFFF;
     --bg-dark: #094B3C;
     --ink: #0C2A22;
@@ -23,7 +24,6 @@
     --soil: #8C7355;
     --orange: #FF682C;
     --line: rgba(31,46,26,0.14);
-    --line-dark: rgba(233,238,220,0.18);
     --shadow: 0 20px 40px -24px rgba(31,46,26,0.35);
     --radius: 18px;
     --maxw: 1120px;
@@ -37,6 +37,7 @@
   }
   h1,h2,h3{ font-family:'Fraunces', serif; color: var(--ink); margin: 0; font-weight: 600; letter-spacing: -0.01em; }
   a{ color: inherit; }
+  img,svg{ display:block; max-width:100%; }
   .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
   section{ padding: 90px 0; }
   @media (max-width: 720px){ section{ padding: 64px 0; } }
@@ -52,6 +53,7 @@
   .on-dark{ background: var(--bg-dark); color: #FFFFFF; }
   .on-dark h2{ color: #FFFFFF; }
   .on-dark p{ color: rgba(233,238,220,0.85); }
+  .on-soft{ background: var(--bg-soft); }
 
   /* NAV */
   header.site-nav{ position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 18px 28px 0; pointer-events: none; }
@@ -90,29 +92,60 @@
     .nav-cta{ display:none; }
   }
 
-  main.wrap{ padding-top: 200px; }
-  main section:first-of-type{ padding-top: 0; }
+  main{ padding-top: 200px; }
 
-  /* HERO / CONSTAT */
-  .story-hero h1{ font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.15; max-width: 22ch; }
-  .story-hero .lead{ color: var(--ink-soft); margin-top: 20px; max-width: 56ch; font-size: 1.08rem; }
+  /* ---------- HERO ---------- */
+  .team-hero{ display:grid; grid-template-columns: 0.95fr 1.05fr; gap: 60px; align-items:center; }
+  @media (max-width: 880px){ .team-hero{ grid-template-columns: 1fr; gap: 46px; } }
 
-  .story-block{ max-width: 68ch; margin-top: 20px; }
-  .story-block p{ color: var(--ink-soft); margin: 0 0 20px; }
-  .story-block p:last-child{ margin-bottom: 0; }
+  .team-hero h1{ font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.15; }
+  .team-hero h1 .accent{ color: var(--orange); }
+  .team-hero .lead{ color: var(--ink-soft); margin-top: 20px; max-width: 46ch; font-size: 1.05rem; }
 
-  .story-highlight{
-    margin-top: 8px; padding: 26px 30px; border-left: 3px solid var(--orange);
+  .placeholder-art{ position: relative; width: 100%; aspect-ratio: 4 / 3.6; isolation: isolate; }
+  .placeholder-leaf{
+    position: absolute; top: -6%; right: -4%; width: 34%; height: 30%;
+    background: var(--green-deep);
+    border-radius: 0% 100% 100% 100% / 0% 100% 100% 100%;
+    transform: rotate(24deg); z-index: 0;
+  }
+  .placeholder-shape-light{
+    position: absolute; bottom: -6%; left: -6%; width: 48%; height: 48%;
+    background: rgba(174,196,105,0.4);
+    border-radius: 100% 40% 100% 40% / 100% 40% 100% 40%; z-index: 0;
+  }
+  .placeholder-spark{ position: absolute; top: 4%; right: 22%; z-index: 2; }
+  .placeholder-spark svg{ width: 30px; height: 24px; }
+  .placeholder-spark path{ stroke: var(--orange); stroke-width: 2; stroke-linecap: round; fill:none; }
+
+  .placeholder-photo{
+    position: relative; z-index: 1; width: 92%; height: 92%; margin: 4% auto 0;
+    border-radius: 48% 52% 45% 55% / 55% 45% 55% 45%;
+    background: linear-gradient(135deg, rgba(174,196,105,0.4), rgba(9,75,60,0.18));
+    box-shadow: var(--shadow);
+    display:flex; flex-direction: column; align-items:center; justify-content:center; gap: 10px;
+  }
+  .placeholder-photo svg{ width: 52px; height: 52px; stroke: var(--green-deep); fill:none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+  .placeholder-photo span{
+    font-family:'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.06em;
+    color: var(--green-deep); opacity: 0.55; text-transform: uppercase;
+  }
+
+  /* ---------- QUI SOMMES-NOUS / DUO ---------- */
+  .duo-header{ max-width: 60ch; margin-bottom: 46px; }
+  .duo-header h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
+  .duo-header .sub{ color: var(--ink-soft); margin-top: 14px; max-width: 52ch; }
+
+  .duo-story{ max-width: 68ch; margin-bottom: 60px; }
+  .duo-story p{ color: var(--ink-soft); margin: 0 0 18px; }
+  .duo-story .highlight{
+    margin: 24px 0; padding: 24px 28px; border-left: 3px solid var(--orange);
     background: rgba(174,196,105,0.1); border-radius: 0 16px 16px 0;
   }
-  .story-highlight p{
-    font-family:'Fraunces', serif; font-style: italic; font-size: 1.15rem;
+  .duo-story .highlight p{
+    font-family:'Fraunces', serif; font-style: italic; font-size: 1.1rem;
     color: var(--green-deep); margin:0; line-height: 1.4;
   }
-
-  /* DUO PROFILES */
-  .duo-header{ max-width: 60ch; margin-bottom: 50px; }
-  .duo-header h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
 
   .team-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
   @media (max-width: 800px){ .team-grid{ grid-template-columns: 1fr; gap: 46px; } }
@@ -123,27 +156,59 @@
   }
   .team-card::before{
     content:""; position: absolute; top: -60px; right: -60px; width: 160px; height: 160px;
-    background: rgba(174,196,105,0.25);
+    background: rgba(174,196,105,0.22);
     border-radius: 50% 40% 55% 45% / 45% 55% 40% 50%; z-index: 0;
   }
   .team-card:nth-child(2)::before{ background: rgba(255,104,44,0.10); }
 
-  .team-avatar-wrap{ position: relative; z-index: 1; display:flex; align-items:center; gap: 18px; margin-bottom: 22px; }
-  .team-avatar{
-    width: 62px; height: 62px; flex-shrink: 0; background: var(--green-deep);
-    border-radius: 46% 54% 58% 42% / 55% 45% 55% 45%;
-    display:flex; align-items:center; justify-content:center;
+  .avatar-circle{
+    position: relative; z-index: 1; width: 110px; height: 110px; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(174,196,105,0.45), rgba(9,75,60,0.2));
+    display:flex; align-items:center; justify-content:center; margin-bottom: 20px;
+    box-shadow: 0 10px 24px -10px rgba(9,75,60,0.35);
   }
-  .team-avatar svg{ width: 28px; height: 28px; stroke: #FFFFFF; fill:none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-  .team-card h3{ font-size: 1.35rem; }
+  .avatar-circle svg{ width: 44px; height: 44px; stroke: var(--green-deep); fill:none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+  .team-card h3{ position: relative; z-index: 1; font-size: 1.3rem; }
   .team-role{
+    position: relative; z-index: 1;
     font-family:'Space Mono', monospace; font-size: 0.76rem; letter-spacing: 0.06em;
     text-transform: uppercase; color: var(--orange); margin-top: 4px; display:block;
   }
-  .team-card p{ position: relative; z-index: 1; color: var(--ink-soft); margin: 0 0 16px; }
-  .team-card p:last-child{ margin-bottom: 0; }
+  .team-card p{ position: relative; z-index: 1; color: var(--ink-soft); margin: 16px 0 0; }
+  .team-card p + p{ margin-top: 14px; }
 
-  /* CONVICTION (dark) */
+  /* ---------- NOTRE FORCE / VALEURS ---------- */
+  .force-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items:center; }
+  @media (max-width: 900px){ .force-grid{ grid-template-columns: 1fr; gap: 50px; } }
+
+  .force-art .placeholder-photo{ border-radius: 46% 54% 40% 60% / 55% 45% 60% 40%; }
+
+  .force-header h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); max-width: 20ch; }
+
+  .values-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 28px 34px; margin-top: 30px; }
+  @media (max-width: 560px){ .values-grid{ grid-template-columns: 1fr; } }
+  .value-item{ display:flex; gap: 16px; align-items:flex-start; }
+  .value-item .icon{
+    flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(174,196,105,0.24);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .value-item .icon svg{ width: 22px; height: 22px; stroke: var(--green-deep); fill:none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .value-item h3{ font-size: 1.05rem; margin-bottom: 5px; }
+  .value-item p{ margin:0; color: var(--ink-soft); font-size: 0.94rem; }
+
+  .force-cta{
+    display:inline-flex; align-items:center; gap: 10px; margin-top: 36px;
+    background: var(--green-deep); color: #FFFFFF; text-decoration: none;
+    font-family:'Work Sans', sans-serif; font-weight: 600; font-size: 0.95rem;
+    padding: 13px 24px; border-radius: 999px;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .force-cta:hover{ background: #0F5F4C; transform: translateY(-1px); }
+  .force-cta svg{ width: 16px; height: 16px; stroke: #FFFFFF; fill:none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- CONVICTION (dark) ---------- */
   .conviction-wrap{ max-width: 68ch; }
   .conviction-wrap h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 24px; }
   .conviction-wrap p{ margin: 0 0 18px; }
@@ -178,54 +243,76 @@
 
 <main class="wrap">
 
-  <!-- CONSTAT -->
-  <section class="story-hero">
-    <p class="eyebrow">Qui sommes-nous</p>
-    <h1>À l'origine, un constat simple</h1>
-    <p class="lead">
-      Les espaces de travail sont pensés pour travailler, mais rarement pour respirer,
-      se retrouver et créer du lien autrement.
-    </p>
-
-    <div class="story-block">
-      <p>
-        Dans beaucoup d'entreprises, les moments informels se concentrent encore autour de
-        la pause-café ou de la pause cigarette. Celles et ceux qui ne se reconnaissent pas
-        dans ces habitudes disposent de peu d'occasions naturelles pour décrocher quelques
-        minutes et aller vers les autres.
+  <!-- HERO -->
+  <section class="team-hero">
+    <div>
+      <p class="eyebrow">Notre équipe</p>
+      <h1>Une idée née d'un besoin de <span class="accent">respirer</span> au travail</h1>
+      <p class="lead">
+        Cool As Cucumber est né d'un constat simple : les bureaux sont pensés pour travailler,
+        rarement pour souffler. Nous avons voulu changer ça, avec le vivant.
       </p>
-      <p>
-        Mélanie en a fait l'expérience au cours de son parcours professionnel. Alors qu'il
-        lui était parfois difficile de s'autoriser une véritable pause, prendre soin de ses
-        plantes lui apportait naturellement ce qui lui manquait au travail : une respiration,
-        un geste concret et un moment pour ralentir.
-      </p>
+    </div>
 
-      <div class="story-highlight">
-        <p>
-          Une idée a alors germé : et si le vivant créait, au cœur de l'entreprise, de nouvelles
-          occasions de faire une pause, d'échanger et de se retrouver ?
-        </p>
+    <div class="placeholder-art" aria-hidden="true">
+      <div class="placeholder-leaf"></div>
+      <div class="placeholder-shape-light"></div>
+      <span class="placeholder-spark">
+        <svg viewBox="0 0 30 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 2 5 8"/><path d="M2 12h6"/><path d="M6 20l3-5"/>
+        </svg>
+      </span>
+      <div class="placeholder-photo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="2"/>
+          <path d="M3 17l5-5 4 4 6-7 3 3"/>
+          <rect x="2" y="3" width="20" height="18" rx="2"/>
+        </svg>
+        <span>Photo à venir</span>
       </div>
-
-      <p style="margin-top: 22px;">
-        C'est de cette réflexion qu'est né Cool as Cucumber.
-      </p>
     </div>
   </section>
 
-  <!-- DUO -->
-  <section id="duo">
-    <div class="duo-header">
-      <p class="eyebrow">Deux parcours, une vision</p>
-      <h2>Une même vision de l'entreprise</h2>
-    </div>
+  <!-- CONSTAT + DUO -->
+  <section id="duo" class="on-soft" style="margin: 0 -28px; padding-left: 28px; padding-right: 28px;">
+    <div class="wrap" style="padding: 0;">
 
-    <div class="team-grid">
+      <div class="duo-story">
+        <p class="eyebrow">Notre histoire</p>
+        <h2 style="font-size: clamp(1.7rem, 3vw, 2.3rem);">À l'origine, un constat simple</h2>
+        <p style="margin-top: 20px;">
+          Dans beaucoup d'entreprises, les moments informels se concentrent encore autour de
+          la pause-café ou de la pause cigarette. Celles et ceux qui ne se reconnaissent pas
+          dans ces habitudes disposent de peu d'occasions naturelles pour décrocher quelques
+          minutes et aller vers les autres.
+        </p>
+        <p>
+          Mélanie en a fait l'expérience au cours de son parcours professionnel. Alors qu'il
+          lui était parfois difficile de s'autoriser une véritable pause, prendre soin de ses
+          plantes lui apportait naturellement ce qui lui manquait au travail : une respiration,
+          un geste concret et un moment pour ralentir.
+        </p>
 
-      <div class="team-card">
-        <div class="team-avatar-wrap">
-          <div class="team-avatar">
+        <div class="highlight">
+          <p>
+            Une idée a alors germé : et si le vivant créait, au cœur de l'entreprise, de
+            nouvelles occasions de faire une pause, d'échanger et de se retrouver ?
+          </p>
+        </div>
+
+        <p>C'est de cette réflexion qu'est né Cool as Cucumber.</p>
+      </div>
+
+      <div class="duo-header">
+        <p class="eyebrow">Deux parcours, une vision</p>
+        <h2>Qui sommes-nous&nbsp;?</h2>
+        <p class="sub">Deux parcours différents, réunis par la même conviction : le vivant transforme l'entreprise.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <div class="team-card">
+          <div class="avatar-circle">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12 21v-9"/>
               <path d="M12 12c-3 0-4.6-2-4.9-4.6C10 7 12 8.8 12 12Z"/>
@@ -233,32 +320,23 @@
               <line x1="7" y1="21" x2="17" y2="21"/>
             </svg>
           </div>
-          <div>
-            <h3>Mélanie</h3>
-            <span class="team-role">Conception &amp; accompagnement</span>
-          </div>
+          <h3>Mélanie</h3>
+          <span class="team-role">Conception &amp; accompagnement</span>
+          <p>
+            Issue du contrôle de gestion, Mélanie connaît les contraintes, les rythmes et les
+            réalités du travail en entreprise. Son propre parcours l'a amenée à questionner
+            la place accordée aux pauses, aux relations informelles et au bien-être réel des
+            collaborateurs.
+          </p>
+          <p>
+            Au sein de Cool as Cucumber, elle conçoit les accompagnements, réalise les
+            diagnostics et anime les projets avec les collaborateurs, de la première réflexion
+            jusqu'à l'installation et à l'appropriation des espaces végétalisés.
+          </p>
         </div>
-        <p>
-          Issue du contrôle de gestion, Mélanie connaît les contraintes, les rythmes et les
-          réalités du travail en entreprise. Son propre parcours l'a amenée à questionner
-          la place accordée aux pauses, aux relations informelles et au bien-être réel des
-          collaborateurs.
-        </p>
-        <p>
-          Passionnée par les plantes et convaincue de ce que le vivant peut apporter au
-          quotidien, elle a imaginé une démarche réunissant végétalisation, participation
-          des équipes et qualité de vie au travail.
-        </p>
-        <p>
-          Au sein de Cool as Cucumber, Mélanie conçoit les accompagnements, réalise les
-          diagnostics et anime les projets avec les collaborateurs, de la première réflexion
-          jusqu'à l'installation et à l'appropriation des espaces végétalisés.
-        </p>
-      </div>
 
-      <div class="team-card">
-        <div class="team-avatar-wrap">
-          <div class="team-avatar">
+        <div class="team-card">
+          <div class="avatar-circle">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="6" cy="9" r="2.1"/>
               <circle cx="12" cy="7.5" r="2.4"/>
@@ -268,43 +346,119 @@
               <path d="M14.5 19.5c0-2.6 1.6-4.5 3.5-4.5s3.5 1.9 3.5 4.5"/>
             </svg>
           </div>
-          <div>
-            <h3>Valentin</h3>
-            <span class="team-role">Développement &amp; ateliers</span>
+          <h3>Valentin</h3>
+          <span class="team-role">Développement &amp; ateliers</span>
+          <p>
+            Manager depuis plusieurs années, Valentin place l'écoute, la proximité et la
+            dynamique collective au cœur de sa pratique. Habitué à piloter des équipes dans
+            des environnements exigeants, il porte une attention particulière à la manière
+            dont les collaborateurs vivent leur travail et progressent ensemble.
+          </p>
+          <p>
+            Il contribue au développement de l'entreprise, à la rencontre des clients et à
+            l'animation des ateliers, avec un objectif simple : construire la performance
+            collective avec l'humain, jamais à son détriment.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTRE FORCE / VALEURS -->
+  <section id="force">
+    <div class="force-grid">
+
+      <div class="force-art placeholder-art" aria-hidden="true">
+        <div class="placeholder-shape-light" style="background: rgba(255,104,44,0.12);"></div>
+        <span class="placeholder-spark">
+          <svg viewBox="0 0 30 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2 5 8"/><path d="M2 12h6"/><path d="M6 20l3-5"/>
+          </svg>
+        </span>
+        <div class="placeholder-photo">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="2"/>
+            <path d="M3 17l5-5 4 4 6-7 3 3"/>
+            <rect x="2" y="3" width="20" height="18" rx="2"/>
+          </svg>
+          <span>Photo à venir</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="force-header">
+          <p class="eyebrow">Notre force</p>
+          <h2>Des profils complémentaires, une même vision</h2>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-item">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="8.5" cy="8" r="2.6"/><circle cx="16" cy="9" r="2.1"/>
+                <path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/><path d="M14 14.4c2.4.2 4 2.1 4 4.6"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Écoute</h3>
+              <p>Comprendre les usages réels avant de proposer quoi que ce soit.</p>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16"/><path d="M12 4v16"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Rigueur</h3>
+              <p>Chaque projet est mesuré, suivi et ajusté dans la durée.</p>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 21V10"/><path d="M12 10C12 6 9 4 5 4C5 8 7 11 12 10Z"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Participation</h3>
+              <p>Les équipes construisent avec nous, jamais à leur place.</p>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Durée</h3>
+              <p>Notre réussite se mesure deux ans après notre passage.</p>
+            </div>
           </div>
         </div>
-        <p>
-          Manager depuis plusieurs années, Valentin place l'écoute, la proximité et la
-          dynamique collective au cœur de sa pratique professionnelle.
-        </p>
-        <p>
-          Habitué à piloter des équipes dans des environnements exigeants, il accorde une
-          attention particulière à la manière dont les collaborateurs vivent leur travail,
-          trouvent leur place et progressent ensemble.
-        </p>
-        <p>
-          Son expérience du management, de la relation client et de la gestion de projet
-          apporte à Cool as Cucumber une connaissance concrète du fonctionnement des
-          organisations et des besoins des équipes.
-        </p>
-        <p>
-          Il contribue au développement de l'entreprise, à la rencontre des clients et à
-          l'animation des ateliers. Son objectif : participer à la création de lieux de
-          travail où la performance collective se construit avec l'humain, et non à son
-          détriment.
-        </p>
+
+        <a href="#conviction" class="force-cta">
+          Découvrir nos valeurs
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
 
     </div>
   </section>
 
   <!-- CONVICTION (dark) -->
-  <section class="on-dark" style="margin: 0 -28px;">
-    <div class="wrap">
+  <section id="conviction" class="on-dark" style="margin: 0 -28px; padding-left: 28px; padding-right: 28px; scroll-margin-top: 130px;">
+    <div class="wrap" style="padding: 0;">
       <div class="conviction-wrap">
         <p class="eyebrow">Notre conviction</p>
         <h2>Installer quelques plantes dans un bureau ne suffit pas à transformer un environnement de travail.</h2>
-        <p>
+        <p style="margin-top: 20px;">
           Pour qu'un projet reste vivant, les collaborateurs doivent pouvoir le comprendre,
           y participer et se l'approprier. C'est pourquoi nous ne nous contentons pas de
           livrer des plantes : nous imaginons avec les équipes des espaces, des usages et
