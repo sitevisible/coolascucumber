@@ -66,19 +66,34 @@
     white-space: nowrap; flex-shrink: 0;
   }
   .logo-img{ height: 34px; width: auto; display: block; }
-  .nav-back{
+    nav.links{ display:flex; gap: 4px; overflow-x:auto; scrollbar-width:none; }
+  nav.links::-webkit-scrollbar{ display:none; }
+  nav.links a{
     text-decoration:none; font-size:0.88rem; font-weight: 500; color: var(--ink-soft);
-    padding: 8px 14px; border-radius: 999px; transition: color .2s ease, background .2s ease;
+    white-space:nowrap; padding: 8px 14px; border-radius: 999px;
+    transition: color .2s ease, background .2s ease;
   }
-  .nav-back:hover{ color: var(--green-deep); background: rgba(174,196,105,0.22); }
+  nav.links a:hover{ color: var(--green-deep); background: rgba(174,196,105,0.22); }
+
+  .nav-cta{
+    flex-shrink: 0;
+    background: var(--orange); color: #FFFFFF;
+    font-family:'Work Sans', sans-serif; font-weight: 600; font-size: 0.86rem;
+    text-decoration: none;
+    padding: 10px 20px; border-radius: 999px;
+    white-space: nowrap;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ background: #E85720; transform: translateY(-1px); }
 
   @media (max-width: 760px){
     header.site-nav{ padding: 14px 14px 0; }
     .nav-inner{ padding: 8px 8px 8px 16px; gap: 10px; }
     .logo-img{ height: 28px; }
+    .nav-cta{ display:none; }
   }
 
-  main{ padding: 130px 0 100px; }
+    main{ padding: 200px 0 100px; }
 
   .contact-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items:start; }
   @media (max-width: 860px){ .contact-grid{ grid-template-columns: 1fr; gap: 46px; } }
@@ -139,7 +154,14 @@
 <header class="site-nav">
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logoCC.png" alt="Cool As Cucumber" class="logo-img"></a>
-    <a href="index.html" class="nav-back">← Retour au site</a>
+    <nav class="links">
+      <a href="index.html#mission">Mission</a>
+      <a href="index.html#approche">Approche</a>
+      <a href="index.html#promesses">Promesses</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#parcours">Parcours</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Contact</a>
   </div>
 </header>
 
