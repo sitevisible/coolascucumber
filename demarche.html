@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notre démarche — Cool As Cucumber</title>
+<meta name="description" content="Découvrez la démarche Cool As Cucumber : diagnostic ou atelier pilote, conception participative, installation, accompagnement et animation dans la durée.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.85em%22 font-size=%2290%22>🥒</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#F7F8EF;
+    --bg-dark:#094B3C;
+    --ink:#0C2A22;
+    --ink-soft:#43584E;
+    --green-deep:#094B3C;
+    --lime:#AEC469;
+    --soil:#8C7355;
+    --orange:#FF682C;
+    --line:rgba(31,46,26,.13);
+    --shadow:0 20px 40px -24px rgba(31,46,26,.35);
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    margin:0;
+    font-family:'Fraunces',serif;
+    color:var(--ink);
+    font-weight:600;
+    letter-spacing:-.015em;
+  }
+
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  section{padding:92px 0}
+  .eyebrow{
+    display:flex;align-items:center;gap:.6em;
+    margin:0 0 1.1em;
+    font-family:'Space Mono',monospace;
+    font-size:.76rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--green-deep);
+  }
+  .eyebrow::before{
+    content:"";width:26px;height:2px;background:var(--lime);display:inline-block
+  }
+
+  header.site-nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:18px 28px 0;
+    pointer-events:none;
+  }
+  .nav-inner{
+    pointer-events:auto;
+    max-width:1120px;margin:0 auto;
+    padding:10px 10px 10px 24px;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(31,46,26,.08);
+    border-radius:999px;
+    box-shadow:0 14px 34px -18px rgba(9,75,60,.28);
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .logo{
+    display:flex;align-items:center;text-decoration:none;white-space:nowrap;flex-shrink:0;
+  }
+  .logo-img{height:34px;width:auto}
+  nav.links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  nav.links::-webkit-scrollbar{display:none}
+  nav.links a{
+    text-decoration:none;
+    font-size:.86rem;
+    font-weight:500;
+    color:var(--ink-soft);
+    white-space:nowrap;
+    padding:8px 12px;
+    border-radius:999px;
+    transition:.2s ease;
+  }
+  nav.links a:hover,
+  nav.links a.active{
+    color:var(--green-deep);
+    background:rgba(174,196,105,.18);
+  }
+  .nav-cta{
+    flex-shrink:0;
+    background:var(--orange);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:.86rem;
+    padding:10px 20px;
+    border-radius:999px;
+  }
+
+  main{padding-top:92px}
+
+  .hero{
+    display:grid;
+    grid-template-columns:.94fr 1.06fr;
+    gap:68px;
+    align-items:center;
+    padding-top:88px;
+  }
+  .hero h1{
+    font-size:clamp(2.5rem,5vw,4.2rem);
+    line-height:1;
+  }
+  .hero h1 span{display:block;color:var(--orange);font-weight:400;margin-top:.18em}
+  .hero .lead{
+    margin:24px 0 0;
+    max-width:50ch;
+    color:var(--ink-soft);
+    font-size:1.08rem;
+  }
+
+  .hero-art{
+    position:relative;
+    isolation:isolate;
+  }
+  .hero-art::before{
+    content:"";
+    position:absolute;
+    width:180px;height:180px;
+    border-radius:50%;
+    background:rgba(174,196,105,.45);
+    top:-34px;right:-20px;z-index:0;
+  }
+  .hero-art::after{
+    content:"";
+    position:absolute;
+    width:112px;height:112px;
+    border:2px solid var(--orange);
+    border-radius:50%;
+    bottom:-26px;left:-26px;z-index:2;
+  }
+  .hero-photo{
+    position:relative;z-index:1;
+    aspect-ratio:4/3.5;
+    overflow:hidden;
+    border-radius:34px 12px 34px 12px;
+    box-shadow:0 28px 58px -34px rgba(9,75,60,.42);
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+
+  .entry{
+    background:var(--bg-soft);
+  }
+  .section-head{
+    max-width:720px;
+    margin-bottom:44px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem,3.4vw,2.7rem);
+    line-height:1.12;
+  }
+  .section-head p{
+    margin:14px 0 0;
+    color:var(--ink-soft);
+  }
+
+  .entry-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+  .entry-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 18px 42px -36px rgba(9,75,60,.45);
+  }
+  .entry-card .num{
+    font-family:'Space Mono',monospace;
+    font-size:.7rem;
+    color:var(--soil);
+    letter-spacing:.1em;
+  }
+  .entry-card h3{font-size:1.35rem;margin-top:16px}
+  .entry-card p{margin:12px 0 0;color:var(--ink-soft)}
+  .entry-card .tag{
+    display:inline-block;
+    margin-top:22px;
+    padding-top:12px;
+    border-top:2px solid var(--lime);
+    font-size:.86rem;
+    font-weight:600;
+    color:var(--green-deep);
+  }
+  .entry-card:nth-child(2) .tag{border-color:var(--orange)}
+
+  .journey{
+    padding-bottom:110px;
+  }
+  .journey-list{
+    border-top:1px solid var(--line);
+  }
+  .journey-row{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:46px;
+    padding:42px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .journey-label{
+    font-family:'Space Mono',monospace;
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--soil);
+  }
+  .journey-content h3{
+    font-size:clamp(1.55rem,2.6vw,2rem);
+  }
+  .journey-content > p{
+    margin:10px 0 22px;
+    max-width:62ch;
+    color:var(--ink-soft);
+  }
+  .journey-points{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  .journey-point{
+    padding:16px 0 0;
+    border-top:2px solid rgba(9,75,60,.14);
+  }
+  .journey-point strong{
+    display:block;
+    font-size:.92rem;
+    margin-bottom:4px;
+  }
+  .journey-point span{
+    color:var(--ink-soft);
+    font-size:.88rem;
+  }
+  .journey-row:nth-child(2) .journey-point{border-color:rgba(255,104,44,.28)}
+  .journey-row:nth-child(3) .journey-point{border-color:rgba(174,196,105,.65)}
+
+  .closing{
+    background:var(--bg-dark);
+    color:#fff;
+  }
+  .closing h2{
+    color:#fff;
+    font-size:clamp(1.9rem,3.4vw,2.6rem);
+    max-width:20ch;
+    line-height:1.12;
+  }
+  .closing p{
+    max-width:56ch;
+    margin:18px 0 0;
+    color:rgba(255,255,255,.78);
+  }
+  .closing a{
+    display:inline-flex;
+    margin-top:28px;
+    padding:13px 24px;
+    border-radius:999px;
+    background:var(--orange);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+  }
+
+  footer{
+    padding:40px 0 60px;
+    text-align:center;
+    font-family:'Space Mono',monospace;
+    font-size:.82rem;
+    color:var(--ink-soft);
+  }
+  footer .tagline{display:block;margin-top:6px;color:var(--soil)}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;gap:44px}
+    .entry-grid{grid-template-columns:1fr}
+    .journey-row{grid-template-columns:1fr;gap:14px}
+    .journey-points{grid-template-columns:1fr}
+  }
+  @media(max-width:760px){
+    header.site-nav{padding:14px 14px 0}
+    .nav-inner{padding:8px 8px 8px 16px}
+    .logo-img{height:28px}
+    .nav-cta{display:none}
+    section{padding:68px 0}
+    .hero{padding-top:66px}
+  }
+</style>
+</head>
+
+<body>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logoCC.png" alt="Cool As Cucumber" class="logo-img"></a>
+    <nav class="links">
+      <a href="index.html#mission">Mission</a>
+      <a href="demarche.html" class="active">Notre démarche</a>
+      <a href="index.html#approche">Approche</a>
+      <a href="index.html#promesses">Promesses</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="equipe.html">Équipe</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <p class="eyebrow">Notre démarche</p>
+      <h1>Faire entrer le vivant.<span>Et le faire durer.</span></h1>
+      <p class="lead">
+        Nous ne proposons pas une installation figée. Nous construisons avec les équipes une démarche progressive :
+        comprendre, tester, installer, transmettre puis faire évoluer le projet dans le temps.
+      </p>
+    </div>
+
+    <div class="hero-art">
+      <div class="hero-photo">
+        <img src="methode.png" alt="Équipe en atelier participatif autour des plantes">
+      </div>
+    </div>
+  </section>
+
+  <section class="entry">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Par où commencer ?</p>
+        <h2>Deux portes d'entrée, selon votre besoin</h2>
+        <p>Il n'est pas nécessaire de commencer par un parcours complet. La première étape dépend de votre contexte, de vos espaces et du niveau d'engagement souhaité.</p>
+      </div>
+
+      <div class="entry-grid">
+        <article class="entry-card">
+          <span class="num">01 — DIAGNOSTIC</span>
+          <h3>Comprendre avant d'agir</h3>
+          <p>Analyse des usages, des espaces et des attentes des équipes pour identifier le potentiel du projet et construire des recommandations adaptées.</p>
+          <span class="tag">Pour cadrer un projet plus large</span>
+        </article>
+
+        <article class="entry-card">
+          <span class="num">02 — ATELIER PILOTE</span>
+          <h3>Tester avant de déployer</h3>
+          <p>Une première expérience participative à petite échelle pour faire découvrir la démarche, observer l'adhésion et apprendre avant d'aller plus loin.</p>
+          <span class="tag">Pour expérimenter concrètement</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap journey">
+    <div class="section-head">
+      <p class="eyebrow">Une démarche progressive</p>
+      <h2>Le projet évolue avec vos équipes</h2>
+      <p>Chaque étape prépare la suivante. L'objectif n'est pas de créer une dépendance, mais de construire progressivement l'autonomie et l'appropriation.</p>
+    </div>
+
+    <div class="journey-list">
+      <article class="journey-row">
+        <div class="journey-label">01 — Faire pousser</div>
+        <div class="journey-content">
+          <h3>Concevoir et lancer le projet</h3>
+          <p>Nous transformons les besoins identifiés en un projet concret, construit avec les collaborateurs et adapté aux usages réels de l'entreprise.</p>
+          <div class="journey-points">
+            <div class="journey-point"><strong>Conception participative</strong><span>Choix des espaces, des usages et des végétaux avec les équipes.</span></div>
+            <div class="journey-point"><strong>Installation collective</strong><span>Un chantier participatif pour créer de l'appropriation dès le départ.</span></div>
+            <div class="journey-point"><strong>Accompagnement</strong><span>Transmission des bons gestes et suivi des premières semaines.</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="journey-row">
+        <div class="journey-label">02 — Faire vivre</div>
+        <div class="journey-content">
+          <h3>Entretenir la dynamique, pas seulement les plantes</h3>
+          <p>Une fois les espaces créés, nous entretenons le lien autour du vivant pour éviter que le projet ne s'essouffle après quelques mois.</p>
+          <div class="journey-points">
+            <div class="journey-point"><strong>Rendez-vous du vivant</strong><span>Des temps courts pour suivre, ajuster et maintenir l'implication.</span></div>
+            <div class="journey-point"><strong>Ateliers</strong><span>Bouturage, transmission de savoirs et moments collectifs.</span></div>
+            <div class="journey-point"><strong>Suivi & SAV</strong><span>Un accompagnement pour sécuriser le projet dans la durée.</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="journey-row">
+        <div class="journey-label">03 — Faire grandir</div>
+        <div class="journey-content">
+          <h3>Faire évoluer le projet avec l'entreprise</h3>
+          <p>Quand la dynamique est installée, de nouveaux usages peuvent apparaître et enrichir progressivement l'écosystème vivant de l'entreprise.</p>
+          <div class="journey-points">
+            <div class="journey-point"><strong>Bar à boutures</strong><span>Faire circuler les plantes et les savoir-faire entre collaborateurs.</span></div>
+            <div class="journey-point"><strong>Compost & eau</strong><span>Introduire des pratiques concrètes et visibles au quotidien.</span></div>
+            <div class="journey-point"><strong>Potager & aromatiques</strong><span>Développer de nouveaux espaces collectifs selon les possibilités du site.</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--lime)">Construisons la première étape</p>
+      <h2>Pas besoin de tout décider dès le départ.</h2>
+      <p>Nous pouvons commencer par un diagnostic, un atelier pilote ou simplement un échange pour déterminer la porte d'entrée la plus adaptée.</p>
+      <a href="contact.html">Parler de votre projet</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Cool As Cucumber — Conseil en QVT &amp; RSE par le vivant
+  <span class="tagline">Restez frais. Cultivez du vivant.</span>
+</footer>
+</body>
+</html>
