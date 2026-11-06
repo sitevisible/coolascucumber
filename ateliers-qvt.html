@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos ateliers QVT — Cool As Cucumber</title>
+<meta name="description" content="Des ateliers QVT participatifs autour du vivant pour créer du lien, transmettre des savoir-faire et faire vivre les espaces de travail autrement.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#fff;
+  --bg-soft:#F7F8EF;
+  --bg-dark:#094B3C;
+  --ink:#0C2A22;
+  --ink-soft:#43584E;
+  --green-deep:#094B3C;
+  --lime:#AEC469;
+  --soil:#8C7355;
+  --orange:#FF682C;
+  --line:rgba(31,46,26,.13);
+  --shadow:0 20px 40px -24px rgba(31,46,26,.35);
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Work Sans',sans-serif;font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  margin:0;font-family:'Fraunces',serif;color:var(--ink);
+  font-weight:600;letter-spacing:-.015em;
+}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+section{padding:92px 0}
+.eyebrow{
+  display:flex;align-items:center;gap:.6em;margin:0 0 1.1em;
+  font-family:'Space Mono',monospace;font-size:.76rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--green-deep);
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--lime);display:inline-block}
+
+header.site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:18px 28px 0;pointer-events:none;
+}
+.nav-inner{
+  pointer-events:auto;max-width:1120px;margin:0 auto;
+  padding:10px 10px 10px 24px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(31,46,26,.08);border-radius:999px;
+  box-shadow:0 14px 34px -18px rgba(9,75,60,.28);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{display:flex;align-items:center;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.logo-img{height:34px;width:auto}
+nav.links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.links::-webkit-scrollbar{display:none}
+nav.links a{
+  text-decoration:none;font-size:.86rem;font-weight:500;color:var(--ink-soft);
+  white-space:nowrap;padding:8px 12px;border-radius:999px;transition:.2s ease;
+}
+nav.links a:hover,nav.links a.active{
+  color:var(--green-deep);background:rgba(174,196,105,.18);
+}
+.nav-cta{
+  flex-shrink:0;background:var(--orange);color:#fff;text-decoration:none;
+  font-weight:600;font-size:.86rem;padding:10px 20px;border-radius:999px;
+}
+main{padding-top:92px}
+
+.hero{
+  display:grid;grid-template-columns:1.02fr .98fr;gap:68px;align-items:center;
+  padding-top:92px;padding-bottom:88px;
+}
+.hero h1{font-size:clamp(2.6rem,5vw,4.25rem);line-height:1}
+.hero h1 span{display:block;color:var(--orange);font-weight:400;margin-top:.18em}
+.hero .lead{margin:24px 0 0;max-width:52ch;color:var(--ink-soft);font-size:1.08rem}
+.hero-note{
+  margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+  max-width:48ch;color:var(--ink-soft);font-size:.94rem;
+}
+.hero-art{
+  position:relative;aspect-ratio:4/3.7;border-radius:32px 12px 32px 12px;
+  overflow:hidden;background:var(--bg-soft);
+}
+.hero-art img{width:100%;height:100%;object-fit:cover}
+.hero-art::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(9,75,60,.18));
+}
+
+.workshops{background:var(--bg-soft)}
+.section-head{max-width:760px;margin-bottom:44px}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.12}
+.section-head p{margin:14px 0 0;color:var(--ink-soft)}
+
+.workshop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.workshop-card{
+  background:#fff;border:1px solid var(--line);border-radius:24px;
+  padding:30px;box-shadow:0 18px 42px -38px rgba(9,75,60,.5);
+}
+.workshop-index{
+  display:block;font-family:'Space Mono',monospace;font-size:.68rem;
+  letter-spacing:.12em;color:var(--soil);margin-bottom:16px;
+}
+.workshop-card h3{font-size:1.35rem;line-height:1.2}
+.workshop-card p{margin:12px 0 0;color:var(--ink-soft)}
+.workshop-card .benefit{
+  margin-top:22px;padding-top:14px;border-top:2px solid var(--lime);
+  font-size:.88rem;font-weight:600;color:var(--green-deep);
+}
+.workshop-card:nth-child(2) .benefit,
+.workshop-card:nth-child(4) .benefit{border-color:var(--orange)}
+
+.usage{
+  display:grid;grid-template-columns:.82fr 1.18fr;gap:72px;align-items:start;
+}
+.usage h2{font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.12}
+.usage-list{border-top:1px solid var(--line)}
+.usage-item{
+  display:grid;grid-template-columns:120px 1fr;gap:26px;
+  padding:22px 0;border-bottom:1px solid var(--line);
+}
+.usage-item strong{
+  font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--soil);
+}
+.usage-item p{margin:0;color:var(--ink-soft)}
+
+.cta{background:var(--bg-dark);color:#fff}
+.cta h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.6rem);max-width:22ch;line-height:1.12}
+.cta p{max-width:58ch;margin:18px 0 0;color:rgba(255,255,255,.8)}
+.cta a{
+  display:inline-flex;margin-top:28px;padding:13px 24px;border-radius:999px;
+  background:var(--orange);color:#fff;text-decoration:none;font-weight:600;
+}
+
+footer{
+  padding:40px 0 60px;text-align:center;
+  font-family:'Space Mono',monospace;font-size:.82rem;color:var(--ink-soft);
+}
+footer .tagline{display:block;margin-top:6px;color:var(--soil)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:42px}
+  .workshop-grid{grid-template-columns:1fr}
+  .usage{grid-template-columns:1fr;gap:34px}
+}
+@media(max-width:760px){
+  header.site-nav{padding:14px 14px 0}
+  .nav-inner{padding:8px 8px 8px 16px}
+  .logo-img{height:28px}
+  .nav-cta{display:none}
+  section{padding:68px 0}
+  .hero{padding-top:66px}
+  .usage-item{grid-template-columns:1fr;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logoCC.png" alt="Cool As Cucumber" class="logo-img"></a>
+    <nav class="links">
+      <a href="demarche.html">Notre démarche</a>
+      <a href="ateliers-qvt.html" class="active">Nos ateliers QVT</a>
+      <a href="index.html#promesses">Promesses</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="equipe.html">Équipe</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <p class="eyebrow">Nos ateliers QVT</p>
+      <h1>Créer une respiration.<span>Faire participer les équipes.</span></h1>
+      <p class="lead">
+        Des ateliers autour du vivant conçus comme de vrais temps collectifs : manipuler, apprendre,
+        échanger et repartir avec des gestes simples à refaire au quotidien.
+      </p>
+      <p class="hero-note">
+        Les ateliers peuvent être proposés seuls ou s'intégrer dans une démarche plus globale de QVT et de végétalisation participative.
+      </p>
+    </div>
+
+    <div class="hero-art">
+      <img src="atelier.png" alt="Atelier QVT participatif autour des plantes">
+    </div>
+  </section>
+
+  <section class="workshops">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Des formats participatifs</p>
+        <h2>Des ateliers concrets autour du vivant</h2>
+        <p>Chaque atelier est pensé pour favoriser la participation, créer du lien et donner aux collaborateurs des savoir-faire qu'ils peuvent réellement réutiliser.</p>
+      </div>
+
+      <div class="workshop-grid">
+        <article class="workshop-card">
+          <span class="workshop-index">01</span>
+          <h3>Atelier bouturage</h3>
+          <p>Découvrir comment multiplier les plantes, réaliser ses propres boutures et comprendre les gestes essentiels pour les faire évoluer.</p>
+          <div class="benefit">Transmission · autonomie · échange</div>
+        </article>
+
+        <article class="workshop-card">
+          <span class="workshop-index">02</span>
+          <h3>Atelier plantation & rempotage</h3>
+          <p>Mettre les mains dans la terre, apprendre à choisir un contenant adapté, rempoter correctement et repartir avec les bases d'un entretien durable.</p>
+          <div class="benefit">Pratique · apprentissage · collectif</div>
+        </article>
+
+        <article class="workshop-card">
+          <span class="workshop-index">03</span>
+          <h3>Atelier prendre soin des plantes au bureau</h3>
+          <p>Comprendre les besoins essentiels d'une plante, repérer les signes d'alerte et acquérir les bons réflexes d'arrosage, de lumière et d'entretien.</p>
+          <div class="benefit">Prévention · autonomie · durabilité</div>
+        </article>
+
+        <article class="workshop-card">
+          <span class="workshop-index">04</span>
+          <h3>Atelier collectif sur mesure</h3>
+          <p>Un format construit autour de vos espaces, de votre équipe ou d'une thématique précise pour faire du vivant un support d'animation interne.</p>
+          <div class="benefit">Personnalisation · engagement · QVT</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap usage">
+    <div>
+      <p class="eyebrow">Pourquoi les proposer ?</p>
+      <h2>Un temps collectif qui laisse quelque chose derrière lui</h2>
+    </div>
+
+    <div class="usage-list">
+      <div class="usage-item">
+        <strong>Créer du lien</strong>
+        <p>Un format concret qui facilite les échanges entre collaborateurs sans imposer une activité artificielle.</p>
+      </div>
+      <div class="usage-item">
+        <strong>Faire une pause</strong>
+        <p>Un temps différent du quotidien de travail, basé sur la manipulation et l'attention portée au vivant.</p>
+      </div>
+      <div class="usage-item">
+        <strong>Transmettre</strong>
+        <p>Les participants repartent avec des connaissances et des gestes qu'ils peuvent reproduire après l'atelier.</p>
+      </div>
+      <div class="usage-item">
+        <strong>Faire durer</strong>
+        <p>L'atelier peut devenir le point de départ d'une dynamique plus large autour des espaces et de la QVT.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--lime)">Construisons votre atelier</p>
+      <h2>Un format adapté à votre équipe et à vos objectifs.</h2>
+      <p>Nous pouvons construire un atelier ponctuel ou l'intégrer dans une démarche plus large autour du vivant en entreprise.</p>
+      <a href="contact.html">Parler de votre besoin</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Cool As Cucumber — Conseil en QVT &amp; RSE par le vivant
+  <span class="tagline">Restez frais. Cultivez du vivant.</span>
+</footer>
+
+</body>
+</html>
