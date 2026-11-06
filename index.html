@@ -235,6 +235,44 @@
   @media (max-width: 880px){
     .hero-glow{ display:none; }
   }
+
+  /* ---------- HERO + MISSION FUSIONNÉS ---------- */
+  .hero-combined{
+    row-gap: 52px;
+    padding-bottom: 76px;
+  }
+
+  .hero-mission{
+    grid-column: 1 / -1;
+    display:grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 64px;
+    align-items:start;
+    padding-top: 46px;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 110px;
+  }
+
+  .hero-mission h2{
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    line-height:1.2;
+  }
+
+  .hero-mission-copy p{
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    max-width: 62ch;
+  }
+
+  .hero-mission .mission-points{
+    margin-top: 26px;
+  }
+
+  @media (max-width: 880px){
+    .hero-combined{ row-gap: 40px; padding-bottom: 60px; }
+    .hero-mission{ grid-template-columns: 1fr; gap: 24px; padding-top: 36px; }
+  }
+
   /* ---------- DARK SECTION ---------- */
   .on-dark{ background: var(--bg-dark); color: var(--cream); }
   .on-dark h2, .on-dark h3{ color: var(--cream); }
@@ -629,77 +667,36 @@
 
 <main>
 
-  <!-- HERO -->
-  <section id="accueil" class="wrap hero">
+  <!-- HERO + MISSION -->
+  <section id="accueil" class="wrap hero hero-combined">
     <div>
       <p class="eyebrow">QVT · RSE · Vivant en entreprise</p>
       <h1>
         Cultivons ensemble
         <span class="accent-line">des entreprises plus vivantes.</span>
       </h1>
-            <p class="lead">
-        Chez Cool As Cucumber, chaque pot posé est le début d'une <strong style="color: var(--green-deep); font-weight: 600;">transformation progressive et durable</strong>
+      <p class="lead">
+        Chez Cool As Cucumber, chaque pot posé est le début d'une
+        <strong style="color: var(--green-deep); font-weight: 600;">transformation progressive et durable</strong>
         de vos espaces de travail, portée par une méthode rigoureuse et participative.
       </p>
-
-      <div class="hero-trust">
-        <div class="hero-trust-item">
-          <span class="icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="8.5" cy="8" r="2.6"/>
-              <circle cx="16" cy="9" r="2.1"/>
-              <path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/>
-              <path d="M14 14.4c2.4.2 4 2.1 4 4.6"/>
-            </svg>
-          </span>
-          <span>Démarche participative</span>
-        </div>
-        <div class="hero-trust-item">
-          <span class="icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M12 21V10"/>
-              <path d="M12 10C12 6 9 4 5 4C5 8 7 11 12 10Z"/>
-            </svg>
-          </span>
-          <span>Impact durable</span>
-        </div>
-        <div class="hero-trust-item">
-          <span class="icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M9 20h6"/>
-              <path d="M12 20v-6"/>
-              <path d="M12 14c-3 0-4.5-2-4.5-4.5C10 9.5 12 10 12 14Z"/>
-              <path d="M12 14c3 0 4.5-2.3 4.5-5C14 9 12 9.5 12 14Z"/>
-            </svg>
-          </span>
-          <span>Suivi sur la durée</span>
-        </div>
-      </div>
     </div>
 
-                <div class="hero-art" aria-hidden="true">
+    <div class="hero-art" aria-hidden="true">
       <div class="hero-glow"></div>
       <div class="hero-glow two"></div>
       <div class="hero-photo">
         <img src="missionBIS.png" alt="Bureau aménagé avec des plantes">
       </div>
     </div>
-  </section>
 
-    <!-- MISSION -->
-  <section id="mission" class="wrap reveal">
-    <div class="mission-grid">
-      <div class="mission-art" aria-hidden="true">
-        <div class="mission-shape-dark"></div>
-        <div class="mission-shape-light"></div>
-        <div class="mission-photo">
-          <img src="mission1.png" alt="Espace de travail avec des plantes et une équipe">
-        </div>
-        <div class="mission-shape-ring"></div>
-      </div>
+    <div id="mission" class="hero-mission reveal">
       <div>
         <h2>Le vivant ne s'installe pas.<br><span style="color: var(--orange);">Il se cultive.</span></h2>
-        <p style="margin-top: 22px;">
+      </div>
+
+      <div class="hero-mission-copy">
+        <p>
           Nous aidons les entreprises à améliorer durablement la qualité de vie au travail en faisant entrer
           le vivant dans leurs espaces, à travers une démarche participative.
         </p>
@@ -711,7 +708,8 @@
           Notre rôle n'est donc pas d'installer des plantes. Notre rôle est de créer une dynamique durable
           autour du vivant.
         </p>
-                <div class="mission-points">
+
+        <div class="mission-points">
           <div class="mission-point">
             <div class="icon">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -721,6 +719,7 @@
             </div>
             <p>Un bien-être<br>durable</p>
           </div>
+
           <div class="mission-point">
             <div class="icon">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -732,6 +731,7 @@
             </div>
             <p>Une dynamique<br>collective</p>
           </div>
+
           <div class="mission-point">
             <div class="icon">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
