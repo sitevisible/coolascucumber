@@ -163,6 +163,78 @@
   }
   .hero-photo img{width:100%;height:100%;object-fit:cover}
 
+  /* APPROCHE PARTICIPATIVE */
+  .participative{
+    padding-top:86px;
+    padding-bottom:96px;
+  }
+
+  .participative-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:64px;
+    align-items:start;
+    margin-top:34px;
+  }
+
+  .participative-list{
+    border-top:1px solid var(--line);
+  }
+
+  .participative-item{
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:18px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .participative-num{
+    font-family:'Space Mono',monospace;
+    font-size:.72rem;
+    color:var(--soil);
+    padding-top:3px;
+  }
+
+  .participative-item p{
+    margin:0;
+    color:var(--ink);
+  }
+
+  .participative-art{
+    position:sticky;
+    top:120px;
+  }
+
+  .participative-photo{
+    position:relative;
+    overflow:hidden;
+    aspect-ratio:4/4.3;
+    border-radius:30px 12px 30px 12px;
+    box-shadow:0 28px 58px -34px rgba(9,75,60,.42);
+  }
+
+  .participative-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .participative-note{
+    margin-top:18px;
+    padding:18px 20px;
+    border-left:2px solid var(--orange);
+    background:rgba(174,196,105,.08);
+    color:var(--ink-soft);
+    font-size:.92rem;
+  }
+
+  .participative-close{
+    margin:28px 0 0;
+    max-width:62ch;
+    color:var(--ink-soft);
+  }
+
   .entry{
     background:var(--bg-soft);
   }
@@ -296,6 +368,8 @@
 
   @media(max-width:900px){
     .hero{grid-template-columns:1fr;gap:44px}
+    .participative-grid{grid-template-columns:1fr;gap:36px}
+    .participative-art{position:static}
     .entry-grid{grid-template-columns:1fr}
     .journey-row{grid-template-columns:1fr;gap:14px}
     .journey-points{grid-template-columns:1fr}
@@ -318,7 +392,6 @@
     <nav class="links">
       <a href="index.html#mission">Mission</a>
       <a href="demarche.html" class="active">Notre démarche</a>
-      <a href="index.html#approche">Approche</a>
       <a href="index.html#promesses">Promesses</a>
       <a href="index.html#methode">Méthode</a>
       <a href="index.html#parcours">Parcours</a>
@@ -342,6 +415,55 @@
     <div class="hero-art">
       <div class="hero-photo">
         <img src="methode.png" alt="Équipe en atelier participatif autour des plantes">
+      </div>
+    </div>
+  </section>
+
+
+  <section id="participative" class="wrap participative">
+    <div class="section-head">
+      <p class="eyebrow">Ce que nous faisons</p>
+      <h2>Une démarche construite <span style="color:var(--orange)">avec vos équipes, pas pour elles</span></h2>
+      <p>
+        Nous accompagnons la création d'espaces de travail plus vivants en impliquant les collaborateurs
+        à chaque étape du projet.
+      </p>
+    </div>
+
+    <div class="participative-grid">
+      <div class="participative-list">
+        <div class="participative-item">
+          <span class="participative-num">01</span>
+          <p>Ils choisissent les aménagements et les espèces plantées.</p>
+        </div>
+        <div class="participative-item">
+          <span class="participative-num">02</span>
+          <p>Ils réalisent eux-mêmes une partie des installations.</p>
+        </div>
+        <div class="participative-item">
+          <span class="participative-num">03</span>
+          <p>Ils apprennent à prendre soin des plantes au quotidien.</p>
+        </div>
+        <div class="participative-item">
+          <span class="participative-num">04</span>
+          <p>Ils deviennent progressivement autonomes.</p>
+        </div>
+        <div class="participative-item">
+          <span class="participative-num">05</span>
+          <p>Ils développent une véritable communauté autour du vivant.</p>
+        </div>
+
+        <p class="participative-close">
+          Le végétal devient alors un support pour améliorer la QVT, renforcer le sentiment d'appartenance,
+          créer des échanges entre collaborateurs, et rendre la démarche RSE concrète au quotidien.
+        </p>
+      </div>
+
+      <div class="participative-art">
+        <div class="participative-photo">
+          <img src="atelier.png" alt="Atelier participatif de plantation en équipe">
+        </div>
+        <div class="participative-note">5 étapes menées avec les équipes, main dans la main.</div>
       </div>
     </div>
   </section>
