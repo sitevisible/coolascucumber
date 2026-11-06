@@ -238,62 +238,204 @@
 
   /* ---------- OUVERTURE FUSIONNÉE ---------- */
   .hero-combined{
-    padding: 130px 10px 82px;
+    padding: 132px 10px 86px;
     display:grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 64px;
+    grid-template-columns: minmax(0, 1.02fr) minmax(380px, .98fr);
+    gap: 68px;
     align-items:center;
   }
 
+  .hero-copy{
+    max-width: 620px;
+  }
+
   .hero-copy h1{
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.65rem, 5vw, 4.35rem);
+    line-height: .98;
+    letter-spacing: -0.035em;
   }
 
   .hero-copy h1 .accent-line{
     display:block;
     color: var(--green-deep);
     font-weight: 400;
-    font-size: 0.62em;
-    margin-top: 0.35em;
+    font-size: .6em;
+    line-height: 1.12;
+    margin-top: .38em;
+    letter-spacing: -0.02em;
   }
 
   .hero-copy .lead{
-    margin: 26px 0 24px;
-    max-width: 48ch;
+    margin: 28px 0 0;
+    max-width: 50ch;
     color: var(--ink-soft);
-    font-size: 1.08rem;
+    font-size: 1.06rem;
+    line-height: 1.7;
+  }
+
+  .mission-block{
+    position: relative;
+    margin-top: 34px;
+    padding: 28px 30px 28px;
+    background: linear-gradient(135deg, rgba(174,196,105,.14), rgba(255,255,255,.9));
+    border: 1px solid rgba(9,75,60,.10);
+    border-radius: 22px;
+    box-shadow: 0 18px 40px -34px rgba(9,75,60,.45);
+    overflow: hidden;
+  }
+
+  .mission-block::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:30px;
+    width:72px;
+    height:4px;
+    border-radius:0 0 999px 999px;
+    background: var(--orange);
   }
 
   .hero-copy .mission-title{
-    margin-top: 28px;
-    font-size: clamp(1.7rem, 3vw, 2.3rem);
-    line-height: 1.2;
+    margin: 0;
+    font-size: clamp(1.55rem, 2.4vw, 2rem);
+    line-height: 1.16;
+    letter-spacing: -0.015em;
   }
 
   .hero-copy .mission-text{
     color: var(--ink-soft);
-    margin: 18px 0 0;
-    max-width: 52ch;
-  }
-
-  .hero-combined .mission-points{
-    margin-top: 30px;
+    margin: 15px 0 0;
+    max-width: 54ch;
+    font-size: .97rem;
+    line-height: 1.68;
   }
 
   .hero-combined .mission-art{
     width: 100%;
-    aspect-ratio: 4 / 3.8;
+    aspect-ratio: 4 / 4.25;
+    min-height: 570px;
   }
 
-  @media (max-width: 880px){
+  .hero-combined .mission-photo{
+    border-radius: 34px 12px 34px 12px;
+    box-shadow: 0 28px 58px -34px rgba(9,75,60,.42);
+  }
+
+  .hero-combined .mission-shape-dark{
+    top:-34px;
+    left:-34px;
+    width:150px;
+    height:150px;
+    opacity:.94;
+  }
+
+  .hero-combined .mission-shape-light{
+    bottom:-18px;
+    left:12%;
+    width:190px;
+    height:92px;
+    opacity:.34;
+  }
+
+  .hero-combined .mission-shape-ring{
+    bottom:-24px;
+    right:-14px;
+    width:118px;
+    height:118px;
+  }
+
+  .hero-benefits{
+    grid-column: 1 / -1;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 2px;
+  }
+
+  .hero-benefit{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    min-height:92px;
+    padding:18px 20px;
+    background:#fff;
+    border:1px solid rgba(9,75,60,.10);
+    border-radius:18px;
+    box-shadow: 0 14px 34px -30px rgba(9,75,60,.55);
+  }
+
+  .hero-benefit .icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:rgba(174,196,105,.20);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 auto;
+  }
+
+  .hero-benefit .icon svg{
+    width:20px;
+    height:20px;
+    stroke:var(--green-deep);
+    fill:none;
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+
+  .hero-benefit p{
+    margin:0;
+    font-size:.94rem;
+    line-height:1.35;
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  @media (max-width: 980px){
     .hero-combined{
       grid-template-columns: 1fr;
-      gap: 42px;
-      padding: 88px 0 60px;
+      gap: 44px;
+      padding: 98px 0 64px;
     }
-    .hero-combined .mission-art{ order: 2; }
+
+    .hero-copy{
+      max-width: none;
+    }
+
+    .hero-combined .mission-art{
+      min-height: 0;
+      aspect-ratio: 4 / 3.3;
+    }
+
+    .hero-benefits{
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+
+    .hero-benefit{
+      min-height:0;
+    }
+  }
+
+  @media (max-width: 560px){
+    .hero-copy h1{
+      font-size: clamp(2.35rem, 11vw, 3.4rem);
+    }
+
+    .mission-block{
+      padding: 26px 22px 24px;
+      border-radius: 18px;
+    }
+
+    .mission-block::before{
+      left:22px;
+    }
+
+    .hero-combined .mission-art{
+      aspect-ratio: 4 / 3.8;
+    }
   }
 
   /* ---------- DARK SECTION ---------- */
@@ -705,7 +847,7 @@
         le vivant dans leurs espaces, à travers une démarche participative.
       </p>
 
-      <div id="mission">
+      <div id="mission" class="mission-block">
         <h2 class="mission-title">
           Le vivant ne s'installe pas.<br>
           <span style="color: var(--orange);">Il se cultive.</span>
@@ -726,43 +868,6 @@
           Notre rôle n'est donc pas d'installer des plantes. Notre rôle est de créer une dynamique durable
           autour du vivant.
         </p>
-
-        <div class="mission-points">
-          <div class="mission-point">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M6 13c0-5 4-8 12-9-1 8-4 12-9 12-1.8 0-3-1.3-3-3Z"/>
-                <path d="M9 16c-1.5 1-2.5 2.7-2.5 4.5"/>
-              </svg>
-            </div>
-            <p>Un bien-être<br>durable</p>
-          </div>
-
-          <div class="mission-point">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="8.5" cy="8" r="2.6"/>
-                <circle cx="16" cy="9" r="2.1"/>
-                <path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/>
-                <path d="M14 14.4c2.4.2 4 2.1 4 4.6"/>
-              </svg>
-            </div>
-            <p>Une dynamique<br>collective</p>
-          </div>
-
-          <div class="mission-point">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M9 20h6"/>
-                <path d="M12 20v-6"/>
-                <path d="M12 14c-3 0-4.5-2-4.5-4.5C10 9.5 12 10 12 14Z"/>
-                <path d="M12 14c3 0 4.5-2.3 4.5-5C14 9 12 9.5 12 14Z"/>
-                <rect x="8.5" y="17" width="7" height="3" rx="0.5"/>
-              </svg>
-            </div>
-            <p>Des espaces<br>plus vivants</p>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -773,6 +878,43 @@
         <img src="mission1.png" alt="Espace de travail avec des plantes et une équipe">
       </div>
       <div class="mission-shape-ring"></div>
+    </div>
+
+    <div class="hero-benefits" aria-label="Bénéfices de la démarche">
+      <div class="hero-benefit">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 13c0-5 4-8 12-9-1 8-4 12-9 12-1.8 0-3-1.3-3-3Z"/>
+            <path d="M9 16c-1.5 1-2.5 2.7-2.5 4.5"/>
+          </svg>
+        </div>
+        <p>Un bien-être durable</p>
+      </div>
+
+      <div class="hero-benefit">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="8.5" cy="8" r="2.6"/>
+            <circle cx="16" cy="9" r="2.1"/>
+            <path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/>
+            <path d="M14 14.4c2.4.2 4 2.1 4 4.6"/>
+          </svg>
+        </div>
+        <p>Une dynamique collective</p>
+      </div>
+
+      <div class="hero-benefit">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 20h6"/>
+            <path d="M12 20v-6"/>
+            <path d="M12 14c-3 0-4.5-2-4.5-4.5C10 9.5 12 10 12 14Z"/>
+            <path d="M12 14c3 0 4.5-2.3 4.5-5C14 9 12 9.5 12 14Z"/>
+            <rect x="8.5" y="17" width="7" height="3" rx="0.5"/>
+          </svg>
+        </div>
+        <p>Des espaces plus vivants</p>
+      </div>
     </div>
   </section>
 
