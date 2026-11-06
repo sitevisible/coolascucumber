@@ -349,20 +349,16 @@
     display:grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap:0;
-    margin-top:10px;
-    padding-top:22px;
-    border-top:1px solid rgba(9,75,60,.12);
+    margin-top:16px;
+    padding:26px 0 0;
+    border-top:1px solid rgba(9,75,60,.11);
   }
 
   .hero-benefit{
-    min-height:72px;
-    padding:6px 28px;
-    display:grid;
-    grid-template-columns:28px 1fr;
-    gap:14px;
-    align-items:center;
-    background:transparent;
-    border-right:1px solid rgba(9,75,60,.10);
+    position:relative;
+    min-height:108px;
+    padding:4px 34px 2px;
+    border-right:1px solid rgba(9,75,60,.09);
   }
 
   .hero-benefit:first-child{
@@ -374,35 +370,46 @@
     padding-right:0;
   }
 
-  .hero-benefit .icon{
-    width:28px;
-    height:28px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:transparent;
-    border-radius:0;
-    flex:0 0 auto;
+  .hero-benefit-index{
+    display:block;
+    margin-bottom:14px;
+    font-family:'Space Mono', monospace;
+    font-size:.68rem;
+    line-height:1;
+    letter-spacing:.12em;
+    color:var(--soil);
   }
 
-  .hero-benefit .icon svg{
-    width:21px;
-    height:21px;
-    stroke:var(--green-deep);
-    fill:none;
-    stroke-width:1.25;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-  }
-
-  .hero-benefit p{
+  .hero-benefit-title{
+    position:relative;
     margin:0;
-    font-family:'Work Sans', sans-serif;
-    font-size:.86rem;
-    line-height:1.35;
-    color:var(--ink);
+    max-width:18ch;
+    padding-top:11px;
+    font-family:'Fraunces', serif;
+    font-size:1.08rem;
+    line-height:1.22;
     font-weight:600;
-    letter-spacing:.005em;
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+
+  .hero-benefit-title::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:28px;
+    height:2px;
+    border-radius:999px;
+    background:var(--lime);
+  }
+
+  .hero-benefit:nth-child(2) .hero-benefit-title::before{
+    background:var(--orange);
+  }
+
+  .hero-benefit:nth-child(3) .hero-benefit-title::before{
+    background:var(--green-deep);
   }
 
   @media (max-width: 980px){
@@ -424,14 +431,14 @@
     .hero-benefits{
       grid-template-columns: 1fr;
       gap:0;
-      padding-top:16px;
+      padding-top:14px;
     }
 
     .hero-benefit,
     .hero-benefit:first-child,
     .hero-benefit:last-child{
       min-height:0;
-      padding:14px 0;
+      padding:18px 0;
       border-right:none;
       border-bottom:1px solid rgba(9,75,60,.08);
     }
@@ -904,38 +911,18 @@
 
     <div class="hero-benefits" aria-label="Bénéfices de la démarche">
       <div class="hero-benefit">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="12" cy="12" r="6.5"/>
-            <path d="M12 5.5v13"/>
-            <path d="M8.5 9.5h7"/>
-          </svg>
-        </div>
-        <p>Un bien-être durable</p>
+        <span class="hero-benefit-index">01</span>
+        <p class="hero-benefit-title">Un bien-être durable</p>
       </div>
 
       <div class="hero-benefit">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="7" cy="12" r="2.2"/>
-            <circle cx="17" cy="8" r="2.2"/>
-            <circle cx="17" cy="16" r="2.2"/>
-            <path d="M9.1 11.2l5.8-2.4"/>
-            <path d="M9.1 12.8l5.8 2.4"/>
-          </svg>
-        </div>
-        <p>Une dynamique collective</p>
+        <span class="hero-benefit-index">02</span>
+        <p class="hero-benefit-title">Une dynamique collective</p>
       </div>
 
       <div class="hero-benefit">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="5.5" y="5.5" width="13" height="13" rx="1.5"/>
-            <path d="M9.5 5.5v13"/>
-            <path d="M9.5 12h9"/>
-          </svg>
-        </div>
-        <p>Des espaces plus vivants</p>
+        <span class="hero-benefit-index">03</span>
+        <p class="hero-benefit-title">Des espaces plus vivants</p>
       </div>
     </div>
   </section>
