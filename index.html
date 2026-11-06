@@ -236,40 +236,64 @@
     .hero-glow{ display:none; }
   }
 
-  /* ---------- HERO + MISSION FUSIONNÉS ---------- */
+  /* ---------- OUVERTURE FUSIONNÉE ---------- */
   .hero-combined{
-    row-gap: 38px;
-    padding-bottom: 76px;
-  }
-
-  .hero-mission{
-    grid-column: 1 / -1;
+    padding: 130px 10px 82px;
     display:grid;
-    grid-template-columns: 0.95fr 1.05fr;
-    gap: 60px;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
     align-items:center;
-    padding-top: 18px;
-    scroll-margin-top: 110px;
   }
 
-  .hero-mission h2{
-    font-size: clamp(1.7rem, 3vw, 2.3rem);
-    line-height:1.2;
+  .hero-copy h1{
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
-  .hero-mission-copy p{
+  .hero-copy h1 .accent-line{
+    display:block;
+    color: var(--green-deep);
+    font-weight: 400;
+    font-size: 0.62em;
+    margin-top: 0.35em;
+  }
+
+  .hero-copy .lead{
+    margin: 26px 0 24px;
+    max-width: 48ch;
     color: var(--ink-soft);
-    margin: 0 0 18px;
-    max-width: 60ch;
+    font-size: 1.08rem;
   }
 
-  .hero-mission .mission-points{
+  .hero-copy .mission-title{
+    margin-top: 28px;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    line-height: 1.2;
+  }
+
+  .hero-copy .mission-text{
+    color: var(--ink-soft);
+    margin: 18px 0 0;
+    max-width: 52ch;
+  }
+
+  .hero-combined .mission-points{
     margin-top: 30px;
   }
 
+  .hero-combined .mission-art{
+    width: 100%;
+    aspect-ratio: 4 / 3.8;
+  }
+
   @media (max-width: 880px){
-    .hero-combined{ row-gap: 34px; padding-bottom: 60px; }
-    .hero-mission{ grid-template-columns: 1fr; gap: 34px; padding-top: 8px; }
+    .hero-combined{
+      grid-template-columns: 1fr;
+      gap: 42px;
+      padding: 88px 0 60px;
+    }
+    .hero-combined .mission-art{ order: 2; }
   }
 
   /* ---------- DARK SECTION ---------- */
@@ -666,50 +690,39 @@
 
 <main>
 
-  <!-- HERO + MISSION -->
-  <section id="accueil" class="wrap hero hero-combined">
-    <div>
+  <!-- OUVERTURE FUSIONNÉE -->
+  <section id="accueil" class="wrap hero-combined">
+    <div class="hero-copy">
       <p class="eyebrow">QVT · RSE · Vivant en entreprise</p>
+
       <h1>
         Cultivons ensemble
         <span class="accent-line">des entreprises plus vivantes.</span>
       </h1>
+
       <p class="lead">
         Chez Cool As Cucumber, chaque pot posé est le début d'une
         <strong style="color: var(--green-deep); font-weight: 600;">transformation progressive et durable</strong>
         de vos espaces de travail, portée par une méthode rigoureuse et participative.
       </p>
-    </div>
 
-    <div class="hero-art" aria-hidden="true">
-      <div class="hero-glow"></div>
-      <div class="hero-glow two"></div>
-      <div class="hero-photo">
-        <img src="missionBIS.png" alt="Bureau aménagé avec des plantes">
-      </div>
-    </div>
+      <div id="mission">
+        <h2 class="mission-title">
+          Le vivant ne s'installe pas.<br>
+          <span style="color: var(--orange);">Il se cultive.</span>
+        </h2>
 
-    <div id="mission" class="hero-mission reveal">
-      <div class="mission-art" aria-hidden="true">
-        <div class="mission-shape-dark"></div>
-        <div class="mission-shape-light"></div>
-        <div class="mission-photo">
-          <img src="mission1.png" alt="Espace de travail avec des plantes et une équipe">
-        </div>
-        <div class="mission-shape-ring"></div>
-      </div>
-
-      <div class="hero-mission-copy">
-        <h2>Le vivant ne s'installe pas.<br><span style="color: var(--orange);">Il se cultive.</span></h2>
-        <p style="margin-top: 22px;">
+        <p class="mission-text">
           Nous aidons les entreprises à améliorer durablement la qualité de vie au travail en faisant entrer
           le vivant dans leurs espaces, à travers une démarche participative.
         </p>
-        <p>
+
+        <p class="mission-text">
           Les plantes ont des bénéfices reconnus sur le bien-être, la perception des espaces et le stress —
           mais cet impact est décuplé lorsqu'elles deviennent un projet collectif.
         </p>
-        <p>
+
+        <p class="mission-text">
           Notre rôle n'est donc pas d'installer des plantes. Notre rôle est de créer une dynamique durable
           autour du vivant.
         </p>
@@ -751,6 +764,15 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="mission-art" aria-hidden="true">
+      <div class="mission-shape-dark"></div>
+      <div class="mission-shape-light"></div>
+      <div class="mission-photo">
+        <img src="mission1.png" alt="Espace de travail avec des plantes et une équipe">
+      </div>
+      <div class="mission-shape-ring"></div>
     </div>
   </section>
 
