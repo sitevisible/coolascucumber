@@ -238,18 +238,17 @@
 
   /* ---------- HERO + MISSION FUSIONNÉS ---------- */
   .hero-combined{
-    row-gap: 52px;
+    row-gap: 38px;
     padding-bottom: 76px;
   }
 
   .hero-mission{
     grid-column: 1 / -1;
     display:grid;
-    grid-template-columns: 0.82fr 1.18fr;
-    gap: 64px;
-    align-items:start;
-    padding-top: 46px;
-    border-top: 1px solid var(--line);
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 60px;
+    align-items:center;
+    padding-top: 18px;
     scroll-margin-top: 110px;
   }
 
@@ -260,17 +259,17 @@
 
   .hero-mission-copy p{
     color: var(--ink-soft);
-    margin: 0 0 16px;
-    max-width: 62ch;
+    margin: 0 0 18px;
+    max-width: 60ch;
   }
 
   .hero-mission .mission-points{
-    margin-top: 26px;
+    margin-top: 30px;
   }
 
   @media (max-width: 880px){
-    .hero-combined{ row-gap: 40px; padding-bottom: 60px; }
-    .hero-mission{ grid-template-columns: 1fr; gap: 24px; padding-top: 36px; }
+    .hero-combined{ row-gap: 34px; padding-bottom: 60px; }
+    .hero-mission{ grid-template-columns: 1fr; gap: 34px; padding-top: 8px; }
   }
 
   /* ---------- DARK SECTION ---------- */
@@ -691,12 +690,18 @@
     </div>
 
     <div id="mission" class="hero-mission reveal">
-      <div>
-        <h2>Le vivant ne s'installe pas.<br><span style="color: var(--orange);">Il se cultive.</span></h2>
+      <div class="mission-art" aria-hidden="true">
+        <div class="mission-shape-dark"></div>
+        <div class="mission-shape-light"></div>
+        <div class="mission-photo">
+          <img src="mission1.png" alt="Espace de travail avec des plantes et une équipe">
+        </div>
+        <div class="mission-shape-ring"></div>
       </div>
 
       <div class="hero-mission-copy">
-        <p>
+        <h2>Le vivant ne s'installe pas.<br><span style="color: var(--orange);">Il se cultive.</span></h2>
+        <p style="margin-top: 22px;">
           Nous aidons les entreprises à améliorer durablement la qualité de vie au travail en faisant entrer
           le vivant dans leurs espaces, à travers une démarche participative.
         </p>
