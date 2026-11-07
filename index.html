@@ -81,28 +81,40 @@
   body.intro-active header.site-nav{
     opacity:0;
     transform:translateY(-10px);
+    animation:introNavReveal .48s ease 2.03s forwards;
   }
 
   header.site-nav{
     transition:opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1);
   }
 
+  @keyframes introNavReveal{
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
   .intro-screen{
     position:fixed;
     inset:0;
     z-index:999;
-    display:grid;
-    place-items:center;
     overflow:hidden;
     background:var(--green-deep);
-    animation:introScreenOut .58s ease 2.18s forwards;
+    animation:introScreenOut .72s ease 2.20s forwards;
   }
 
   .intro-mark{
+    position:absolute;
+    left:50%;
+    top:50%;
     width:min(420px,64vw);
     aspect-ratio:1;
     overflow:visible;
     filter:drop-shadow(0 12px 28px rgba(0,0,0,.08));
+    transform:translate(-50%,-50%) scale(1);
+    transform-origin:center;
+    animation:introMarkToNav .78s cubic-bezier(.22,1,.36,1) 1.62s forwards;
   }
 
   .intro-c-shape{
@@ -165,6 +177,27 @@
     }
   }
 
+  @keyframes introMarkToNav{
+    0%{
+      left:50%;
+      top:50%;
+      opacity:1;
+      transform:translate(-50%,-50%) scale(1);
+    }
+    72%{
+      left:max(78px, calc((100vw - 1120px) / 2 + 76px));
+      top:46px;
+      opacity:1;
+      transform:translate(-50%,-50%) scale(.16);
+    }
+    100%{
+      left:max(78px, calc((100vw - 1120px) / 2 + 76px));
+      top:46px;
+      opacity:0;
+      transform:translate(-50%,-50%) scale(.16);
+    }
+  }
+
   @keyframes introScreenOut{
     0%{
       opacity:1;
@@ -180,6 +213,27 @@
   @media(max-width:760px){
     .intro-mark{
       width:min(320px,76vw);
+    }
+
+    @keyframes introMarkToNav{
+      0%{
+        left:50%;
+        top:50%;
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+      }
+      72%{
+        left:66px;
+        top:36px;
+        opacity:1;
+        transform:translate(-50%,-50%) scale(.17);
+      }
+      100%{
+        left:66px;
+        top:36px;
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.17);
+      }
     }
   }
 
@@ -1745,7 +1799,7 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     finishIntro();
   } else {
-    window.setTimeout(finishIntro, 2800);
+    window.setTimeout(finishIntro, 3000);
   }
 </script>
 
