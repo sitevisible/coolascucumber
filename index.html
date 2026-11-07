@@ -81,7 +81,7 @@
   body.intro-active header.site-nav{
     opacity:0;
     transform:translateY(-10px);
-    animation:introNavReveal .48s ease 2.03s forwards;
+    animation:introNavReveal .42s ease 2.06s forwards;
   }
 
   header.site-nav{
@@ -99,13 +99,21 @@
     position:fixed;
     inset:0;
     z-index:999;
-    overflow:hidden;
+    pointer-events:none;
+  }
+
+  .intro-bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
     background:var(--green-deep);
-    animation:introScreenOut .72s ease 2.20s forwards;
+    clip-path:inset(0 0 0 0);
+    animation:introBgToNav .78s cubic-bezier(.22,1,.36,1) 1.62s forwards;
   }
 
   .intro-mark{
     position:absolute;
+    z-index:1;
     left:50%;
     top:50%;
     width:min(420px,64vw);
@@ -198,15 +206,18 @@
     }
   }
 
-  @keyframes introScreenOut{
+  @keyframes introBgToNav{
     0%{
+      clip-path:inset(0 0 0 0);
       opacity:1;
-      visibility:visible;
+    }
+    72%{
+      clip-path:inset(0 0 calc(100% - 92px) 0 round 0 0 24px 24px);
+      opacity:1;
     }
     100%{
+      clip-path:inset(0 0 calc(100% - 92px) 0 round 0 0 24px 24px);
       opacity:0;
-      visibility:hidden;
-      pointer-events:none;
     }
   }
 
@@ -1472,6 +1483,7 @@
 <body class="intro-active">
 
 <div class="intro-screen" aria-hidden="true">
+  <div class="intro-bg"></div>
   <svg class="intro-mark" viewBox="0 0 2000 2000" xmlns="http://www.w3.org/2000/svg">
     <path class="intro-piece p1" d="M864.61,973.71a31.2,31.2,0,0,0-32.42,32.42,172.81,172.81,0,0,0,50.65,115.93c42.68,42.67,88.15,51.48,117,51.9a30.94,30.94,0,0,0,31.45-31.56A173.37,173.37,0,0,0,864.61,973.71Zm66.83,66c-3.34,7-9.58,13.59-17.56,18.51-14.28,8.79-30.59,9.88-38,2.53a11.94,11.94,0,0,1-1.77-2.25c-5.86-9.5,2.44-25.69,18.12-35.34,14.28-8.8,30.59-9.89,37.94-2.54a12.41,12.41,0,0,1,1.78,2.25C934.71,1027.25,934.51,1033.23,931.44,1039.69Zm52.85,35c7.36,7.36,6.27,23.67-2.53,37.95-9.65,15.67-25.84,24-35.35,18.12a12.76,12.76,0,0,1-2.25-1.78c-7.35-7.35-6.26-23.66,2.54-37.94,4.91-8,11.49-14.22,18.51-17.56,6.45-3.08,12.43-3.28,16.83-.56A11.62,11.62,0,0,1,984.29,1074.67Z"/>
     <path class="intro-piece p2" d="M1158.7,918.19a31.1,31.1,0,0,0-44.09-11.5,173.4,173.4,0,0,0-61,227.65,31.2,31.2,0,0,0,44.3,11.85,173.67,173.67,0,0,0,60.79-228Zm-36.59,165.48c-5.31,9.82-23.47,10.73-39.68,2a51.16,51.16,0,0,1-12-8.84c-8.62-8.62-11.81-18.59-8.12-25.42,5.3-9.82,23.47-10.73,39.67-2a52,52,0,0,1,12,8.84C1122.6,1066.87,1125.79,1076.85,1122.11,1083.67Zm16.74-84.94c-6.64,4-15.47,6.12-24.84,5.85-11.53-.33-22.11-4.22-28.3-10.42-2.39-2.38-5.2-6.25-5.07-11.13.32-11.16,16.14-20.14,34.55-19.62,11.53.33,22.11,4.23,28.3,10.42,2.39,2.39,5.2,6.26,5.07,11.13C1148.41,990.13,1145,995,1138.85,998.73Z"/>
@@ -1799,7 +1811,7 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     finishIntro();
   } else {
-    window.setTimeout(finishIntro, 3000);
+    window.setTimeout(finishIntro, 2550);
   }
 </script>
 
