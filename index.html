@@ -948,15 +948,11 @@
 
   .parcours-node{
     opacity:0;
-    transform:translateY(8px);
-    transform-box:fill-box;
-    transform-origin:center;
-    transition:opacity .45s ease, transform .45s ease;
+    transition:opacity .45s ease;
   }
 
   #parcours.reveal.in .parcours-node{
     opacity:1;
-    transform:translateY(0);
   }
 
   #parcours.reveal.in .parcours-node:nth-of-type(1){ transition-delay:.25s; }
