@@ -974,6 +974,22 @@
     fill:var(--orange);
   }
 
+  .parcours-leaf-stem{
+    fill:none;
+    stroke:var(--lime);
+    stroke-width:2.2;
+    stroke-linecap:round;
+  }
+
+  .parcours-leaf{
+    fill:var(--lime);
+    opacity:.95;
+  }
+
+  .parcours-leaf-soft{
+    fill:rgba(174,196,105,.72);
+  }
+
   .parcours-stages{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -1263,18 +1279,35 @@
                  C1006 36, 1063 54, 1132 36"/>
             
             <g class="parcours-node" transform="translate(176 82)">
+              <path class="parcours-leaf-stem" d="M0 -7 C4 -17, 8 -22, 14 -28"/>
+              <path class="parcours-leaf" d="M13 -28 C20 -31, 25 -27, 24 -21 C18 -20, 14 -22, 13 -28Z"/>
               <circle class="parcours-node-ring" r="8"/>
               <circle class="parcours-node-core" r="3"/>
             </g>
+
             <g class="parcours-node" transform="translate(402 134)">
+              <path class="parcours-leaf-stem" d="M0 -7 C1 -19, -1 -26, -4 -33"/>
+              <path class="parcours-leaf" d="M-4 -33 C-12 -36, -17 -31, -16 -25 C-10 -24, -6 -27, -4 -33Z"/>
+              <path class="parcours-leaf-soft" d="M-1 -24 C6 -29, 12 -26, 12 -20 C7 -17, 2 -19, -1 -24Z"/>
               <circle class="parcours-node-ring" r="8"/>
               <circle class="parcours-node-core" r="3"/>
             </g>
+
             <g class="parcours-node" transform="translate(653 61)">
+              <path class="parcours-leaf-stem" d="M0 -7 C2 -19, 2 -28, 0 -38 M1 -24 C8 -29, 13 -34, 17 -40"/>
+              <path class="parcours-leaf" d="M0 -38 C-8 -42, -14 -38, -13 -31 C-7 -29, -2 -32, 0 -38Z"/>
+              <path class="parcours-leaf" d="M17 -40 C25 -43, 31 -39, 30 -32 C24 -30, 19 -33, 17 -40Z"/>
+              <path class="parcours-leaf-soft" d="M2 -25 C-5 -29, -10 -25, -9 -20 C-4 -18, 0 -20, 2 -25Z"/>
               <circle class="parcours-node-ring" r="8"/>
               <circle class="parcours-node-core" r="3"/>
             </g>
+
             <g class="parcours-node" transform="translate(946 44)">
+              <path class="parcours-leaf-stem" d="M0 -7 C-1 -20, 0 -31, 4 -42 M1 -27 C-8 -33, -13 -38, -16 -45 M3 -33 C12 -37, 18 -41, 22 -47"/>
+              <path class="parcours-leaf" d="M4 -42 C10 -49, 18 -49, 21 -43 C17 -37, 11 -36, 4 -42Z"/>
+              <path class="parcours-leaf" d="M-16 -45 C-24 -48, -30 -43, -28 -36 C-21 -35, -17 -38, -16 -45Z"/>
+              <path class="parcours-leaf-soft" d="M22 -47 C30 -50, 36 -45, 34 -38 C28 -36, 24 -40, 22 -47Z"/>
+              <path class="parcours-leaf-soft" d="M1 -28 C-5 -33, -10 -30, -10 -24 C-5 -21, -1 -23, 1 -28Z"/>
               <circle class="parcours-node-ring" r="8"/>
               <circle class="parcours-node-core" r="3"/>
             </g>
