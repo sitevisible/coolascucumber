@@ -652,55 +652,85 @@
   }
 
   /* ---------- PROMESSES ---------- */
-    .promesses-header{ max-width: 44ch; margin: 0 auto 50px; text-align: center; }
+  #promesses{ padding-top: 96px; padding-bottom: 96px; }
 
-      .promesses-list{
-    display:grid; grid-template-columns: repeat(3,1fr); gap: 36px 32px;
+  .promesses-header{
+    display:grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 56px;
+    align-items:end;
+    margin-bottom: 46px;
   }
-    @media (max-width: 820px){
-    .promesses-list{
-      grid-template-columns: repeat(3, minmax(220px, 1fr));
-      gap: 24px;
-      overflow-x: auto;
-      max-width: 100%;
-      margin: 0;
-      padding-bottom: 8px;
-      -webkit-overflow-scrolling: touch;
+  .promesses-kicker{
+    font-family:'Space Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--soil);
+    margin:0 0 8px;
+  }
+  .promesses-header h2{
+    font-size:clamp(2rem, 4vw, 3.1rem);
+    line-height:1.05;
+    max-width:12ch;
+  }
+  .promesses-intro{
+    margin:0;
+    max-width:52ch;
+    color:var(--ink-soft);
+    font-size:1.02rem;
+  }
+
+  .promesses-list{
+    border-top:1px solid var(--line);
+  }
+  .promesses-list-item{
+    display:grid;
+    grid-template-columns:72px minmax(220px,.9fr) 1.35fr;
+    gap:28px;
+    align-items:start;
+    padding:28px 0 30px;
+    border-bottom:1px solid var(--line);
+  }
+  .promesses-index{
+    font-family:'Space Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    color:var(--soil);
+    padding-top:5px;
+  }
+  .promesses-list-item h3{
+    margin:0;
+    font-size:1.35rem;
+    line-height:1.15;
+  }
+  .promesses-list-item p{
+    margin:0;
+    color:var(--ink-soft);
+    max-width:56ch;
+  }
+  .promesses-list-item strong{
+    color:var(--green-deep);
+    font-weight:600;
+  }
+
+  @media(max-width:820px){
+    #promesses{ padding-top:72px; padding-bottom:72px; }
+    .promesses-header{
+      grid-template-columns:1fr;
+      gap:18px;
+      margin-bottom:34px;
+    }
+    .promesses-header h2{ max-width:14ch; }
+    .promesses-list-item{
+      grid-template-columns:44px 1fr;
+      gap:12px 18px;
+      padding:24px 0;
+    }
+    .promesses-list-item p{
+      grid-column:2;
     }
   }
-
-  .promesses-list-item{
-    display:flex; flex-direction: column; align-items:center; text-align:center;
-  }
-
-  .promesses-list-item .icon-blob{
-    width: 150px; height: 130px;
-    display:flex; align-items:center; justify-content:center;
-    border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
-    margin-bottom: 26px;
-  }
-  .promesses-list-item:nth-child(1) .icon-blob{ background: rgba(174,196,105,0.35); }
-  .promesses-list-item:nth-child(2) .icon-blob{ background: var(--green-deep); }
-  .promesses-list-item:nth-child(3) .icon-blob{ background: rgba(174,196,105,0.35); }
-
-  .promesses-list-item .icon svg{
-    width: 46px; height: 46px; fill:none;
-    stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;
-    stroke: var(--green-deep);
-  }
-  .promesses-list-item:nth-child(2) .icon svg{ stroke: #FFFFFF; }
-  .promesses-list-item .icon svg .accent{ stroke: var(--orange); }
-  .promesses-list-item:nth-child(2) .icon svg .accent{ stroke: var(--lime); }
-
-  .promesses-list-item .accent-line{
-    width: 42px; height: 3px; border-radius: 2px; margin: 4px 0 14px;
-  }
-  .promesses-list-item:nth-child(1) .accent-line{ background: var(--lime); }
-  .promesses-list-item:nth-child(2) .accent-line{ background: var(--orange); }
-  .promesses-list-item:nth-child(3) .accent-line{ background: var(--lime); }
-
-  .promesses-list-item h3{ font-size: 1.2rem; margin: 0; line-height: 1.25; }
-  .promesses-list-item p{ color: var(--ink-soft); margin: 0; font-size: 0.96rem; max-width: 26ch; }
 
   /* ---------- PARCOURS (signature vine) ---------- */
   .parcours-intro{ max-width: 60ch; }
@@ -871,76 +901,42 @@
       <!-- PROMESSES -->
   <section id="promesses" class="wrap reveal">
     <div class="promesses-header">
-      <h2 style="font-size: clamp(1.7rem, 3vw, 2.3rem);">
-        Ce que le vivant <span style="color: var(--orange);">change, concrètement</span>
-      </h2>
+      <div>
+        <p class="promesses-kicker">Ce que ça change</p>
+        <h2>Le vivant, au quotidien.</h2>
+      </div>
+      <p class="promesses-intro">
+        Pas une décoration de plus. Des espaces plus agréables, des occasions de faire ensemble
+        et des pratiques RSE qui prennent réellement place dans le quotidien.
+      </p>
     </div>
 
     <div class="promesses-list">
       <div class="promesses-list-item">
-        <div class="icon-blob">
-          <span class="icon">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="stroke:none;">
-              <g fill="var(--orange)">
-                <rect x="15.2" y="1.5" width="1.6" height="5" rx="0.8"/>
-                <rect x="9.5" y="3.2" width="1.6" height="5" rx="0.8" transform="rotate(-30 10.3 5.7)"/>
-                <rect x="20.9" y="3.2" width="1.6" height="5" rx="0.8" transform="rotate(30 21.7 5.7)"/>
-              </g>
-              <circle cx="16" cy="14" r="4.4" fill="var(--green-deep)"/>
-              <path d="M9 27v-1.5c0-4 3.1-7.2 7-7.2s7 3.2 7 7.2V27H9Z" fill="var(--green-deep)"/>
-              <path d="M5 18c1.6-3.4 4-4.6 6.8-3.9-.4 3.4-2.6 5.3-6.8 3.9Z" fill="var(--soil)" opacity="0.85"/>
-              <path d="M27 19.4c-1.7-3.1-4.1-4.1-6.8-3.3.1 3.3 2.4 5 6.8 3.3Z" fill="var(--soil)" opacity="0.85"/>
-            </svg>
-          </span>
-        </div>
-        <h3>Améliorer la QVT</h3>
-        <span class="accent-line"></span>
-        <p>Grâce aux bénéfices reconnus du végétal et à des espaces de travail plus agréables à vivre.</p>
+        <span class="promesses-index">01</span>
+        <h3>Des espaces où l'on se sent mieux</h3>
+        <p>
+          Plus agréables à vivre et à regarder, les espaces végétalisés participent à une
+          <strong>ambiance de travail plus apaisée.</strong>
+        </p>
       </div>
 
       <div class="promesses-list-item">
-        <div class="icon-blob">
-          <span class="icon">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="fill:none;">
-              <circle cx="9" cy="12" r="3" stroke="#FFFFFF" stroke-width="1.6"/>
-              <circle cx="23" cy="12" r="3" stroke="#FFFFFF" stroke-width="1.6"/>
-              <circle cx="16" cy="10" r="3.4" stroke="#FFFFFF" stroke-width="1.6"/>
-              <path d="M4 26v-1.5c0-3.1 2.2-5.5 5-5.5s5 2.4 5 5.5V26" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"/>
-              <path d="M18 26v-1.5c0-3.1 2.2-5.5 5-5.5s5 2.4 5 5.5V26" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"/>
-              <path d="M16 27v-8.5c-2.5 0-3.8-1.5-4-3.6 2.5 0 4 1.5 4 3.6Z" fill="var(--lime)" stroke="none"/>
-              <path d="M16 22.5c2.7.1 4.1-1.4 4.3-3.6-2.7 0-4.2 1.4-4.3 3.6Z" fill="var(--lime)" stroke="none"/>
-            </svg>
-          </span>
-        </div>
-        <h3>Créer du collectif</h3>
-        <span class="accent-line"></span>
-        <p>Grâce à une démarche participative qui implique réellement les salariés, du choix à l'entretien.</p>
+        <span class="promesses-index">02</span>
+        <h3>Un prétexte concret pour faire ensemble</h3>
+        <p>
+          Choisir, planter, entretenir, bouturer : le vivant crée des occasions simples de
+          <strong>se parler, transmettre et prendre soin d'un projet commun.</strong>
+        </p>
       </div>
 
       <div class="promesses-list-item">
-        <div class="icon-blob">
-          <span class="icon">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="fill:none;">
-              <g fill="var(--orange)" stroke="none">
-                <rect x="21.2" y="0.5" width="1.5" height="4.4" rx="0.7" transform="rotate(15 22 2.7)"/>
-                <rect x="17" y="0.5" width="1.5" height="4.4" rx="0.7" transform="rotate(-10 17.8 2.7)"/>
-              </g>
-              <path d="M10 12c0 2-1.7 3-1.7 5.2A1.7 1.7 0 0 0 10 18.9a1.7 1.7 0 0 0 1.7-1.7C11.7 15 10 14 10 12Z"
-                    fill="#4FA0D9" stroke="none"/>
-              <path d="M19 9v10" stroke="var(--green-deep)" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M19 13c-2.8 0-4.3-1.9-4.6-4.3 2.8-.3 4.6 1.5 4.6 4.3Z" fill="var(--green-deep)" stroke="none"/>
-              <path d="M19 15c2.8.1 4.4-1.6 4.7-4-2.8-.2-4.6 1.4-4.7 4Z" fill="var(--green-deep)" stroke="none"/>
-              <path d="M9.5 21a7 7 0 0 1 10.5-6" stroke="var(--green-deep)" stroke-width="1.7" stroke-linecap="round"/>
-              <path d="M20 14.4l1.3 1.7-2.2 1.1" fill="var(--green-deep)" stroke="none"/>
-              <rect x="22" y="18" width="7" height="8" rx="1" stroke="var(--green-deep)" stroke-width="1.5"/>
-              <path d="M21.3 18h8.4" stroke="var(--green-deep)" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M24 18v-1.4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V18" stroke="var(--green-deep)" stroke-width="1.5"/>
-            </svg>
-          </span>
-        </div>
-        <h3>Faire vivre la RSE</h3>
-        <span class="accent-line"></span>
-        <p>Grâce à des pratiques concrètes : bouturage, compost, transmission des savoirs, récupération d'eau.</p>
+        <span class="promesses-index">03</span>
+        <h3>Une RSE qui se pratique</h3>
+        <p>
+          Compost, récupération d'eau, bouturage, transmission des savoirs :
+          <strong>les engagements deviennent visibles dans les gestes du quotidien.</strong>
+        </p>
       </div>
     </div>
   </section>
