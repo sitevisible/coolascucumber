@@ -110,10 +110,13 @@
     stroke:#E9FFD6;
     stroke-width:34;
     stroke-linecap:butt;
-    stroke-dasharray:415 120;
-    stroke-dashoffset:8;
-    transform-origin:110px 110px;
-    transform:rotate(0deg);
+    stroke-dasharray:390;
+    stroke-dashoffset:390;
+    animation:introCDraw .62s cubic-bezier(.22,1,.36,1) .08s forwards;
+  }
+
+  @keyframes introCDraw{
+    to{ stroke-dashoffset:0; }
   }
 
   .intro-segment{
@@ -1425,24 +1428,24 @@
 
 <div class="intro-screen" aria-hidden="true">
   <svg class="intro-mark" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-    <circle class="intro-c" cx="110" cy="110" r="76"/>
+    <path class="intro-c" d="M164 58 A76 76 0 1 0 164 162"/>
 
     <g class="intro-segment s1">
-      <path d="M107 68 C125 56 148 62 158 79 C152 96 131 105 112 99 C100 89 99 78 107 68Z" fill="#AEC469"/>
-      <ellipse cx="121" cy="78" rx="4" ry="8" transform="rotate(-28 121 78)" fill="#094B3C"/>
-      <ellipse cx="141" cy="80" rx="4" ry="8" transform="rotate(20 141 80)" fill="#094B3C"/>
+      <path d="M104 80 C116 68 136 69 148 83 C146 96 131 103 115 99 C105 95 99 88 104 80Z" fill="#AEC469"/>
+      <ellipse cx="119" cy="80" rx="4" ry="8" transform="rotate(-28 119 80)" fill="#094B3C"/>
+      <ellipse cx="137" cy="82" rx="4" ry="8" transform="rotate(18 137 82)" fill="#094B3C"/>
     </g>
 
     <g class="intro-segment s2">
-      <path d="M151 105 C166 119 165 143 151 156 C133 158 118 144 118 124 C124 110 137 104 151 105Z" fill="#AEC469"/>
-      <ellipse cx="143" cy="120" rx="4" ry="8" transform="rotate(70 143 120)" fill="#094B3C"/>
-      <ellipse cx="144" cy="141" rx="4" ry="8" transform="rotate(128 144 141)" fill="#094B3C"/>
+      <path d="M145 103 C157 113 158 131 149 143 C138 150 125 142 121 128 C121 116 131 106 145 103Z" fill="#AEC469"/>
+      <ellipse cx="143" cy="118" rx="4" ry="8" transform="rotate(72 143 118)" fill="#094B3C"/>
+      <ellipse cx="140" cy="136" rx="4" ry="8" transform="rotate(126 140 136)" fill="#094B3C"/>
     </g>
 
     <g class="intro-segment s3">
-      <path d="M103 154 C85 158 67 146 63 127 C72 111 92 105 108 114 C117 128 114 143 103 154Z" fill="#AEC469"/>
-      <ellipse cx="88" cy="138" rx="4" ry="8" transform="rotate(28 88 138)" fill="#094B3C"/>
-      <ellipse cx="82" cy="120" rx="4" ry="8" transform="rotate(70 82 120)" fill="#094B3C"/>
+      <path d="M106 145 C91 150 76 142 71 129 C76 116 90 108 104 113 C114 122 114 136 106 145Z" fill="#AEC469"/>
+      <ellipse cx="89" cy="136" rx="4" ry="8" transform="rotate(30 89 136)" fill="#094B3C"/>
+      <ellipse cx="83" cy="121" rx="4" ry="8" transform="rotate(68 83 121)" fill="#094B3C"/>
     </g>
   </svg>
 </div>
