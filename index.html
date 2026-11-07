@@ -582,6 +582,78 @@
 
   .approche-divider{ border:none; border-top: 1px solid var(--line); margin: 8px 0 22px; width: 60px; }
 
+  /* ---------- LIEN GRAPHIQUE : 3 PREMIÈRES SECTIONS ---------- */
+  .hero-copy > .eyebrow,
+  .diff-panel > .eyebrow,
+  .promesses-kicker{
+    width:fit-content;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Space Mono', monospace;
+    font-size:.70rem;
+    line-height:1;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--green-deep);
+    background:rgba(174,196,105,.20);
+    padding:8px 11px;
+    border-radius:999px;
+    margin:0 0 16px;
+  }
+
+  .hero-copy > .eyebrow::before,
+  .diff-panel > .eyebrow::before,
+  .promesses-kicker::before{
+    content:"";
+    width:7px;
+    height:7px;
+    flex:0 0 7px;
+    border-radius:50%;
+    background:var(--orange);
+  }
+
+  .hero-copy h1,
+  .diff-statement,
+  .promesses-header h2{
+    letter-spacing:-.025em;
+  }
+
+  .mission-block,
+  .promesses-list-item{
+    border-radius:22px;
+    border:1px solid rgba(9,75,60,.09);
+  }
+
+  .accent-orange{
+    color:var(--orange);
+    font-weight:600;
+  }
+
+  .hero-benefit-index{
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    margin-bottom:9px;
+    letter-spacing:.04em;
+    font-weight:700;
+  }
+  .hero-benefit:nth-child(1) .hero-benefit-index{
+    background:rgba(174,196,105,.34);
+    color:var(--green-deep);
+  }
+  .hero-benefit:nth-child(2) .hero-benefit-index{
+    background:rgba(255,104,44,.12);
+    color:var(--orange);
+  }
+  .hero-benefit:nth-child(3) .hero-benefit-index{
+    background:rgba(9,75,60,.09);
+    color:var(--green-deep);
+  }
+
     /* ---------- DIFFERENCE (full-bleed, editorial) ---------- */
   .diff-section{ padding: 0; }
   .diff-media{
@@ -666,16 +738,7 @@
     margin-bottom:46px;
   }
   .promesses-kicker{
-    display:inline-block;
-    font-family:'Space Mono', monospace;
-    font-size:.72rem;
-    letter-spacing:.12em;
-    text-transform:uppercase;
     color:var(--green-deep);
-    background:rgba(174,196,105,.22);
-    padding:6px 10px;
-    border-radius:999px;
-    margin:0 0 12px;
   }
   .promesses-header h2{
     font-size:clamp(2rem,4vw,3.1rem);
@@ -706,7 +769,6 @@
     gap:28px;
     align-items:center;
     padding:26px 24px;
-    border-radius:18px;
     overflow:hidden;
   }
   .promesses-list-item::before{
@@ -950,7 +1012,7 @@
         <p class="eyebrow">Ce qui nous différencie</p>
         <div class="diff-statement">
           <span class="muted">Installer des plantes, c'est un début.</span>
-          <span class="accent">Faire vivre le projet dans la durée, c'est notre métier.</span>
+          <span class="accent">Faire vivre le projet <span class="accent-orange">dans la durée</span>, c'est notre métier.</span>
         </div>
         <p class="diff-text">
           Nous construisons avec les équipes une dynamique qui s'installe progressivement,
