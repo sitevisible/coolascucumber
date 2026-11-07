@@ -80,141 +80,103 @@
 
   body.intro-active header.site-nav{
     opacity:0;
-    transform:translateY(-14px);
+    transform:translateY(-10px);
   }
 
   header.site-nav{
-    transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1);
+    transition:opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1);
   }
 
   .intro-screen{
     position:fixed;
+    inset:0;
     z-index:999;
-    top:0;
-    left:0;
-    right:0;
-    height:100%;
+    display:grid;
+    place-items:center;
     overflow:hidden;
     background:var(--green-deep);
-    transform-origin:top center;
-    animation:introScreen 3.45s cubic-bezier(.22,1,.36,1) forwards;
+    animation:introScreenOut .62s ease 2.15s forwards;
   }
 
-  .intro-logo-wrap{
-    position:absolute;
-    left:50%;
-    top:50%;
-    width:min(360px,62vw);
-    transform:translate(-50%,-50%) scale(.64) rotate(-5deg);
+  .intro-mark{
+    width:min(260px,48vw);
+    aspect-ratio:1;
     transform-origin:center;
-    animation:introLogoMove 3.15s cubic-bezier(.22,1,.36,1) forwards;
+    animation:introMarkIn 1.05s cubic-bezier(.2,.9,.2,1.2) forwards;
   }
 
-  .intro-logo{
-    width:100%;
-    height:auto;
-    filter:brightness(0) invert(1);
+  .intro-c{
+    fill:none;
+    stroke:#E9FFD6;
+    stroke-width:34;
+    stroke-linecap:butt;
+    stroke-dasharray:415 120;
+    stroke-dashoffset:8;
+    transform-origin:110px 110px;
+    transform:rotate(-38deg);
+  }
+
+  .intro-segment{
+    transform-box:fill-box;
+    transform-origin:center;
     opacity:0;
-    animation:introLogoReveal 1.05s cubic-bezier(.22,1,.36,1) .10s forwards;
   }
 
-  .intro-leaf{
-    position:absolute;
-    width:18px;
-    height:10px;
-    border-radius:100% 0 100% 0;
-    background:var(--lime);
-    opacity:0;
-    transform:scale(.35) rotate(0deg);
+  .intro-segment.s1{
+    animation:introSegmentPop .42s cubic-bezier(.2,.9,.2,1.35) .55s forwards;
   }
 
-  .intro-leaf.one{
-    left:7%;
-    top:-18%;
-    animation:introLeafOne .5s cubic-bezier(.22,1,.36,1) .78s forwards;
+  .intro-segment.s2{
+    animation:introSegmentPop .42s cubic-bezier(.2,.9,.2,1.35) .78s forwards;
   }
 
-  .intro-leaf.two{
-    right:4%;
-    top:5%;
-    background:var(--orange);
-    transform:scale(.35) rotate(48deg);
-    animation:introLeafTwo .5s cubic-bezier(.22,1,.36,1) 1.02s forwards;
+  .intro-segment.s3{
+    animation:introSegmentPop .42s cubic-bezier(.2,.9,.2,1.35) 1.01s forwards;
   }
 
-  .intro-leaf.three{
-    right:22%;
-    bottom:-25%;
-    width:14px;
-    height:8px;
-    background:#fff;
-    transform:scale(.35) rotate(-34deg);
-    animation:introLeafThree .5s cubic-bezier(.22,1,.36,1) 1.25s forwards;
+  .intro-mark{
+    filter:drop-shadow(0 10px 24px rgba(0,0,0,.08));
   }
 
-  @keyframes introLogoReveal{
-    0%{ opacity:0; transform:scale(.72); }
-    58%{ opacity:1; transform:scale(1.06); }
-    78%{ transform:scale(.97); }
-    100%{ opacity:1; transform:scale(1); }
-  }
-
-  @keyframes introLeafOne{
-    0%{ opacity:0; transform:translateY(8px) scale(.35) rotate(-18deg); }
-    100%{ opacity:1; transform:translateY(0) scale(1) rotate(-18deg); }
-  }
-
-  @keyframes introLeafTwo{
-    0%{ opacity:0; transform:translateY(8px) scale(.35) rotate(48deg); }
-    100%{ opacity:1; transform:translateY(0) scale(1) rotate(48deg); }
-  }
-
-  @keyframes introLeafThree{
-    0%{ opacity:0; transform:translateY(8px) scale(.35) rotate(-34deg); }
-    100%{ opacity:.9; transform:translateY(0) scale(1) rotate(-34deg); }
-  }
-
-  @keyframes introLogoMove{
-    0%,58%{
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%) scale(.64) rotate(-5deg);
+  @keyframes introMarkIn{
+    0%{
+      opacity:0;
+      transform:scale(.52) rotate(-34deg);
     }
-    24%{
-      transform:translate(-50%,-50%) scale(1.04) rotate(1deg);
-    }
-    38%{
-      transform:translate(-50%,-50%) scale(1) rotate(0deg);
-    }
-    66%{
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%) scale(1) rotate(0deg);
-    }
-    88%,100%{
-      left:10%;
-      top:42px;
-      transform:translate(-50%,-50%) scale(.28) rotate(0deg);
-    }
-  }
-
-  @keyframes introScreen{
-    0%,68%{
-      height:100%;
+    55%{
       opacity:1;
-      border-radius:0;
+      transform:scale(1.08) rotate(5deg);
     }
-    84%{
-      height:86px;
-      opacity:1;
-      border-radius:0 0 28px 28px;
-    }
-    94%{
-      height:86px;
-      opacity:1;
+    75%{
+      transform:scale(.97) rotate(-2deg);
     }
     100%{
-      height:86px;
+      opacity:1;
+      transform:scale(1) rotate(0);
+    }
+  }
+
+  @keyframes introSegmentPop{
+    0%{
+      opacity:0;
+      transform:scale(.2) rotate(-12deg);
+    }
+    72%{
+      opacity:1;
+      transform:scale(1.12) rotate(3deg);
+    }
+    100%{
+      opacity:1;
+      transform:scale(1) rotate(0);
+    }
+  }
+
+  @keyframes introScreenOut{
+    0%{
+      opacity:1;
+      visibility:visible;
+    }
+    100%{
       opacity:0;
       visibility:hidden;
       pointer-events:none;
@@ -222,39 +184,8 @@
   }
 
   @media(max-width:760px){
-    .intro-logo-wrap{
-      width:min(300px,72vw);
-    }
-
-    @keyframes introLogoMove{
-      0%,58%{
-        left:50%;
-        top:50%;
-        transform:translate(-50%,-50%) scale(.64) rotate(-5deg);
-      }
-      24%{
-        transform:translate(-50%,-50%) scale(1.04) rotate(1deg);
-      }
-      38%{
-        transform:translate(-50%,-50%) scale(1) rotate(0deg);
-      }
-      66%{
-        left:50%;
-        top:50%;
-        transform:translate(-50%,-50%) scale(1) rotate(0deg);
-      }
-      88%,100%{
-        left:74px;
-        top:36px;
-        transform:translate(-50%,-50%) scale(.25) rotate(0deg);
-      }
-    }
-
-    @keyframes introScreen{
-      0%,68%{ height:100%; opacity:1; border-radius:0; }
-      84%{ height:72px; opacity:1; border-radius:0 0 22px 22px; }
-      94%{ height:72px; opacity:1; }
-      100%{ height:72px; opacity:0; visibility:hidden; pointer-events:none; }
+    .intro-mark{
+      width:min(220px,58vw);
     }
   }
 
@@ -273,7 +204,7 @@
     }
   }
 
-    /* ---------- NAV (flottante moderne) ---------- */
+  /* ---------- NAV (flottante moderne) ---------- */
   header.site-nav{
     position: fixed; top: 0; left: 0; right: 0; z-index: 50;
     padding: 18px 28px 0;
@@ -1493,12 +1424,27 @@
 <body class="intro-active">
 
 <div class="intro-screen" aria-hidden="true">
-  <div class="intro-logo-wrap">
-    <span class="intro-leaf one"></span>
-    <span class="intro-leaf two"></span>
-    <span class="intro-leaf three"></span>
-    <img src="logoCC.png" alt="" class="intro-logo">
-  </div>
+  <svg class="intro-mark" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+    <circle class="intro-c" cx="110" cy="110" r="76"/>
+
+    <g class="intro-segment s1">
+      <path d="M107 68 C125 56 148 62 158 79 C152 96 131 105 112 99 C100 89 99 78 107 68Z" fill="#AEC469"/>
+      <ellipse cx="121" cy="78" rx="4" ry="8" transform="rotate(-28 121 78)" fill="#094B3C"/>
+      <ellipse cx="141" cy="80" rx="4" ry="8" transform="rotate(20 141 80)" fill="#094B3C"/>
+    </g>
+
+    <g class="intro-segment s2">
+      <path d="M151 105 C166 119 165 143 151 156 C133 158 118 144 118 124 C124 110 137 104 151 105Z" fill="#AEC469"/>
+      <ellipse cx="143" cy="120" rx="4" ry="8" transform="rotate(70 143 120)" fill="#094B3C"/>
+      <ellipse cx="144" cy="141" rx="4" ry="8" transform="rotate(128 144 141)" fill="#094B3C"/>
+    </g>
+
+    <g class="intro-segment s3">
+      <path d="M103 154 C85 158 67 146 63 127 C72 111 92 105 108 114 C117 128 114 143 103 154Z" fill="#AEC469"/>
+      <ellipse cx="88" cy="138" rx="4" ry="8" transform="rotate(28 88 138)" fill="#094B3C"/>
+      <ellipse cx="82" cy="120" rx="4" ry="8" transform="rotate(70 82 120)" fill="#094B3C"/>
+    </g>
+  </svg>
 </div>
 
 <header class="site-nav">
@@ -1820,7 +1766,7 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     finishIntro();
   } else {
-    window.setTimeout(finishIntro, 3450);
+    window.setTimeout(finishIntro, 2800);
   }
 </script>
 
