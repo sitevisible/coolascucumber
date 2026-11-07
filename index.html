@@ -860,49 +860,189 @@
   }
 
   /* ---------- PARCOURS (signature vine) ---------- */
-  .parcours-intro{ max-width: 60ch; }
-  .vine-wrap{ margin: 60px 0 10px; }
+  #parcours{
+    overflow:hidden;
+  }
+
+  #parcours .eyebrow{
+    width:fit-content;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Space Mono', monospace;
+    font-size:.70rem;
+    line-height:1;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--cream);
+    background:rgba(174,196,105,.16);
+    border:1px solid rgba(174,196,105,.22);
+    padding:8px 11px;
+    border-radius:999px;
+    margin:0 0 16px;
+  }
+  #parcours .eyebrow::before{
+    content:"";
+    width:7px;
+    height:7px;
+    flex:0 0 7px;
+    border-radius:50%;
+    background:var(--orange);
+  }
+
+  .parcours-intro{ max-width:60ch; }
+
+  .parcours-title{
+    font-size:clamp(2rem,4vw,3.1rem);
+    line-height:1.05;
+    letter-spacing:-.025em;
+    max-width:15ch;
+  }
+  .parcours-title .accent{
+    color:var(--lime);
+  }
+
+  .parcours-subtitle{
+    margin-top:16px;
+    max-width:54ch;
+    color:rgba(255,255,255,.76) !important;
+  }
+
+  .vine-wrap{ margin:58px 0 10px; }
   .vine-desktop{ display:block; }
   .vine-mobile{ display:none; }
-  @media (max-width: 760px){
-    .vine-desktop{ display:none; }
-    .vine-mobile{ display:block; }
-  }
 
   .vine-path{
-    fill:none; stroke: var(--lime); stroke-width: 3; stroke-linecap: round;
-    stroke-dasharray: 1300; stroke-dashoffset: 1300;
-    transition: stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1);
+    fill:none;
+    stroke:var(--lime);
+    stroke-width:3;
+    stroke-linecap:round;
+    stroke-dasharray:1300;
+    stroke-dashoffset:1300;
+    transition:stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1);
   }
-  .vine-wrap.in .vine-path{ stroke-dashoffset: 0; }
+  .vine-wrap.in .vine-path{ stroke-dashoffset:0; }
 
-  .vine-node{ opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-  .vine-wrap.in .vine-node:nth-of-type(1){ transition-delay: .25s; }
-  .vine-wrap.in .vine-node:nth-of-type(2){ transition-delay: .75s; }
-  .vine-wrap.in .vine-node:nth-of-type(3){ transition-delay: 1.15s; }
-  .vine-wrap.in .vine-node:nth-of-type(4){ transition-delay: 1.55s; }
-  .vine-wrap.in .vine-node{ opacity: 1; transform: translateY(0); }
-
-  .vine-labels{ display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 18px; }
-  .vine-labels .stage{ text-align:center; }
-  .vine-labels .stage .tag{
-    font-family:'Space Mono', monospace; font-size: 0.72rem; letter-spacing:0.08em; text-transform:uppercase;
-    color: var(--lime); display:block; margin-bottom: 6px;
+  .vine-node{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .6s ease, transform .6s ease;
   }
-  .vine-labels .stage p{ color: rgba(233,238,220,0.8); font-size: 0.92rem; margin:0; }
+  .vine-wrap.in .vine-node:nth-of-type(1){ transition-delay:.25s; }
+  .vine-wrap.in .vine-node:nth-of-type(2){ transition-delay:.75s; }
+  .vine-wrap.in .vine-node:nth-of-type(3){ transition-delay:1.15s; }
+  .vine-wrap.in .vine-node:nth-of-type(4){ transition-delay:1.55s; }
+  .vine-wrap.in .vine-node{ opacity:1; transform:translateY(0); }
 
-  .vine-mobile-list{ list-style:none; margin:0; padding:0; border-left: 2px solid rgba(168,194,74,0.4); }
-  .vine-mobile-list li{ position:relative; padding: 4px 0 26px 26px; }
-  .vine-mobile-list li::before{
-    content:""; position:absolute; left:-7px; top:2px; width:12px; height:12px; border-radius:50%;
-    background: var(--orange);
+  .vine-labels{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:16px;
   }
-  .vine-mobile-list .tag{ font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--lime); display:block; margin-bottom:4px; }
-  .vine-mobile-list p{ margin:0; color: rgba(233,238,220,0.82); font-size:0.94rem; }
+
+  .vine-labels .stage{
+    position:relative;
+    min-height:150px;
+    padding:20px 18px 18px;
+    text-align:left;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.055);
+  }
+
+  .stage-head{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    margin-bottom:14px;
+  }
+
+  .stage-index{
+    width:34px;
+    height:34px;
+    flex:0 0 34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-family:'Space Mono', monospace;
+    font-size:.66rem;
+    font-weight:700;
+    letter-spacing:.04em;
+  }
+
+  .stage:nth-child(1) .stage-index{
+    background:var(--lime);
+    color:var(--green-deep);
+  }
+  .stage:nth-child(2) .stage-index{
+    background:var(--orange);
+    color:#fff;
+  }
+  .stage:nth-child(3) .stage-index{
+    background:rgba(174,196,105,.22);
+    color:var(--lime);
+    border:1px solid rgba(174,196,105,.30);
+  }
+  .stage:nth-child(4) .stage-index{
+    background:#fff;
+    color:var(--green-deep);
+  }
+
+  .stage-title{
+    font-family:'Fraunces', serif;
+    font-size:1.08rem;
+    line-height:1.15;
+    font-weight:600;
+    color:var(--cream);
+  }
+
+  .vine-labels .stage p{
+    margin:0;
+    color:rgba(255,255,255,.72);
+    font-size:.9rem;
+    line-height:1.5;
+  }
+
+  .vine-mobile-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .vine-mobile-list li{
+    position:relative;
+    padding:20px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.055);
+  }
+
+  .vine-mobile-list p{
+    margin:0 0 0 45px;
+    color:rgba(255,255,255,.74);
+    font-size:.94rem;
+  }
 
   .parcours-close{
-    margin-top: 50px; font-family:'Fraunces', serif; font-style: italic; font-size: 1.3rem;
-    color: var(--cream); max-width: 44ch;
+    margin-top:44px;
+    padding-left:18px;
+    border-left:3px solid var(--orange);
+    font-family:'Fraunces', serif;
+    font-size:1.22rem;
+    line-height:1.4;
+    color:var(--cream);
+    max-width:44ch;
+  }
+
+  @media(max-width:760px){
+    .vine-desktop{ display:none; }
+    .vine-mobile{ display:flex; }
+    .vine-wrap{ margin-top:38px; }
   }
 
   /* ---------- CONTACT ---------- */
@@ -1072,10 +1212,10 @@
   <section id="parcours" class="on-dark reveal">
     <div class="wrap">
       <p class="eyebrow">Le parcours</p>
-      <h2 class="parcours-intro" style="font-size: clamp(1.7rem, 3vw, 2.3rem);">
-        L'entreprise évolue progressivement
+      <h2 class="parcours-intro parcours-title">
+        L'entreprise évolue <span class="accent">progressivement</span>
       </h2>
-      <p class="parcours-intro" style="margin-top: 14px;">
+      <p class="parcours-intro parcours-subtitle">
         Chaque étape apporte de nouveaux usages et une implication plus forte des collaborateurs.
       </p>
 
@@ -1088,19 +1228,44 @@
             <circle class="vine-node" cx="770" cy="60" r="9" fill="#FF682C"/>
             <circle class="vine-node" cx="1140" cy="60" r="9" fill="#FF682C"/>
           </svg>
+
           <div class="vine-labels">
-            <div class="stage"><span class="tag">🌱 Graine</span><p>Premiers espaces plantés, premières habitudes.</p></div>
-            <div class="stage"><span class="tag">🌿 Jeune pousse</span><p>Les équipes s'approprient les gestes d'entretien.</p></div>
-            <div class="stage"><span class="tag">🌳 Arbre</span><p>Une communauté du vivant se forme durablement.</p></div>
-            <div class="stage"><span class="tag">♻️ Écosystème</span><p>Le vivant infuse la culture d'entreprise, en autonomie.</p></div>
+            <div class="stage">
+              <div class="stage-head"><span class="stage-index">01</span><span class="stage-title">Graine</span></div>
+              <p>Premiers espaces plantés, premières habitudes.</p>
+            </div>
+            <div class="stage">
+              <div class="stage-head"><span class="stage-index">02</span><span class="stage-title">Jeune pousse</span></div>
+              <p>Les équipes s'approprient les gestes d'entretien.</p>
+            </div>
+            <div class="stage">
+              <div class="stage-head"><span class="stage-index">03</span><span class="stage-title">Arbre</span></div>
+              <p>Une communauté du vivant se forme durablement.</p>
+            </div>
+            <div class="stage">
+              <div class="stage-head"><span class="stage-index">04</span><span class="stage-title">Écosystème</span></div>
+              <p>Le vivant infuse la culture d'entreprise, en autonomie.</p>
+            </div>
           </div>
         </div>
 
         <ul class="vine-mobile vine-mobile-list">
-          <li><span class="tag">🌱 Graine</span><p>Premiers espaces plantés, premières habitudes.</p></li>
-          <li><span class="tag">🌿 Jeune pousse</span><p>Les équipes s'approprient les gestes d'entretien.</p></li>
-          <li><span class="tag">🌳 Arbre</span><p>Une communauté du vivant se forme durablement.</p></li>
-          <li><span class="tag">♻️ Écosystème</span><p>Le vivant infuse la culture d'entreprise, en autonomie.</p></li>
+          <li>
+            <div class="stage-head"><span class="stage-index">01</span><span class="stage-title">Graine</span></div>
+            <p>Premiers espaces plantés, premières habitudes.</p>
+          </li>
+          <li>
+            <div class="stage-head"><span class="stage-index">02</span><span class="stage-title">Jeune pousse</span></div>
+            <p>Les équipes s'approprient les gestes d'entretien.</p>
+          </li>
+          <li>
+            <div class="stage-head"><span class="stage-index">03</span><span class="stage-title">Arbre</span></div>
+            <p>Une communauté du vivant se forme durablement.</p>
+          </li>
+          <li>
+            <div class="stage-head"><span class="stage-index">04</span><span class="stage-title">Écosystème</span></div>
+            <p>Le vivant infuse la culture d'entreprise, en autonomie.</p>
+          </li>
         </ul>
       </div>
 
