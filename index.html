@@ -859,7 +859,7 @@
     }
   }
 
-  /* ---------- PARCOURS (signature vine) ---------- */
+  /* ---------- PARCOURS (minimal) ---------- */
   #parcours{
     overflow:hidden;
   }
@@ -875,12 +875,13 @@
     letter-spacing:.11em;
     text-transform:uppercase;
     color:var(--cream);
-    background:rgba(174,196,105,.16);
-    border:1px solid rgba(174,196,105,.22);
+    background:rgba(174,196,105,.14);
+    border:1px solid rgba(174,196,105,.18);
     padding:8px 11px;
     border-radius:999px;
-    margin:0 0 16px;
+    margin:0 0 18px;
   }
+
   #parcours .eyebrow::before{
     content:"";
     width:7px;
@@ -890,159 +891,111 @@
     background:var(--orange);
   }
 
-  .parcours-intro{ max-width:60ch; }
+  .parcours-head{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:60px;
+    align-items:end;
+    margin-bottom:54px;
+  }
 
   .parcours-title{
     font-size:clamp(2rem,4vw,3.1rem);
     line-height:1.05;
     letter-spacing:-.025em;
-    max-width:15ch;
+    max-width:14ch;
   }
+
   .parcours-title .accent{
     color:var(--lime);
   }
 
   .parcours-subtitle{
-    margin-top:16px;
-    max-width:54ch;
-    color:rgba(255,255,255,.76) !important;
+    margin:0;
+    max-width:50ch;
+    color:rgba(255,255,255,.72) !important;
+    font-size:1rem;
   }
 
-  .vine-wrap{ margin:58px 0 10px; }
-  .vine-desktop{ display:block; }
-  .vine-mobile{ display:none; }
-
-  .vine-path{
-    fill:none;
-    stroke:var(--lime);
-    stroke-width:3;
-    stroke-linecap:round;
-    stroke-dasharray:1300;
-    stroke-dashoffset:1300;
-    transition:stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1);
-  }
-  .vine-wrap.in .vine-path{ stroke-dashoffset:0; }
-
-  .vine-node{
-    opacity:0;
-    transform:translateY(14px);
-    transition:opacity .6s ease, transform .6s ease;
-  }
-  .vine-wrap.in .vine-node:nth-of-type(1){ transition-delay:.25s; }
-  .vine-wrap.in .vine-node:nth-of-type(2){ transition-delay:.75s; }
-  .vine-wrap.in .vine-node:nth-of-type(3){ transition-delay:1.15s; }
-  .vine-wrap.in .vine-node:nth-of-type(4){ transition-delay:1.55s; }
-  .vine-wrap.in .vine-node{ opacity:1; transform:translateY(0); }
-
-  .vine-labels{
+  .parcours-steps{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
-    margin-top:16px;
+    gap:30px;
+    border-top:1px solid rgba(255,255,255,.18);
+    padding-top:30px;
   }
 
-  .vine-labels .stage{
+  .parcours-step{
     position:relative;
-    min-height:150px;
-    padding:20px 18px 18px;
-    text-align:left;
-    border-radius:22px;
-    border:1px solid rgba(255,255,255,.10);
-    background:rgba(255,255,255,.055);
+    padding-top:4px;
   }
 
-  .stage-head{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    margin-bottom:14px;
-  }
-
-  .stage-index{
-    width:34px;
-    height:34px;
-    flex:0 0 34px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
+  .parcours-step-number{
+    display:block;
+    margin-bottom:18px;
     font-family:'Space Mono', monospace;
-    font-size:.66rem;
-    font-weight:700;
-    letter-spacing:.04em;
+    font-size:.68rem;
+    letter-spacing:.10em;
+    color:var(--orange);
   }
 
-  .stage:nth-child(1) .stage-index{
-    background:var(--lime);
-    color:var(--green-deep);
-  }
-  .stage:nth-child(2) .stage-index{
-    background:var(--orange);
-    color:#fff;
-  }
-  .stage:nth-child(3) .stage-index{
-    background:rgba(174,196,105,.22);
-    color:var(--lime);
-    border:1px solid rgba(174,196,105,.30);
-  }
-  .stage:nth-child(4) .stage-index{
-    background:#fff;
-    color:var(--green-deep);
-  }
-
-  .stage-title{
-    font-family:'Fraunces', serif;
-    font-size:1.08rem;
-    line-height:1.15;
-    font-weight:600;
+  .parcours-step h3{
+    margin:0 0 10px;
+    font-size:1.18rem;
+    line-height:1.2;
     color:var(--cream);
   }
 
-  .vine-labels .stage p{
+  .parcours-step p{
     margin:0;
-    color:rgba(255,255,255,.72);
-    font-size:.9rem;
-    line-height:1.5;
-  }
-
-  .vine-mobile-list{
-    list-style:none;
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
-
-  .vine-mobile-list li{
-    position:relative;
-    padding:20px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,.10);
-    background:rgba(255,255,255,.055);
-  }
-
-  .vine-mobile-list p{
-    margin:0 0 0 45px;
-    color:rgba(255,255,255,.74);
-    font-size:.94rem;
+    color:rgba(255,255,255,.66);
+    font-size:.92rem;
+    line-height:1.55;
   }
 
   .parcours-close{
-    margin-top:44px;
-    padding-left:18px;
-    border-left:3px solid var(--orange);
+    margin:50px 0 0;
+    max-width:46ch;
     font-family:'Fraunces', serif;
-    font-size:1.22rem;
-    line-height:1.4;
+    font-size:1.15rem;
+    line-height:1.45;
     color:var(--cream);
-    max-width:44ch;
   }
 
-  @media(max-width:760px){
-    .vine-desktop{ display:none; }
-    .vine-mobile{ display:flex; }
-    .vine-wrap{ margin-top:38px; }
+  .parcours-close strong{
+    color:var(--lime);
+    font-weight:500;
+  }
+
+  @media(max-width:900px){
+    .parcours-head{
+      grid-template-columns:1fr;
+      gap:18px;
+      margin-bottom:40px;
+    }
+
+    .parcours-steps{
+      grid-template-columns:repeat(2,1fr);
+      gap:34px 26px;
+    }
+  }
+
+  @media(max-width:560px){
+    .parcours-steps{
+      grid-template-columns:1fr;
+      gap:0;
+      padding-top:0;
+      border-top:none;
+    }
+
+    .parcours-step{
+      padding:22px 0;
+      border-top:1px solid rgba(255,255,255,.16);
+    }
+
+    .parcours-step-number{
+      margin-bottom:10px;
+    }
   }
 
   /* ---------- CONTACT ---------- */
@@ -1208,69 +1161,49 @@
     </div>
   </section>
 
-  <!-- PARCOURS (dark, signature vine) -->
+  <!-- PARCOURS -->
   <section id="parcours" class="on-dark reveal">
     <div class="wrap">
       <p class="eyebrow">Le parcours</p>
-      <h2 class="parcours-intro parcours-title">
-        L'entreprise évolue <span class="accent">progressivement</span>
-      </h2>
-      <p class="parcours-intro parcours-subtitle">
-        Chaque étape apporte de nouveaux usages et une implication plus forte des collaborateurs.
-      </p>
 
-      <div class="vine-wrap" id="vineWrap">
-        <div class="vine-desktop">
-          <svg viewBox="0 0 1160 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path class="vine-path" d="M20 100 C 220 20, 340 180, 560 90 C 780 0, 900 170, 1140 60"/>
-            <circle class="vine-node" cx="20" cy="100" r="9" fill="#FF682C"/>
-            <circle class="vine-node" cx="400" cy="112" r="9" fill="#FF682C"/>
-            <circle class="vine-node" cx="770" cy="60" r="9" fill="#FF682C"/>
-            <circle class="vine-node" cx="1140" cy="60" r="9" fill="#FF682C"/>
-          </svg>
+      <div class="parcours-head">
+        <h2 class="parcours-title">
+          Faire évoluer le projet <span class="accent">dans le temps.</span>
+        </h2>
+        <p class="parcours-subtitle">
+          Le vivant s'installe progressivement. À chaque étape, les équipes gagnent en autonomie
+          et le projet prend davantage de place dans le quotidien.
+        </p>
+      </div>
 
-          <div class="vine-labels">
-            <div class="stage">
-              <div class="stage-head"><span class="stage-index">01</span><span class="stage-title">Graine</span></div>
-              <p>Premiers espaces plantés, premières habitudes.</p>
-            </div>
-            <div class="stage">
-              <div class="stage-head"><span class="stage-index">02</span><span class="stage-title">Jeune pousse</span></div>
-              <p>Les équipes s'approprient les gestes d'entretien.</p>
-            </div>
-            <div class="stage">
-              <div class="stage-head"><span class="stage-index">03</span><span class="stage-title">Arbre</span></div>
-              <p>Une communauté du vivant se forme durablement.</p>
-            </div>
-            <div class="stage">
-              <div class="stage-head"><span class="stage-index">04</span><span class="stage-title">Écosystème</span></div>
-              <p>Le vivant infuse la culture d'entreprise, en autonomie.</p>
-            </div>
-          </div>
+      <div class="parcours-steps">
+        <div class="parcours-step">
+          <span class="parcours-step-number">01</span>
+          <h3>Graine</h3>
+          <p>Premiers espaces plantés, premiers usages.</p>
         </div>
 
-        <ul class="vine-mobile vine-mobile-list">
-          <li>
-            <div class="stage-head"><span class="stage-index">01</span><span class="stage-title">Graine</span></div>
-            <p>Premiers espaces plantés, premières habitudes.</p>
-          </li>
-          <li>
-            <div class="stage-head"><span class="stage-index">02</span><span class="stage-title">Jeune pousse</span></div>
-            <p>Les équipes s'approprient les gestes d'entretien.</p>
-          </li>
-          <li>
-            <div class="stage-head"><span class="stage-index">03</span><span class="stage-title">Arbre</span></div>
-            <p>Une communauté du vivant se forme durablement.</p>
-          </li>
-          <li>
-            <div class="stage-head"><span class="stage-index">04</span><span class="stage-title">Écosystème</span></div>
-            <p>Le vivant infuse la culture d'entreprise, en autonomie.</p>
-          </li>
-        </ul>
+        <div class="parcours-step">
+          <span class="parcours-step-number">02</span>
+          <h3>Jeune pousse</h3>
+          <p>Les équipes s'approprient les gestes et les habitudes.</p>
+        </div>
+
+        <div class="parcours-step">
+          <span class="parcours-step-number">03</span>
+          <h3>Arbre</h3>
+          <p>Une dynamique collective se structure autour du vivant.</p>
+        </div>
+
+        <div class="parcours-step">
+          <span class="parcours-step-number">04</span>
+          <h3>Écosystème</h3>
+          <p>Le projet devient autonome et s'ancre dans la culture d'entreprise.</p>
+        </div>
       </div>
 
       <p class="parcours-close">
-        L'objectif n'est jamais d'avoir plus de plantes. L'objectif est d'avoir davantage de vivant.
+        L'objectif n'est pas d'avoir plus de plantes, mais <strong>davantage de vivant.</strong>
       </p>
     </div>
   </section>
@@ -1305,20 +1238,6 @@
     });
   }, { threshold: 0.15 });
   revealEls.forEach(el => revealObserver.observe(el));
-
-  // Signature vine growth animation in Parcours section
-  const vineWrap = document.getElementById('vineWrap');
-  if (vineWrap){
-    const vineObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting){
-          vineWrap.classList.add('in');
-          vineObserver.unobserve(vineWrap);
-        }
-      });
-    }, { threshold: 0.35 });
-    vineObserver.observe(vineWrap);
-  }
 </script>
 
 </body>
