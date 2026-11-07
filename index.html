@@ -859,7 +859,7 @@
     }
   }
 
-  /* ---------- PARCOURS (minimal) ---------- */
+  /* ---------- PARCOURS (courbe signature) ---------- */
   #parcours{
     overflow:hidden;
   }
@@ -896,7 +896,7 @@
     grid-template-columns:.9fr 1.1fr;
     gap:60px;
     align-items:end;
-    margin-bottom:54px;
+    margin-bottom:28px;
   }
 
   .parcours-title{
@@ -917,47 +917,103 @@
     font-size:1rem;
   }
 
-  .parcours-steps{
+  .parcours-curve{
+    margin-top:18px;
+  }
+
+  .parcours-curve-visual{
+    position:relative;
+    width:100%;
+  }
+
+  .parcours-curve-visual svg{
+    width:100%;
+    height:auto;
+    overflow:visible;
+  }
+
+  .parcours-curve-path{
+    fill:none;
+    stroke:var(--lime);
+    stroke-width:3;
+    stroke-linecap:round;
+    stroke-dasharray:1400;
+    stroke-dashoffset:1400;
+    transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1);
+  }
+
+  #parcours.reveal.in .parcours-curve-path{
+    stroke-dashoffset:0;
+  }
+
+  .parcours-node{
+    opacity:0;
+    transform:translateY(8px);
+    transform-box:fill-box;
+    transform-origin:center;
+    transition:opacity .45s ease, transform .45s ease;
+  }
+
+  #parcours.reveal.in .parcours-node{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  #parcours.reveal.in .parcours-node:nth-of-type(1){ transition-delay:.25s; }
+  #parcours.reveal.in .parcours-node:nth-of-type(2){ transition-delay:.55s; }
+  #parcours.reveal.in .parcours-node:nth-of-type(3){ transition-delay:.85s; }
+  #parcours.reveal.in .parcours-node:nth-of-type(4){ transition-delay:1.15s; }
+
+  .parcours-node-ring{
+    fill:var(--bg-dark);
+    stroke:var(--orange);
+    stroke-width:3;
+  }
+
+  .parcours-node-core{
+    fill:var(--orange);
+  }
+
+  .parcours-stages{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:30px;
-    border-top:1px solid rgba(255,255,255,.18);
-    padding-top:30px;
+    gap:32px;
+    margin-top:4px;
   }
 
-  .parcours-step{
-    position:relative;
-    padding-top:4px;
+  .parcours-stage{
+    min-width:0;
   }
 
-  .parcours-step-number{
+  .parcours-stage-number{
     display:block;
-    margin-bottom:18px;
+    margin-bottom:9px;
     font-family:'Space Mono', monospace;
-    font-size:.68rem;
+    font-size:.66rem;
     letter-spacing:.10em;
     color:var(--orange);
   }
 
-  .parcours-step h3{
-    margin:0 0 10px;
-    font-size:1.18rem;
-    line-height:1.2;
+  .parcours-stage h3{
+    margin:0 0 8px;
+    font-size:1.15rem;
+    line-height:1.15;
     color:var(--cream);
   }
 
-  .parcours-step p{
+  .parcours-stage p{
     margin:0;
-    color:rgba(255,255,255,.66);
-    font-size:.92rem;
-    line-height:1.55;
+    max-width:22ch;
+    color:rgba(255,255,255,.64);
+    font-size:.9rem;
+    line-height:1.5;
   }
 
   .parcours-close{
-    margin:50px 0 0;
+    margin:46px 0 0;
     max-width:46ch;
     font-family:'Fraunces', serif;
-    font-size:1.15rem;
+    font-size:1.14rem;
     line-height:1.45;
     color:var(--cream);
   }
@@ -967,34 +1023,51 @@
     font-weight:500;
   }
 
-  @media(max-width:900px){
+  .parcours-mobile{
+    display:none;
+  }
+
+  @media(max-width:760px){
     .parcours-head{
       grid-template-columns:1fr;
       gap:18px;
-      margin-bottom:40px;
+      margin-bottom:34px;
     }
 
-    .parcours-steps{
-      grid-template-columns:repeat(2,1fr);
-      gap:34px 26px;
-    }
-  }
-
-  @media(max-width:560px){
-    .parcours-steps{
-      grid-template-columns:1fr;
-      gap:0;
-      padding-top:0;
-      border-top:none;
+    .parcours-curve{
+      display:none;
     }
 
-    .parcours-step{
-      padding:22px 0;
-      border-top:1px solid rgba(255,255,255,.16);
+    .parcours-mobile{
+      display:block;
+      margin-top:34px;
+      padding-left:22px;
+      border-left:2px solid rgba(174,196,105,.45);
     }
 
-    .parcours-step-number{
-      margin-bottom:10px;
+    .parcours-mobile .parcours-stage{
+      position:relative;
+      padding:0 0 28px 18px;
+    }
+
+    .parcours-mobile .parcours-stage:last-child{
+      padding-bottom:0;
+    }
+
+    .parcours-mobile .parcours-stage::before{
+      content:"";
+      position:absolute;
+      left:-29px;
+      top:3px;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--orange);
+      box-shadow:0 0 0 5px var(--bg-dark);
+    }
+
+    .parcours-mobile .parcours-stage p{
+      max-width:34ch;
     }
   }
 
@@ -1176,27 +1249,76 @@
         </p>
       </div>
 
-      <div class="parcours-steps">
-        <div class="parcours-step">
-          <span class="parcours-step-number">01</span>
+      <div class="parcours-curve">
+        <div class="parcours-curve-visual" aria-hidden="true">
+          <svg viewBox="0 0 1160 190" xmlns="http://www.w3.org/2000/svg">
+            <path class="parcours-curve-path"
+              d="M40 128 C190 32, 315 38, 430 110 C560 188, 650 146, 730 84 C835 4, 945 38, 1120 68"/>
+            
+            <g class="parcours-node" transform="translate(145 72)">
+              <circle class="parcours-node-ring" r="10"/>
+              <circle class="parcours-node-core" r="4"/>
+            </g>
+            <g class="parcours-node" transform="translate(435 113)">
+              <circle class="parcours-node-ring" r="10"/>
+              <circle class="parcours-node-core" r="4"/>
+            </g>
+            <g class="parcours-node" transform="translate(725 88)">
+              <circle class="parcours-node-ring" r="10"/>
+              <circle class="parcours-node-core" r="4"/>
+            </g>
+            <g class="parcours-node" transform="translate(1015 51)">
+              <circle class="parcours-node-ring" r="10"/>
+              <circle class="parcours-node-core" r="4"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="parcours-stages">
+          <div class="parcours-stage">
+            <span class="parcours-stage-number">01</span>
+            <h3>Graine</h3>
+            <p>Premiers espaces plantés, premiers usages.</p>
+          </div>
+
+          <div class="parcours-stage">
+            <span class="parcours-stage-number">02</span>
+            <h3>Jeune pousse</h3>
+            <p>Les équipes s'approprient les gestes et les habitudes.</p>
+          </div>
+
+          <div class="parcours-stage">
+            <span class="parcours-stage-number">03</span>
+            <h3>Arbre</h3>
+            <p>Une dynamique collective se structure autour du vivant.</p>
+          </div>
+
+          <div class="parcours-stage">
+            <span class="parcours-stage-number">04</span>
+            <h3>Écosystème</h3>
+            <p>Le projet devient autonome et s'ancre dans la culture d'entreprise.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="parcours-mobile">
+        <div class="parcours-stage">
+          <span class="parcours-stage-number">01</span>
           <h3>Graine</h3>
           <p>Premiers espaces plantés, premiers usages.</p>
         </div>
-
-        <div class="parcours-step">
-          <span class="parcours-step-number">02</span>
+        <div class="parcours-stage">
+          <span class="parcours-stage-number">02</span>
           <h3>Jeune pousse</h3>
           <p>Les équipes s'approprient les gestes et les habitudes.</p>
         </div>
-
-        <div class="parcours-step">
-          <span class="parcours-step-number">03</span>
+        <div class="parcours-stage">
+          <span class="parcours-stage-number">03</span>
           <h3>Arbre</h3>
           <p>Une dynamique collective se structure autour du vivant.</p>
         </div>
-
-        <div class="parcours-step">
-          <span class="parcours-step-number">04</span>
+        <div class="parcours-stage">
+          <span class="parcours-stage-number">04</span>
           <h3>Écosystème</h3>
           <p>Le projet devient autonome et s'ancre dans la culture d'entreprise.</p>
         </div>
