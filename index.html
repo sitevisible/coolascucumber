@@ -1084,13 +1084,103 @@
   }
 
   /* ---------- CONTACT ---------- */
-  .contact-box{
-    background: var(--bg-card); border-radius: 24px; padding: 60px 50px;
-    box-shadow: var(--shadow); border: 1px solid var(--line);
-    display:flex; align-items:center; justify-content:space-between; gap: 40px; flex-wrap:wrap;
+  #contact{
+    padding-top:92px;
+    padding-bottom:92px;
   }
-  .contact-box h2{ font-size: clamp(1.6rem, 3vw, 2.1rem); max-width: 16ch; }
-  .contact-box p{ color: var(--ink-soft); margin: 14px 0 0; max-width: 40ch; }
+
+  .contact-box{
+    position:relative;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1.2fr auto;
+    gap:48px;
+    align-items:end;
+    padding:54px 56px;
+    border-radius:22px;
+    background:linear-gradient(135deg, rgba(174,196,105,.18), rgba(255,255,255,.96));
+    border:1px solid rgba(9,75,60,.10);
+  }
+
+  .contact-box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:56px;
+    width:78px;
+    height:4px;
+    border-radius:0 0 999px 999px;
+    background:var(--orange);
+  }
+
+  .contact-kicker{
+    width:fit-content;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin:0 0 18px;
+    padding:8px 11px;
+    border-radius:999px;
+    background:rgba(174,196,105,.22);
+    color:var(--green-deep);
+    font-family:'Space Mono', monospace;
+    font-size:.70rem;
+    line-height:1;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+  }
+
+  .contact-kicker::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--orange);
+  }
+
+  .contact-box h2{
+    font-size:clamp(2rem,4vw,3rem);
+    line-height:1.05;
+    letter-spacing:-.025em;
+    max-width:13ch;
+  }
+
+  .contact-box h2 .accent{
+    color:var(--orange);
+  }
+
+  .contact-box p{
+    color:var(--ink-soft);
+    margin:18px 0 0;
+    max-width:46ch;
+    font-size:1rem;
+  }
+
+  .contact-box .btn{
+    align-self:end;
+    white-space:nowrap;
+  }
+
+  @media(max-width:760px){
+    #contact{
+      padding-top:72px;
+      padding-bottom:72px;
+    }
+
+    .contact-box{
+      grid-template-columns:1fr;
+      gap:28px;
+      padding:44px 28px 32px;
+    }
+
+    .contact-box::before{
+      left:28px;
+    }
+
+    .contact-box .btn{
+      justify-self:start;
+    }
+  }
 
   footer{
     padding: 40px 0 60px; text-align:center;
@@ -1368,10 +1458,11 @@
   <section id="contact" class="wrap reveal">
     <div class="contact-box">
       <div>
-        <h2>Prêt à faire pousser votre QVT&nbsp;?</h2>
-        <p>Parlons de vos espaces, de vos équipes, et de la première graine à planter ensemble.</p>
+        <p class="contact-kicker">Et maintenant ?</p>
+        <h2>Prêt à faire pousser <span class="accent">votre QVT&nbsp;?</span></h2>
+        <p>Parlons de vos espaces, de vos équipes et de la première étape à mettre en place ensemble.</p>
       </div>
-            <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+      <a class="btn btn-primary" href="contact.html">Nous contacter</a>
     </div>
   </section>
 
