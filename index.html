@@ -95,63 +95,54 @@
     place-items:center;
     overflow:hidden;
     background:var(--green-deep);
-    animation:introScreenOut .62s ease 2.15s forwards;
+    animation:introScreenOut .58s ease 2.18s forwards;
   }
 
   .intro-mark{
-    width:min(260px,48vw);
+    width:min(300px,52vw);
     aspect-ratio:1;
+    overflow:visible;
+    filter:drop-shadow(0 12px 28px rgba(0,0,0,.08));
+  }
+
+  .intro-c-shape{
+    fill:#E9FFD6;
+    transform-box:fill-box;
     transform-origin:center;
-    animation:introMarkIn 1.05s cubic-bezier(.2,.9,.2,1.2) forwards;
+    opacity:0;
+    animation:introCIn .95s cubic-bezier(.2,.9,.2,1.18) .05s forwards;
   }
 
-  .intro-c{
-    fill:none;
-    stroke:#E9FFD6;
-    stroke-width:34;
-    stroke-linecap:butt;
-    stroke-dasharray:390;
-    stroke-dashoffset:390;
-    animation:introCDraw .62s cubic-bezier(.22,1,.36,1) .08s forwards;
-  }
-
-  @keyframes introCDraw{
-    to{ stroke-dashoffset:0; }
-  }
-
-  .intro-segment{
+  .intro-piece{
+    fill:var(--lime);
     transform-box:fill-box;
     transform-origin:center;
     opacity:0;
   }
 
-  .intro-segment.s1{
-    animation:introSegmentPop .42s cubic-bezier(.2,.9,.2,1.35) .55s forwards;
+  .intro-piece.p1{
+    animation:introPiecePop .42s cubic-bezier(.2,.9,.2,1.35) .56s forwards;
   }
 
-  .intro-segment.s2{
-    animation:introSegmentPop .42s cubic-bezier(.2,.9,.2,1.35) .78s forwards;
+  .intro-piece.p2{
+    animation:introPiecePop .42s cubic-bezier(.2,.9,.2,1.35) .80s forwards;
   }
 
-  .intro-segment.s3{
-    animation:introSegmentPop .42s cubic-bezier(.2,.9,.2,1.35) 1.01s forwards;
+  .intro-piece.p3{
+    animation:introPiecePop .42s cubic-bezier(.2,.9,.2,1.35) 1.04s forwards;
   }
 
-  .intro-mark{
-    filter:drop-shadow(0 10px 24px rgba(0,0,0,.08));
-  }
-
-  @keyframes introMarkIn{
+  @keyframes introCIn{
     0%{
       opacity:0;
-      transform:scale(.52) rotate(-26deg);
+      transform:scale(.62) rotate(-28deg);
     }
-    55%{
+    58%{
       opacity:1;
-      transform:scale(1.08) rotate(3deg);
+      transform:scale(1.07) rotate(4deg);
     }
-    75%{
-      transform:scale(.97) rotate(-1deg);
+    78%{
+      transform:scale(.98) rotate(-1.5deg);
     }
     100%{
       opacity:1;
@@ -159,18 +150,18 @@
     }
   }
 
-  @keyframes introSegmentPop{
+  @keyframes introPiecePop{
     0%{
       opacity:0;
-      transform:scale(.2) rotate(-12deg);
+      transform:scale(.18) rotate(-12deg);
     }
     72%{
       opacity:1;
-      transform:scale(1.12) rotate(3deg);
+      transform:scale(1.10) rotate(2deg);
     }
     100%{
       opacity:1;
-      transform:scale(1) rotate(0);
+      transform:scale(1) rotate(0deg);
     }
   }
 
@@ -188,7 +179,7 @@
 
   @media(max-width:760px){
     .intro-mark{
-      width:min(220px,58vw);
+      width:min(250px,64vw);
     }
   }
 
@@ -1427,26 +1418,11 @@
 <body class="intro-active">
 
 <div class="intro-screen" aria-hidden="true">
-  <svg class="intro-mark" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-    <path class="intro-c" d="M164 58 A76 76 0 1 0 164 162"/>
-
-    <g class="intro-segment s1">
-      <path d="M104 80 C116 68 136 69 148 83 C146 96 131 103 115 99 C105 95 99 88 104 80Z" fill="#AEC469"/>
-      <ellipse cx="119" cy="80" rx="4" ry="8" transform="rotate(-28 119 80)" fill="#094B3C"/>
-      <ellipse cx="137" cy="82" rx="4" ry="8" transform="rotate(18 137 82)" fill="#094B3C"/>
-    </g>
-
-    <g class="intro-segment s2">
-      <path d="M145 103 C157 113 158 131 149 143 C138 150 125 142 121 128 C121 116 131 106 145 103Z" fill="#AEC469"/>
-      <ellipse cx="143" cy="118" rx="4" ry="8" transform="rotate(72 143 118)" fill="#094B3C"/>
-      <ellipse cx="140" cy="136" rx="4" ry="8" transform="rotate(126 140 136)" fill="#094B3C"/>
-    </g>
-
-    <g class="intro-segment s3">
-      <path d="M106 145 C91 150 76 142 71 129 C76 116 90 108 104 113 C114 122 114 136 106 145Z" fill="#AEC469"/>
-      <ellipse cx="89" cy="136" rx="4" ry="8" transform="rotate(30 89 136)" fill="#094B3C"/>
-      <ellipse cx="83" cy="121" rx="4" ry="8" transform="rotate(68 83 121)" fill="#094B3C"/>
-    </g>
+  <svg class="intro-mark" viewBox="0 0 2000 2000" xmlns="http://www.w3.org/2000/svg">
+    <path class="intro-piece p1" d="M864.61,973.71a31.2,31.2,0,0,0-32.42,32.42,172.81,172.81,0,0,0,50.65,115.93c42.68,42.67,88.15,51.48,117,51.9a30.94,30.94,0,0,0,31.45-31.56A173.37,173.37,0,0,0,864.61,973.71Zm66.83,66c-3.34,7-9.58,13.59-17.56,18.51-14.28,8.79-30.59,9.88-38,2.53a11.94,11.94,0,0,1-1.77-2.25c-5.86-9.5,2.44-25.69,18.12-35.34,14.28-8.8,30.59-9.89,37.94-2.54a12.41,12.41,0,0,1,1.78,2.25C934.71,1027.25,934.51,1033.23,931.44,1039.69Zm52.85,35c7.36,7.36,6.27,23.67-2.53,37.95-9.65,15.67-25.84,24-35.35,18.12a12.76,12.76,0,0,1-2.25-1.78c-7.35-7.35-6.26-23.66,2.54-37.94,4.91-8,11.49-14.22,18.51-17.56,6.45-3.08,12.43-3.28,16.83-.56A11.62,11.62,0,0,1,984.29,1074.67Z"/>
+    <path class="intro-piece p2" d="M1158.7,918.19a31.1,31.1,0,0,0-44.09-11.5,173.4,173.4,0,0,0-61,227.65,31.2,31.2,0,0,0,44.3,11.85,173.67,173.67,0,0,0,60.79-228Zm-36.59,165.48c-5.31,9.82-23.47,10.73-39.68,2a51.16,51.16,0,0,1-12-8.84c-8.62-8.62-11.81-18.59-8.12-25.42,5.3-9.82,23.47-10.73,39.67-2a52,52,0,0,1,12,8.84C1122.6,1066.87,1125.79,1076.85,1122.11,1083.67Zm16.74-84.94c-6.64,4-15.47,6.12-24.84,5.85-11.53-.33-22.11-4.22-28.3-10.42-2.39-2.38-5.2-6.25-5.07-11.13.32-11.16,16.14-20.14,34.55-19.62,11.53.33,22.11,4.23,28.3,10.42,2.39,2.39,5.2,6.26,5.07,11.13C1148.41,990.13,1145,995,1138.85,998.73Z"/>
+    <path class="intro-piece p3" d="M870.57,951.29a173.46,173.46,0,0,0,227.65-61,31.11,31.11,0,0,0-11.5-44.1,173.59,173.59,0,0,0-228,60.79A31.19,31.19,0,0,0,870.57,951.29Zm135.61-85.24c3.71-6.11,8.6-9.56,13.77-9.71,4.87-.13,8.74,2.68,11.13,5.07,6.19,6.19,10.09,16.78,10.42,28.3.52,18.41-8.46,34.23-19.62,34.55-4.88.13-8.75-2.68-11.13-5.07-6.2-6.19-10.09-16.77-10.42-28.3C1000.06,881.52,1002.14,872.7,1006.18,866.05Zm-84.94,16.74c6.82-3.68,16.8-.5,25.42,8.12a51.72,51.72,0,0,1,8.84,12c8.75,16.2,7.84,34.37-2,39.67-6.83,3.69-16.8.5-25.42-8.12a51.16,51.16,0,0,1-8.84-12C910.51,906.26,911.42,888.1,921.24,882.79Z"/>
+    <path class="intro-c-shape" d="M1208,1088.77c-34.19,77.88-112,132.3-202.46,132.3-122.1,0-221.07-99-221.07-221.07s99-221.07,221.07-221.07c90.51,0,168.26,54.42,202.46,132.3h147.39c-39.56-156.39-181.17-272.12-349.85-272.12-199.32,0-360.89,161.57-360.89,360.89s161.57,360.89,360.89,360.89c168.68,0,310.29-115.73,349.85-272.12Z"/>
   </svg>
 </div>
 
