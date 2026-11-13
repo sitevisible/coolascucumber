@@ -741,17 +741,28 @@
     display:grid;
     grid-template-columns:190px minmax(0,1fr);
     gap:30px;
-    margin-top:34px;
-    padding:22px 0 0;
-    border-top:1px solid rgba(9,75,60,.23);
+    align-items:start;
+    margin-top:35px;
+    padding:29px 32px;
+    background:#EDF1E5;
+    border-left:3px solid var(--lime);
+    border-radius:3px 12px 3px 12px;
   }
   .participative-modern .participative-outcome span{
-    font-family:'Space Mono',monospace;font-size:.69rem;
-    text-transform:uppercase;letter-spacing:.10em;color:var(--green-deep);
+    font-family:'Work Sans',sans-serif;
+    font-size:.88rem;
+    font-weight:600;
+    line-height:1.5;
+    letter-spacing:-.01em;
+    color:var(--green-deep);
   }
   .participative-modern .participative-outcome p{
-    margin:0;max-width:77ch;
-    font-size:.98rem;line-height:1.66;color:var(--ink-soft);
+    margin:0;
+    max-width:69ch;
+    font-size:1.02rem;
+    line-height:1.68;
+    font-weight:400;
+    color:var(--ink);
   }
   @media(max-width:900px){
     .participative-modern .participative-heading{
@@ -770,7 +781,7 @@
     .participative-modern .participative-visual{min-height:0;aspect-ratio:1.23;border-radius:3px 22px 3px 22px}
     .participative-modern .participative-photo-caption{left:20px;bottom:21px}
     .participative-modern .participative-step{grid-template-columns:37px 1fr;gap:13px;padding:17px 0}
-    .participative-modern .participative-outcome{grid-template-columns:1fr;gap:12px;margin-top:28px}
+    .participative-modern .participative-outcome{grid-template-columns:1fr;gap:10px;margin-top:28px;padding:23px 21px}
   }
   @media(prefers-reduced-motion:reduce){
     .participative-modern .participative-visual img,
