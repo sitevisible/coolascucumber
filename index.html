@@ -845,70 +845,55 @@
     .diff-visual-note span{max-width:240px;font-size:.82rem;margin-top:9px}
   }
 
-    /* ---------- CE QUE ÇA CHANGE : grille éditoriale sans cartes ---------- */
-  #promesses{padding-top:102px;padding-bottom:116px}
-  .promesses-header{
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-    align-items:end;gap:clamp(32px,7vw,110px);
-    padding-bottom:46px;
+    /* ---------- CE QUE ÇA CHANGE : manifeste éditorial ---------- */
+  #promesses{
+    width:100%;max-width:none;padding:100px max(28px,calc((100vw - 1120px)/2 + 28px)) 104px;
+    background:#EAF0E3;overflow:hidden;
   }
-  .promesses-kicker{
-    margin:0 0 18px;color:var(--green-deep);
-    font:700 .69rem 'Space Mono',monospace;
-    letter-spacing:.13em;text-transform:uppercase;
-  }
-  .promesses-header h2{
-    max-width:13ch;font-size:clamp(2.8rem,5.2vw,5rem);
-    line-height:1.02;letter-spacing:-.045em;
-  }
-  .promesses-header h2 .accent{color:var(--orange);font-weight:400}
-  .promesses-intro{
-    max-width:48ch;margin:0 0 5px;
-    color:var(--ink-soft);font-size:1.08rem;line-height:1.65;
-  }
-  .promesses-list{border-top:1px solid rgba(9,75,60,.22)}
+  .promesses-header{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:64px}
+  .promesses-kicker{font:700 .71rem 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--green-deep);margin:0 0 18px}
+  .promesses-header h2{font-size:clamp(3.1rem,6vw,5.5rem);line-height:.98;letter-spacing:-.05em;max-width:12ch}
+  .promesses-header h2 .accent{color:var(--green-deep);font-weight:400}
+  .promesses-intro{color:var(--ink-soft);font-size:1.09rem;line-height:1.65;max-width:43ch;margin:0 0 5px}
+  .promesses-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(9,75,60,.22)}
   .promesses-list-item{
-    display:grid;grid-template-columns:clamp(94px,14vw,180px) minmax(220px,.95fr) minmax(270px,1.05fr);
-    align-items:center;gap:clamp(18px,3vw,50px);
-    padding:34px 6px 36px;
-    border:0;border-bottom:1px solid rgba(9,75,60,.19);
-    border-radius:0;background:none !important;
-    transition:padding-left .25s ease,background .25s ease;
+    position:relative;display:flex;flex-direction:column;
+    min-width:0;min-height:290px;gap:0;padding:31px 33px 12px 0;
+    border:0;border-radius:0;background:transparent !important;
   }
-  .promesses-list-item:hover{padding-left:18px;background:rgba(174,196,105,.085) !important}
+  .promesses-list-item:not(:first-child){padding-left:34px;border-left:1px solid rgba(9,75,60,.20)}
   .promesses-list-item::before{display:none}
   .promesses-index{
-    display:block;width:auto;height:auto;padding:0;
-    color:rgba(9,75,60,.40) !important;background:none !important;
-    font-family:'Fraunces',serif;font-size:clamp(3.8rem,7.8vw,7.2rem);
-    line-height:.9;letter-spacing:-.06em;font-weight:400;
+    display:block;width:auto;height:auto;padding:0;margin:0 0 58px;
+    background:none !important;color:var(--green-deep) !important;
+    font:700 .7rem 'Space Mono',monospace;letter-spacing:.1em;
   }
-  .promesses-list-item:nth-child(2) .promesses-index{color:var(--orange) !important}
+  .promesses-list-item:nth-child(2) .promesses-index{color:var(--green-deep) !important}
   .promesses-list-item h3{
-    font-size:clamp(1.45rem,2.15vw,2rem);
-    line-height:1.15;letter-spacing:-.03em;margin:0;
-    max-width:19ch;
+    margin:auto 0 15px;font-size:clamp(1.7rem,2.7vw,2.45rem);
+    font-weight:500;line-height:1.13;letter-spacing:-.035em;max-width:18ch;
   }
-  .promesses-list-item p{
-    margin:0;max-width:46ch;
-    color:var(--ink-soft);font-size:.97rem;line-height:1.65;
-  }
-  .promesses-list-item strong{color:var(--green-deep) !important;font-weight:600}
+  .promesses-list-item p{margin:0;color:var(--ink-soft);font-size:.93rem;line-height:1.6;max-width:34ch}
+  .promesses-list-item strong{font-weight:600;color:var(--green-deep) !important}
   @media(max-width:900px){
-    .promesses-header{grid-template-columns:1fr;gap:20px;padding-bottom:34px}
-    .promesses-list-item{grid-template-columns:92px 1fr;gap:10px 22px;align-items:start;padding:28px 0}
-    .promesses-list-item p{grid-column:2}
-    .promesses-list-item h3{max-width:none}
-    .promesses-index{font-size:4.6rem}
+    #promesses{padding:74px 28px 80px}
+    .promesses-header{grid-template-columns:1fr;gap:22px;margin-bottom:35px}
+    .promesses-header h2{font-size:clamp(2.9rem,8vw,4.5rem)}
+    .promesses-list{grid-template-columns:1fr}
+    .promesses-list-item,.promesses-list-item:not(:first-child){
+      display:grid;grid-template-columns:1fr 1.3fr;gap:10px 30px;min-height:0;
+      padding:25px 0;border-left:0;border-bottom:1px solid rgba(9,75,60,.19)
+    }
+    .promesses-index{grid-column:1/-1;margin-bottom:0}
+    .promesses-list-item h3{margin:0;font-size:1.75rem}
   }
   @media(max-width:560px){
-    #promesses{padding-top:74px;padding-bottom:80px}
-    .promesses-header h2{font-size:clamp(2.5rem,10vw,3.6rem)}
+    #promesses{padding:65px 24px 70px}
+    .promesses-header h2{font-size:clamp(2.65rem,11vw,3.6rem)}
     .promesses-intro{font-size:1rem}
-    .promesses-list-item{grid-template-columns:60px 1fr;gap:8px 15px;padding:25px 0}
-    .promesses-index{font-size:3.3rem}
-    .promesses-list-item h3{font-size:1.4rem}
-    .promesses-list-item p{font-size:.92rem}
+    .promesses-list-item,.promesses-list-item:not(:first-child){display:block;padding:25px 0}
+    .promesses-index{margin-bottom:20px}
+    .promesses-list-item h3{margin:0 0 12px;font-size:1.75rem}
   }
 
   /* ---------- PARCOURS (courbe signature) ---------- */
@@ -1502,33 +1487,27 @@
   </section>
 
       <!-- PROMESSES -->
-  <section id="promesses" class="wrap reveal">
+  <section id="promesses" class="reveal">
     <div class="promesses-header">
       <div>
         <p class="promesses-kicker">Ce que ça change</p>
         <h2>Le vivant, <span class="accent">au quotidien.</span></h2>
       </div>
-      <p class="promesses-intro">
-        Des bureaux plus agréables, des équipes qui font ensemble et des gestes concrets :
-        notre démarche donne au végétal une place dans la vie de l'entreprise.
-      </p>
+      <p class="promesses-intro">Pas seulement des plantes dans un bureau. Des espaces plus agréables, des occasions de se retrouver et des engagements qui prennent vie dans les gestes du quotidien.</p>
     </div>
-
     <div class="promesses-list">
       <div class="promesses-list-item">
-        <span class="promesses-index">01 / LES ESPACES</span>
+        <span class="promesses-index">LES ESPACES</span>
         <h3>Se sentir mieux au bureau.</h3>
         <p>Des lieux plus accueillants et végétalisés, pensés pour offrir <strong>une respiration dans la journée.</strong></p>
       </div>
-
       <div class="promesses-list-item">
-        <span class="promesses-index">02 / LE COLLECTIF</span>
+        <span class="promesses-index">LE COLLECTIF</span>
         <h3>Faire ensemble, tout simplement.</h3>
         <p>Planter, bouturer, échanger : des moments qui favorisent <strong>les rencontres et l'implication des équipes.</strong></p>
       </div>
-
       <div class="promesses-list-item">
-        <span class="promesses-index">03 / LES ENGAGEMENTS</span>
+        <span class="promesses-index">LES ENGAGEMENTS</span>
         <h3>Passer des intentions aux gestes.</h3>
         <p>Bouturage, compost, économie d'eau : des pratiques accessibles pour <strong>faire vivre la démarche RSE au quotidien.</strong></p>
       </div>
