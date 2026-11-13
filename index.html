@@ -1489,48 +1489,45 @@
   @media(max-width:950px){.nav-inner svg.logo-img{width:130px;height:46px}}
   @media(max-width:760px){.nav-inner svg.logo-img{width:132px;height:46px}}
 
-  /* Séquence fluide : C animé -> C de COOL -> révélation du mot-symbole. */
-  body.intro-active .intro-mark{animation:none}
+  /* Transition continue : le C rejoint la navigation pendant que le nom se révèle. */
+  body.intro-active .intro-mark{
+    animation:none;
+    will-change:transform,opacity;
+  }
+  body.intro-active .intro-bg{
+    animation:none;
+    will-change:opacity;
+  }
   body.intro-active header.site-nav{
     animation:none;
     opacity:0;
     transform:none;
+    transition:opacity .85s cubic-bezier(.22,1,.36,1);
   }
-  body.intro-moving header.site-nav{
+  body.intro-flying header.site-nav{opacity:1}
+  body.intro-active .nav-inner .logo svg > path{opacity:0}
+  body.intro-settling .nav-inner .logo svg > path:nth-of-type(9){
     opacity:1;
-    transition:opacity .65s cubic-bezier(.22,1,.36,1);
-  }
-  body.intro-active .nav-inner .logo svg > path{
-    opacity:0;
-  }
-  body.intro-landed .nav-inner .logo svg > path:nth-of-type(9){
-    opacity:1;
+    transition:opacity .22s ease;
   }
   body.intro-lettering .nav-inner .logo svg > path:not(:nth-of-type(9)){
-    animation:logoLetterUnfold .52s cubic-bezier(.22,1,.36,1) forwards;
+    animation:introLetterSoft .66s cubic-bezier(.22,1,.36,1) both;
   }
-  /* Première ligne : COOL AS ; deuxième ligne : CUCUMBER. */
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(10){animation-delay:.07s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(11){animation-delay:.12s}
+  /* Courte cascade : les lettres apparaissent presque ensemble, sans effet saccadé. */
+  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(10),
+  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(11),
+  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(15),
+  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(19),
+  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(20){animation-delay:.03s}
   body.intro-lettering .nav-inner .logo svg > path:nth-of-type(12),
   body.intro-lettering .nav-inner .logo svg > path:nth-of-type(13),
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(14){animation-delay:.16s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(15),
+  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(14),
   body.intro-lettering .nav-inner .logo svg > path:nth-of-type(16),
   body.intro-lettering .nav-inner .logo svg > path:nth-of-type(17),
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(18){animation-delay:.24s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(19){animation-delay:.32s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(20){animation-delay:.38s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(1){animation-delay:.20s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(2){animation-delay:.25s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(3){animation-delay:.30s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(4){animation-delay:.35s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(5){animation-delay:.40s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(6){animation-delay:.45s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(7){animation-delay:.50s}
-  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(8){animation-delay:.55s}
-  @keyframes logoLetterUnfold{
-    from{opacity:0;transform:translateX(-10px)}
+  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(18){animation-delay:.10s}
+  body.intro-lettering .nav-inner .logo svg > path:nth-of-type(n+1):nth-of-type(-n+8){animation-delay:.16s}
+  @keyframes introLetterSoft{
+    from{opacity:0;transform:translateX(-5px)}
     to{opacity:1;transform:translateX(0)}
   }
   @media(prefers-reduced-motion:reduce){
@@ -1836,46 +1833,56 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // Le C animé prend place sur le C de COOL ; puis le nom apparaît.
+  // Le C glisse vers son emplacement ; la navigation et les lettres suivent le mouvement.
   const introScreen = document.querySelector('.intro-screen');
   const introMark = introScreen?.querySelector('.intro-mark');
   const introC = introMark?.querySelector('.intro-c-shape');
+  const introBg = introScreen?.querySelector('.intro-bg');
   const navCoolC = document.querySelector('header.site-nav .logo svg > path:nth-of-type(9)');
-  const prefersLessMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let introFinished = false;
   const finishIntro = () => {
-    document.body.classList.remove('intro-active', 'intro-moving', 'intro-landed', 'intro-lettering');
+    if (introFinished) return;
+    introFinished = true;
+    document.body.classList.remove('intro-active', 'intro-flying', 'intro-settling', 'intro-lettering');
     introScreen?.remove();
   };
-
-  if (prefersLessMotion || !introMark || !introC || !navCoolC || !introMark.animate) {
+  if (reducedMotion || !introMark || !introC || !introBg || !navCoolC || !introMark.animate) {
     finishIntro();
   } else {
-    // Always restore the page even if the tab is paused during the intro.
-    window.setTimeout(finishIntro, 3450);
+    // Filet de sécurité si un navigateur ralentit les animations en arrière-plan.
+    window.setTimeout(finishIntro, 3200);
     window.setTimeout(() => {
-      const fromC = introC.getBoundingClientRect();
-      const fromMark = introMark.getBoundingClientRect();
+      const sourceC = introC.getBoundingClientRect();
+      const markBox = introMark.getBoundingClientRect();
       const targetC = navCoolC.getBoundingClientRect();
-      if (!fromC.width || !targetC.width || !fromMark.width) {
+      if (!sourceC.width || !targetC.width || !markBox.width) {
         finishIntro();
         return;
       }
-      // Transform relative to the centre of the animated SVG.
-      const center = r => ({x:r.left + r.width/2, y:r.top + r.height/2});
-      const c0 = center(fromC), m0 = center(fromMark), c1 = center(targetC);
-      const scale = targetC.width/fromC.width;
-      const x = c1.x - (m0.x + (c0.x-m0.x)*scale);
-      const y = c1.y - (m0.y + (c0.y-m0.y)*scale);
-      document.body.classList.add('intro-moving');
-      introMark.animate([
+      const center = r => ({x:r.left+r.width/2,y:r.top+r.height/2});
+      const a=center(sourceC), b=center(markBox), target=center(targetC);
+      const scale=targetC.width/sourceC.width;
+      // Mesure directe de la cible : pas de coordonnées fixes dépendant de l'écran.
+      const dx=target.x-(b.x+(a.x-b.x)*scale);
+      const dy=target.y-(b.y+(a.y-b.y)*scale);
+      const destination=`translate(-50%, -50%) translate(${dx}px, ${dy}px) scale(${scale})`;
+      const flight=introMark.animate([
         {transform:'translate(-50%, -50%) scale(1)',opacity:1,offset:0},
-        {transform:`translate(-50%, -50%) translate(${x}px, ${y}px) scale(${scale})`,opacity:1,offset:.82},
-        {transform:`translate(-50%, -50%) translate(${x}px, ${y}px) scale(${scale})`,opacity:0,offset:1}
-      ],{duration:1050,easing:'cubic-bezier(.22,1,.36,1)',fill:'forwards'});
-      window.setTimeout(() => {
-        document.body.classList.add('intro-landed', 'intro-lettering');
-      }, 820);
-    }, 1340);
+        {transform:destination,opacity:1,offset:.88},
+        {transform:destination,opacity:0,offset:1}
+      ],{duration:1120,easing:'cubic-bezier(.25,.75,.22,1)',fill:'forwards'});
+      document.body.classList.add('intro-flying');
+      // Le fond s'efface doucement pendant le déplacement, pas après.
+      introBg.animate([
+        {opacity:1,offset:0},
+        {opacity:1,offset:.12},
+        {opacity:0,offset:1}
+      ],{duration:970,easing:'ease-in-out',fill:'forwards'});
+      window.setTimeout(() => document.body.classList.add('intro-lettering'), 580);
+      window.setTimeout(() => document.body.classList.add('intro-settling'), 850);
+      flight.finished.then(() => window.setTimeout(finishIntro, 350)).catch(finishIntro);
+    }, 1480);
   }
 </script>
 
