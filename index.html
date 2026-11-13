@@ -426,6 +426,30 @@
     .hero-glow{ display:none; }
   }
 
+  /* ---------- ATELIERS QVT : section de découverte ---------- */
+  .workshops-section{padding:84px 0 92px;background:var(--bg-dark);color:#F5F8F1}
+  .workshops-section .eyebrow{color:var(--lime)}
+  .workshops-section .eyebrow::before{background:var(--lime)}
+  .workshops-header{display:grid;grid-template-columns:1.12fr .88fr;gap:60px;align-items:end;margin-bottom:42px}
+  .workshops-header h2{color:#F7FAF4;font-size:clamp(2.25rem,4vw,3.65rem);line-height:1.12;letter-spacing:-.035em}
+  .workshops-header h2 em{color:var(--lime);font-weight:400}
+  .workshops-intro p{font-size:1.04rem;color:#D5E3DA;max-width:43ch;line-height:1.7;margin:0 0 24px}
+  .workshops-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .workshop-tile{position:relative;display:flex;flex-direction:column;min-height:225px;padding:26px 26px 53px;background:#F4F7ED;border:1px solid rgba(255,255,255,.15);border-radius:15px;text-decoration:none;color:var(--ink);transition:transform .22s ease,background .22s ease}
+  .workshop-tile:hover{transform:translateY(-5px);background:#FFFFFF}
+  .workshop-tile-no{font:700 .68rem 'Space Mono',monospace;letter-spacing:.08em;color:var(--green);margin-bottom:24px}
+  .workshop-tile h3{font-family:'Fraunces',serif;font-size:1.65rem;line-height:1.14;letter-spacing:-.02em;margin-bottom:13px}
+  .workshop-tile p{font-size:.9rem;line-height:1.55;color:var(--ink-soft);margin:0;max-width:32ch}
+  .workshop-tile-link{position:absolute;right:22px;bottom:18px;font-size:1.5rem;color:var(--green-deep)}
+  .workshops-note{font-size:.86rem;color:#D5E3DA;margin:20px 0 0}
+  @media(max-width:850px){
+    .workshops-header{grid-template-columns:1fr;gap:20px}
+    .workshops-grid{grid-template-columns:1fr}
+    .workshop-tile{min-height:0;padding:24px 52px 24px 24px}
+    .workshop-tile-no{margin-bottom:14px}
+  }
+  @media(max-width:560px){.workshops-section{padding:67px 0 72px}.workshops-header h2{font-size:2.25rem}}
+
   /* ---------- ACCUEIL : proposition claire et contemporaine ---------- */
   .hero-combined{
     padding: 148px 10px 76px;
@@ -1456,6 +1480,43 @@
         <h2>Entretenir la dynamique</h2>
         <p>Des rendez-vous et un accompagnement pour inscrire le vivant dans le quotidien.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ATELIERS QVT : découverte de l'offre -->
+  <section id="ateliers" class="workshops-section reveal">
+    <div class="wrap">
+      <div class="workshops-header">
+        <div>
+          <p class="eyebrow">Nos ateliers QVT</p>
+          <h2>Une pause qui fait du bien.<br><em>Un projet qui prend racine.</em></h2>
+        </div>
+        <div class="workshops-intro">
+          <p>Des ateliers autour des plantes pour créer du lien, apprendre ensemble et offrir une respiration dans la journée de travail.</p>
+          <a class="btn btn-primary" href="ateliers-qvt.html">Découvrir tous nos ateliers</a>
+        </div>
+      </div>
+      <div class="workshops-grid">
+        <a class="workshop-tile" href="ateliers-qvt.html">
+          <span class="workshop-tile-no">01 / CRÉER</span>
+          <h3>Bouturage</h3>
+          <p>Multiplier les plantes et repartir avec sa propre bouture.</p>
+          <span class="workshop-tile-link" aria-hidden="true">↗</span>
+        </a>
+        <a class="workshop-tile" href="ateliers-qvt.html">
+          <span class="workshop-tile-no">02 / MANIPULER</span>
+          <h3>Plantation &amp; rempotage</h3>
+          <p>Mettre les mains dans la terre et composer ensemble.</p>
+          <span class="workshop-tile-link" aria-hidden="true">↗</span>
+        </a>
+        <a class="workshop-tile" href="ateliers-qvt.html">
+          <span class="workshop-tile-no">03 / APPRENDRE</span>
+          <h3>Prendre soin des plantes</h3>
+          <p>Les bons gestes pour faire vivre le végétal au bureau.</p>
+          <span class="workshop-tile-link" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <p class="workshops-note">Ateliers ponctuels ou intégrés à une démarche QVT dans la durée.</p>
     </div>
   </section>
 
