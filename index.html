@@ -1377,6 +1377,60 @@
     .workshop-tile:hover,.btn:hover{transform:none}
   }
 
+
+  /* Navigation — version 1, minimaliste et premium */
+  header.site-nav{
+    padding:16px 24px 0;
+  }
+  .nav-inner{
+    max-width:1180px;
+    padding:10px 12px 10px 22px;
+    gap:18px;
+    background:rgba(255,255,255,.80);
+    border:1px solid rgba(9,75,60,.08);
+    border-radius:999px;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 10px 30px -22px rgba(9,75,60,.28),0 2px 10px rgba(9,75,60,.04);
+  }
+  .logo-img{height:38px}
+  nav.links{align-items:center;gap:6px}
+  nav.links a{
+    font-size:.92rem;
+    font-weight:500;
+    letter-spacing:-.01em;
+    padding:10px 16px;
+    transition:background-color .2s ease,color .2s ease,transform .2s ease;
+  }
+  nav.links a:hover{
+    background:rgba(174,196,105,.16);
+    color:var(--green-deep);
+    transform:translateY(-1px);
+  }
+  nav.links a.active{
+    background:rgba(174,196,105,.22);
+    color:var(--green-deep);
+  }
+  .nav-cta{
+    font-size:.92rem;
+    letter-spacing:-.01em;
+    padding:12px 22px;
+    box-shadow:0 10px 24px -18px rgba(255,104,44,.7);
+    transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
+  }
+  .nav-cta:hover{
+    background:#E85720;
+    transform:translateY(-1px);
+    box-shadow:0 14px 28px -18px rgba(255,104,44,.78);
+  }
+  @media(max-width:760px){
+    header.site-nav{padding:12px 14px 0}
+    .nav-inner{padding:8px 8px 8px 16px;gap:12px}
+    .logo-img{height:30px}
+    nav.links a{font-size:.84rem;padding:8px 12px}
+    .nav-cta{display:none}
+  }
+
 </style>
 </head>
 <body class="intro-active">
