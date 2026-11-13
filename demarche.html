@@ -621,199 +621,160 @@
     .participative-modern{padding-top:22px;padding-bottom:70px}
   }
 
-  /* PREMIERE SECTION — DIRECTION EDITORIALE, VERSION AFFINEE */
-    .participative-modern .participative-heading{
+  /* SECONDE SECTION : DESIGN EDITORIAL ET LECTURE OPTIMISEE */
+  .participative-modern{
+    padding:40px 0 88px;
+    background:#F7F8F1;
+    overflow:hidden;
+  }
+  .participative-modern .participative-heading{
     display:grid;
-    grid-template-columns:minmax(0,1.42fr) minmax(240px,.58fr);
-    gap:clamp(28px,5vw,86px);
+    grid-template-columns:minmax(0,1.25fr) minmax(240px,.75fr);
+    gap:clamp(25px,5vw,75px);
     align-items:end;
-    padding-bottom:56px;
+    padding-bottom:43px;
   }
   .participative-modern .participative-heading .eyebrow{
-    margin-bottom:23px;
+    margin-bottom:16px;
     font-size:.68rem;
-    letter-spacing:.17em;
+    letter-spacing:.16em;
   }
   .participative-modern .participative-heading h2{
-    max-width:820px;
-    font-size:clamp(2.8rem,5.5vw,5.45rem);
-    line-height:1.015;
-    letter-spacing:-.057em;
+    max-width:760px;
+    font-size:clamp(2.35rem,4.25vw,4.15rem);
+    line-height:1.075;
     font-weight:500;
+    letter-spacing:-.047em;
     text-wrap:balance;
   }
   .participative-modern .participative-heading h2 em{
     font-style:normal;
     color:var(--orange);
   }
+  .participative-modern .participative-heading h2 span{
+    display:block;
+    color:var(--ink);
+  }
   .participative-modern .participative-intro{
-    margin:0 0 5px;
-    max-width:35ch;
-    padding-left:21px;
+    margin:0 0 6px;
+    max-width:42ch;
+    padding-left:20px;
     border-left:2px solid var(--lime);
     color:var(--ink-soft);
-    font-size:1.025rem;
-    line-height:1.7;
+    font-size:1rem;
+    line-height:1.67;
   }
   .participative-modern .participative-editorial{
     display:grid;
-    grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
-    gap:clamp(30px,5vw,74px);
+    grid-template-columns:minmax(0,.87fr) minmax(0,1.13fr);
+    gap:clamp(25px,4.5vw,65px);
     align-items:stretch;
   }
   .participative-modern .participative-visual{
     position:relative;
-    min-height:520px;
+    min-height:510px;
     overflow:hidden;
-    background:#DBE5D6;
-    border-radius:2px 28px 2px 28px;
     isolation:isolate;
+    background:#DDE7D8;
+    border-radius:3px 30px 3px 30px;
   }
   .participative-modern .participative-visual::after{
-    content:"";
-    position:absolute;
-    inset:42% 0 0;
-    z-index:0;
+    content:"";position:absolute;z-index:0;
+    inset:38% 0 0;
+    background:linear-gradient(0deg,rgba(6,45,35,.75),transparent 85%);
     pointer-events:none;
-    background:linear-gradient(0deg,rgba(6,45,35,.64),transparent 84%);
   }
   .participative-modern .participative-visual img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-    transition:transform 1.05s cubic-bezier(.22,1,.36,1);
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;display:block;
+    transition:transform .8s cubic-bezier(.22,1,.36,1);
   }
   .participative-modern .participative-visual:hover img{transform:scale(1.025)}
   .participative-modern .participative-photo-caption{
-    position:absolute;
-    z-index:1;
-    left:32px;
-    right:25px;
-    bottom:29px;
-    color:#fff;
+    position:absolute;z-index:1;left:28px;right:28px;bottom:29px;
+    max-width:20ch;color:#fff;
     font-family:'Fraunces',serif;
-    font-size:clamp(1.5rem,2.5vw,2.05rem);
-    font-weight:500;
-    letter-spacing:-.032em;
-    line-height:1.15;
-    text-wrap:balance;
+    font-size:clamp(1.45rem,2.3vw,1.85rem);
+    line-height:1.2;letter-spacing:-.025em;font-weight:500;
   }
   .participative-modern .participative-steps{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    border-top:1px solid rgba(9,75,60,.19);
+    display:flex;flex-direction:column;justify-content:center;
+    border-top:1px solid rgba(9,75,60,.22);
   }
   .participative-modern .participative-step{
-    position:relative;
     display:grid;
-    grid-template-columns:45px minmax(0,1fr);
-    gap:18px;
-    align-items:center;
-    padding:24px 10px 24px 0;
-    border-bottom:1px solid rgba(9,75,60,.19);
-    transition:padding .3s cubic-bezier(.22,1,.36,1),background-color .3s ease;
-  }
-  .participative-modern .participative-step::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:-1px;
-    width:0;
-    height:2px;
-    background:var(--orange);
-    transition:width .4s cubic-bezier(.22,1,.36,1);
+    grid-template-columns:42px minmax(0,1fr);
+    gap:20px;
+    align-items:start;
+    padding:16px 0;
+    border-bottom:1px solid rgba(9,75,60,.22);
+    transition:padding .25s ease, background .25s ease;
   }
   .participative-modern .participative-step:hover{
-    padding-left:12px;
+    padding-left:9px;
     background:rgba(174,196,105,.08);
   }
-  .participative-modern .participative-step:hover::before{width:48px}
   .participative-modern .participative-step-num{
+    padding-top:4px;
     font-family:'Space Mono',monospace;
-    font-size:.71rem;
-    letter-spacing:.065em;
-    color:#788A70;
+    font-size:.71rem;letter-spacing:.06em;color:#657B6C;
+  }
+  .participative-modern .participative-step h3{
+    margin:0 0 3px;
+    color:var(--green-deep);
+    font-family:'Work Sans',sans-serif;
+    font-size:1.06rem;
+    line-height:1.32;
+    font-weight:600;
+    letter-spacing:-.022em;
   }
   .participative-modern .participative-step p{
     margin:0;
-    max-width:38ch;
-    font-size:clamp(1rem,1.42vw,1.13rem);
-    font-weight:500;
-    line-height:1.47;
-    letter-spacing:-.024em;
-    color:var(--ink);
+    max-width:46ch;
+    font-size:.93rem;
+    line-height:1.58;
+    font-weight:400;
+    letter-spacing:0;
+    color:var(--ink-soft);
   }
   .participative-modern .participative-outcome{
     display:grid;
-    grid-template-columns:minmax(160px,.35fr) minmax(0,1fr);
-    gap:36px;
-    margin-top:49px;
-    padding:23px 0 0;
-    border-top:1px solid rgba(9,75,60,.2);
+    grid-template-columns:190px minmax(0,1fr);
+    gap:30px;
+    margin-top:34px;
+    padding:22px 0 0;
+    border-top:1px solid rgba(9,75,60,.23);
   }
   .participative-modern .participative-outcome span{
-    font-family:'Space Mono',monospace;
-    font-size:.69rem;
-    text-transform:uppercase;
-    letter-spacing:.12em;
-    color:var(--green-deep);
+    font-family:'Space Mono',monospace;font-size:.69rem;
+    text-transform:uppercase;letter-spacing:.10em;color:var(--green-deep);
   }
   .participative-modern .participative-outcome p{
-    margin:0;
-    max-width:74ch;
-    font-size:1rem;
-    line-height:1.65;
-    color:var(--ink-soft);
+    margin:0;max-width:77ch;
+    font-size:.98rem;line-height:1.66;color:var(--ink-soft);
   }
   @media(max-width:900px){
     .participative-modern .participative-heading{
-      grid-template-columns:1fr;
-      gap:25px;
-      padding-bottom:39px;
+      grid-template-columns:1fr;gap:21px;padding-bottom:34px;
     }
-    .participative-modern .participative-intro{max-width:56ch}
-    .participative-modern .participative-editorial{gap:30px}
-    .participative-modern .participative-visual{min-height:470px}
-    .participative-modern .participative-step{
-      grid-template-columns:35px 1fr;
-      gap:12px;
-      padding-top:20px;
-      padding-bottom:20px;
-    }
+    .participative-modern .participative-intro{max-width:60ch}
+    .participative-modern .participative-editorial{gap:24px}
+    .participative-modern .participative-visual{min-height:500px}
+    .participative-modern .participative-step{grid-template-columns:30px 1fr;gap:10px;padding:16px 0}
   }
   @media(max-width:680px){
-    .participative-modern{padding:22px 0 70px}
-    .participative-modern .participative-heading h2{
-      font-size:clamp(2.45rem,9.5vw,3.6rem);
-      line-height:1.065;
-    }
+    .participative-modern{padding:27px 0 66px}
+    .participative-modern .participative-heading h2{font-size:clamp(2.3rem,9vw,3.45rem)}
     .participative-modern .participative-intro{padding-left:15px}
-    .participative-modern .participative-editorial{
-      grid-template-columns:1fr;
-      gap:26px;
-    }
-    .participative-modern .participative-visual{
-      min-height:0;
-      aspect-ratio:1.18;
-      border-radius:2px 20px 2px 20px;
-    }
+    .participative-modern .participative-editorial{grid-template-columns:1fr;gap:20px}
+    .participative-modern .participative-visual{min-height:0;aspect-ratio:1.23;border-radius:3px 22px 3px 22px}
     .participative-modern .participative-photo-caption{left:20px;bottom:21px}
-    .participative-modern .participative-steps{margin-top:3px}
-    .participative-modern .participative-step{grid-template-columns:40px 1fr;padding:20px 0}
-    .participative-modern .participative-outcome{
-      grid-template-columns:1fr;
-      gap:14px;
-      margin-top:37px;
-    }
+    .participative-modern .participative-step{grid-template-columns:37px 1fr;gap:13px;padding:17px 0}
+    .participative-modern .participative-outcome{grid-template-columns:1fr;gap:12px;margin-top:28px}
   }
   @media(prefers-reduced-motion:reduce){
     .participative-modern .participative-visual img,
-    .participative-modern .participative-step,
-    .participative-modern .participative-step::before{transition:none}
+    .participative-modern .participative-step{transition:none}
   }
 
 </style>
@@ -859,43 +820,43 @@
     <div class="wrap">
       <div class="participative-heading">
         <div>
-          <p class="eyebrow">Ce que nous faisons</p>
-          <h2>Une démarche construite <em>avec vos équipes,</em> pas pour elles.</h2>
+          <p class="eyebrow">Une démarche participative</p>
+          <h2>Construire <em>avec les équipes.</em><span>Pas à leur place.</span></h2>
         </div>
         <p class="participative-intro">Nous accompagnons la création d'espaces de travail plus vivants en impliquant les collaborateurs à chaque étape du projet.</p>
       </div>
 
       <div class="participative-editorial">
         <div class="participative-visual">
-          <img src="atelier.png" alt="Atelier participatif de plantation en équipe" loading="eager">
+          <img src="atelier.png" alt="Atelier participatif de plantation en équipe" loading="lazy">
           <span class="participative-photo-caption">Le vivant se construit ensemble.</span>
         </div>
-        <div class="participative-steps" aria-label="Cinq manières d'impliquer les équipes">
+        <div class="participative-steps" aria-label="Cinq façons d'impliquer les équipes">
           <div class="participative-step">
             <span class="participative-step-num">01</span>
-            <p>Ils choisissent les aménagements et les espèces plantées.</p>
+            <div><h3>Choisir</h3><p>Les équipes choisissent les aménagements et les espèces plantées.</p></div>
           </div>
           <div class="participative-step">
             <span class="participative-step-num">02</span>
-            <p>Ils réalisent eux-mêmes une partie des installations.</p>
+            <div><h3>Installer</h3><p>Elles réalisent elles-mêmes une partie des installations.</p></div>
           </div>
           <div class="participative-step">
             <span class="participative-step-num">03</span>
-            <p>Ils apprennent à prendre soin des plantes au quotidien.</p>
+            <div><h3>Apprendre</h3><p>Elles apprennent à prendre soin des plantes au quotidien.</p></div>
           </div>
           <div class="participative-step">
             <span class="participative-step-num">04</span>
-            <p>Ils deviennent progressivement autonomes.</p>
+            <div><h3>Gagner en autonomie</h3><p>Elles deviennent progressivement autonomes.</p></div>
           </div>
           <div class="participative-step">
             <span class="participative-step-num">05</span>
-            <p>Ils développent une véritable communauté autour du vivant.</p>
+            <div><h3>Créer du lien</h3><p>Elles développent une véritable communauté autour du vivant.</p></div>
           </div>
         </div>
       </div>
 
       <div class="participative-outcome">
-        <span>Notre conviction</span>
+        <span>Ce que cela change</span>
         <p>Le végétal devient un support pour améliorer la QVT, renforcer le sentiment d'appartenance, créer des échanges entre collaborateurs et rendre la démarche RSE concrète au quotidien.</p>
       </div>
     </div>
