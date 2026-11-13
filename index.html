@@ -845,109 +845,63 @@
     .diff-visual-note span{max-width:240px;font-size:.82rem;margin-top:9px}
   }
 
-    /* ---------- PROMESSES ---------- */
-  #promesses{
-    position:relative;
-  }
-
+    /* ---------- CE QUE ÇA CHANGE : bénéfices QVT ---------- */
+  #promesses{position:relative;padding-top:104px;padding-bottom:112px}
   .promesses-header{
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:56px;
-    align-items:end;
-    margin-bottom:42px;
+    display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+    gap:clamp(32px,6vw,90px);align-items:end;margin-bottom:44px;
   }
-
-  .promesses-header h2{
-    font-size:clamp(2rem,4vw,3.1rem);
-    line-height:1.05;
-    max-width:12ch;
+  .promesses-kicker{
+    margin:0 0 17px;color:var(--green-deep);
+    font:700 .69rem 'Space Mono',monospace;
+    text-transform:uppercase;letter-spacing:.13em;
   }
-
-  .promesses-header h2 .accent{
-    color:var(--orange);
-  }
-
-  .promesses-intro{
-    margin:0;
-    max-width:52ch;
-    color:var(--ink-soft);
-    font-size:1.02rem;
-  }
-
-  .promesses-list{
-    border-top:1px solid var(--line);
-  }
-
+  .promesses-header h2{max-width:none;font-size:clamp(2.7rem,5vw,4.6rem);line-height:1.02;letter-spacing:-.04em}
+  .promesses-header h2 .accent{color:var(--green-deep);font-weight:400}
+  .promesses-intro{max-width:47ch;margin:0 0 5px;color:var(--ink-soft);font-size:1.06rem;line-height:1.65}
+  .promesses-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;border:0}
   .promesses-list-item{
-    display:grid;
-    grid-template-columns:64px minmax(220px,.9fr) 1.35fr;
-    gap:28px;
-    align-items:start;
-    padding:28px 0 30px;
-    border:0;
-    border-bottom:1px solid var(--line);
-    border-radius:0;
-    background:transparent !important;
+    position:relative;display:flex;flex-direction:column;gap:0;
+    min-height:330px;padding:31px 28px 32px;
+    border:1px solid rgba(9,75,60,.09);border-radius:18px;
+    background:#F3F6EE !important;overflow:hidden;
+    transition:transform .25s ease,box-shadow .25s ease;
   }
-
+  .promesses-list-item:nth-child(2){background:#E7EEDD !important}
+  .promesses-list-item:nth-child(3){background:#EDF3E8 !important}
+  .promesses-list-item:hover{transform:translateY(-5px);box-shadow:0 18px 38px -28px rgba(9,75,60,.32)}
   .promesses-list-item::before{
-    display:none;
+    content:"";display:block;position:absolute;right:-56px;top:-72px;
+    width:175px;height:175px;border:1px solid rgba(9,75,60,.13);
+    border-radius:50%;pointer-events:none;
   }
-
   .promesses-index{
-    width:auto;
-    height:auto;
-    display:block;
-    padding-top:4px;
-    border-radius:0;
-    background:transparent !important;
-    font-family:'Space Mono', monospace;
-    font-size:.68rem;
-    letter-spacing:.10em;
-    font-weight:700;
-    color:var(--green-deep) !important;
+    width:auto;height:auto;display:block;padding:0;margin-bottom:auto;
+    background:none !important;color:var(--green-deep) !important;
+    font:700 .7rem 'Space Mono',monospace;letter-spacing:.09em;
   }
-
-  .promesses-list-item:nth-child(2) .promesses-index{
-    color:var(--orange) !important;
-  }
-
+  .promesses-list-item:nth-child(2) .promesses-index{color:var(--orange) !important}
   .promesses-list-item h3{
-    margin:0;
-    font-size:1.35rem;
-    line-height:1.15;
+    position:relative;max-width:18ch;margin:50px 0 15px;
+    color:var(--ink);font:500 clamp(1.45rem,2.1vw,1.95rem)/1.13 'Fraunces',serif;
+    letter-spacing:-.025em;
   }
-
-  .promesses-list-item p{
-    margin:0;
-    color:var(--ink-soft);
-    max-width:56ch;
+  .promesses-list-item p{position:relative;max-width:39ch;margin:0;color:var(--ink-soft);font-size:.93rem;line-height:1.6}
+  .promesses-list-item strong{color:var(--green-deep) !important;font-weight:600}
+  @media(max-width:900px){
+    #promesses{padding-top:80px;padding-bottom:84px}
+    .promesses-header{grid-template-columns:1fr;gap:19px;margin-bottom:32px}
+    .promesses-list{grid-template-columns:1fr;gap:12px}
+    .promesses-list-item{min-height:0;padding:25px 26px 28px}
+    .promesses-index{margin-bottom:0}
+    .promesses-list-item h3{margin:27px 0 12px;max-width:none}
+    .promesses-list-item p{max-width:60ch}
   }
-
-  .promesses-list-item strong{
-    color:var(--green-deep) !important;
-    font-weight:600;
-  }
-
-  @media(max-width:820px){
-    .promesses-header{
-      grid-template-columns:1fr;
-      gap:18px;
-      margin-bottom:32px;
-    }
-
-    .promesses-header h2{ max-width:14ch; }
-
-    .promesses-list-item{
-      grid-template-columns:42px 1fr;
-      gap:10px 16px;
-      padding:24px 0;
-    }
-
-    .promesses-list-item p{
-      grid-column:2;
-    }
+  @media(max-width:560px){
+    #promesses{padding-top:68px;padding-bottom:72px}
+    .promesses-header h2{font-size:clamp(2.5rem,10vw,3.4rem)}
+    .promesses-intro{font-size:1rem}
+    .promesses-list-item h3{font-size:1.6rem}
   }
 
   /* ---------- PARCOURS (courbe signature) ---------- */
@@ -1548,37 +1502,28 @@
         <h2>Le vivant, <span class="accent">au quotidien.</span></h2>
       </div>
       <p class="promesses-intro">
-        Pas une décoration de plus. Des espaces plus agréables, des occasions de faire ensemble
-        et des pratiques RSE qui prennent réellement place dans le quotidien.
+        Des bureaux plus agréables, des équipes qui font ensemble et des gestes concrets :
+        notre démarche donne au végétal une place dans la vie de l'entreprise.
       </p>
     </div>
 
     <div class="promesses-list">
       <div class="promesses-list-item">
-        <span class="promesses-index">01</span>
-        <h3>Des espaces où l'on se sent mieux</h3>
-        <p>
-          Plus agréables à vivre et à regarder, les espaces végétalisés participent à une
-          <strong>ambiance de travail plus apaisée.</strong>
-        </p>
+        <span class="promesses-index">01 / LES ESPACES</span>
+        <h3>Se sentir mieux au bureau.</h3>
+        <p>Des lieux plus accueillants et végétalisés, pensés pour offrir <strong>une respiration dans la journée.</strong></p>
       </div>
 
       <div class="promesses-list-item">
-        <span class="promesses-index">02</span>
-        <h3>Un prétexte concret pour faire ensemble</h3>
-        <p>
-          Choisir, planter, entretenir, bouturer : le vivant crée des occasions simples de
-          <strong>se parler, transmettre et prendre soin d'un projet commun.</strong>
-        </p>
+        <span class="promesses-index">02 / LE COLLECTIF</span>
+        <h3>Faire ensemble, tout simplement.</h3>
+        <p>Planter, bouturer, échanger : des moments qui favorisent <strong>les rencontres et l'implication des équipes.</strong></p>
       </div>
 
       <div class="promesses-list-item">
-        <span class="promesses-index">03</span>
-        <h3>Une RSE qui se pratique</h3>
-        <p>
-          Compost, récupération d'eau, bouturage, transmission des savoirs :
-          <strong>les engagements deviennent visibles dans les gestes du quotidien.</strong>
-        </p>
+        <span class="promesses-index">03 / LES ENGAGEMENTS</span>
+        <h3>Passer des intentions aux gestes.</h3>
+        <p>Bouturage, compost, économie d'eau : des pratiques accessibles pour <strong>faire vivre la démarche RSE au quotidien.</strong></p>
       </div>
     </div>
   </section>
