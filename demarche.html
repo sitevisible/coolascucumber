@@ -522,6 +522,149 @@
   .nav-inner svg.logo-img{display:block;flex:none;width:146px;height:50px;max-width:100%;object-fit:contain;filter:none}
   @media(max-width:950px){.nav-inner svg.logo-img{width:130px;height:46px}}
   @media(max-width:760px){.nav-inner svg.logo-img{width:132px;height:46px}}
+
+  /* PREMIERE SECTION — COMPOSITION EDITORIALE CONTEMPORAINE */
+  .participative-modern{
+    padding:92px 0 100px;
+    background:#F7F8F1;
+    overflow:hidden;
+  }
+  .participative-modern .participative-heading{
+    display:grid;
+    grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);
+    gap:clamp(28px,5vw,92px);
+    align-items:end;
+    padding-bottom:52px;
+  }
+  .participative-modern .participative-heading .eyebrow{margin-bottom:25px}
+  .participative-modern .participative-heading h1{
+    max-width:790px;
+    font-size:clamp(2.75rem,5.2vw,5.35rem);
+    line-height:1.05;
+    letter-spacing:-.048em;
+    font-weight:500;
+  }
+  .participative-modern .participative-heading h1 em{
+    font-style:normal;
+    color:var(--orange);
+  }
+  .participative-modern .participative-intro{
+    margin:0 0 6px;
+    max-width:34ch;
+    color:var(--ink-soft);
+    font-size:1.03rem;
+    line-height:1.7;
+  }
+  .participative-modern .participative-editorial{
+    display:grid;
+    grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+    align-items:stretch;
+    gap:clamp(35px,5vw,72px);
+  }
+  .participative-modern .participative-visual{
+    position:relative;
+    min-height:505px;
+    overflow:hidden;
+    background:#DCE7D2;
+    border-radius:7px;
+  }
+  .participative-modern .participative-visual:after{
+    content:"";
+    position:absolute;
+    inset:35% 0 0;
+    pointer-events:none;
+    background:linear-gradient(0deg,rgba(9,54,43,.65),transparent 70%);
+  }
+  .participative-modern .participative-visual img{
+    width:100%;height:100%;
+    position:absolute;inset:0;
+    display:block;object-fit:cover;
+    transition:transform .8s cubic-bezier(.22,1,.36,1);
+  }
+  .participative-modern .participative-visual:hover img{transform:scale(1.035)}
+  .participative-modern .participative-photo-caption{
+    position:absolute;
+    left:30px;right:24px;bottom:25px;
+    z-index:1;
+    color:#fff;
+    font-family:'Fraunces',serif;
+    font-size:clamp(1.45rem,2.5vw,2rem);
+    font-weight:500;
+    letter-spacing:-.02em;
+    line-height:1.15;
+  }
+  .participative-modern .participative-steps{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border-top:1px solid rgba(9,75,60,.22);
+  }
+  .participative-modern .participative-step{
+    display:grid;
+    grid-template-columns:48px minmax(0,1fr);
+    gap:20px;
+    align-items:start;
+    padding:23px 0;
+    border-bottom:1px solid rgba(9,75,60,.22);
+  }
+  .participative-modern .participative-step-num{
+    font-family:'Space Mono',monospace;
+    color:#6F826B;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    padding-top:5px;
+  }
+  .participative-modern .participative-step p{
+    margin:0;
+    font-size:clamp(.97rem,1.4vw,1.11rem);
+    line-height:1.48;
+    color:var(--ink);
+    letter-spacing:-.016em;
+  }
+  .participative-modern .participative-outcome{
+    display:grid;
+    grid-template-columns:minmax(160px,.35fr) minmax(0,1fr);
+    gap:35px;
+    margin-top:52px;
+    padding:23px 0 0;
+    border-top:1px solid rgba(9,75,60,.25);
+  }
+  .participative-modern .participative-outcome span{
+    font-family:'Space Mono',monospace;
+    font-size:.69rem;
+    text-transform:uppercase;
+    letter-spacing:.11em;
+    color:var(--green-deep);
+  }
+  .participative-modern .participative-outcome p{
+    max-width:75ch;
+    margin:0;
+    font-size:.99rem;
+    line-height:1.65;
+    color:var(--ink-soft);
+  }
+  @media(max-width:900px){
+    .participative-modern .participative-heading{
+      grid-template-columns:1fr;
+      gap:22px;
+      padding-bottom:37px;
+    }
+    .participative-modern .participative-intro{max-width:58ch}
+    .participative-modern .participative-editorial{gap:30px}
+    .participative-modern .participative-visual{min-height:460px}
+    .participative-modern .participative-step{gap:12px;padding:19px 0;grid-template-columns:34px 1fr}
+  }
+  @media(max-width:680px){
+    .participative-modern{padding:63px 0 70px}
+    .participative-modern .participative-heading h1{font-size:clamp(2.5rem,10vw,3.6rem)}
+    .participative-modern .participative-editorial{grid-template-columns:1fr;gap:25px}
+    .participative-modern .participative-visual{min-height:0;aspect-ratio:1.16}
+    .participative-modern .participative-photo-caption{left:20px;bottom:20px}
+    .participative-modern .participative-steps{margin-top:5px}
+    .participative-modern .participative-step{padding:18px 0;grid-template-columns:40px 1fr}
+    .participative-modern .participative-outcome{grid-template-columns:1fr;gap:12px;margin-top:36px}
+  }
+
 </style>
 </head>
 
@@ -539,50 +682,48 @@
 </header>
 
 <main>
-  <section id="participative" class="wrap participative">
-    <div class="section-head">
-      <p class="eyebrow">Ce que nous faisons</p>
-      <h2>Une démarche construite <span style="color:var(--orange)">avec vos équipes, pas pour elles</span></h2>
-      <p>
-        Nous accompagnons la création d'espaces de travail plus vivants en impliquant les collaborateurs
-        à chaque étape du projet.
-      </p>
-    </div>
-
-    <div class="participative-grid">
-      <div class="participative-list">
-        <div class="participative-item">
-          <span class="participative-num">01</span>
-          <p>Ils choisissent les aménagements et les espèces plantées.</p>
+  <section id="participative" class="participative participative-modern">
+    <div class="wrap">
+      <div class="participative-heading">
+        <div>
+          <p class="eyebrow">Ce que nous faisons</p>
+          <h1>Une démarche construite <em>avec vos équipes,</em> pas pour elles.</h1>
         </div>
-        <div class="participative-item">
-          <span class="participative-num">02</span>
-          <p>Ils réalisent eux-mêmes une partie des installations.</p>
-        </div>
-        <div class="participative-item">
-          <span class="participative-num">03</span>
-          <p>Ils apprennent à prendre soin des plantes au quotidien.</p>
-        </div>
-        <div class="participative-item">
-          <span class="participative-num">04</span>
-          <p>Ils deviennent progressivement autonomes.</p>
-        </div>
-        <div class="participative-item">
-          <span class="participative-num">05</span>
-          <p>Ils développent une véritable communauté autour du vivant.</p>
-        </div>
-
-        <p class="participative-close">
-          Le végétal devient alors un support pour améliorer la QVT, renforcer le sentiment d'appartenance,
-          créer des échanges entre collaborateurs, et rendre la démarche RSE concrète au quotidien.
-        </p>
+        <p class="participative-intro">Nous accompagnons la création d'espaces de travail plus vivants en impliquant les collaborateurs à chaque étape du projet.</p>
       </div>
 
-      <div class="participative-art">
-        <div class="participative-photo">
-          <img src="atelier.png" alt="Atelier participatif de plantation en équipe">
+      <div class="participative-editorial">
+        <div class="participative-visual">
+          <img src="atelier.png" alt="Atelier participatif de plantation en équipe" loading="eager">
+          <span class="participative-photo-caption">Le vivant se construit ensemble.</span>
         </div>
-        <div class="participative-note">5 étapes menées avec les équipes, main dans la main.</div>
+        <div class="participative-steps" aria-label="Cinq manières d'impliquer les équipes">
+          <div class="participative-step">
+            <span class="participative-step-num">01</span>
+            <p>Ils choisissent les aménagements et les espèces plantées.</p>
+          </div>
+          <div class="participative-step">
+            <span class="participative-step-num">02</span>
+            <p>Ils réalisent eux-mêmes une partie des installations.</p>
+          </div>
+          <div class="participative-step">
+            <span class="participative-step-num">03</span>
+            <p>Ils apprennent à prendre soin des plantes au quotidien.</p>
+          </div>
+          <div class="participative-step">
+            <span class="participative-step-num">04</span>
+            <p>Ils deviennent progressivement autonomes.</p>
+          </div>
+          <div class="participative-step">
+            <span class="participative-step-num">05</span>
+            <p>Ils développent une véritable communauté autour du vivant.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="participative-outcome">
+        <span>Notre conviction</span>
+        <p>Le végétal devient un support pour améliorer la QVT, renforcer le sentiment d'appartenance, créer des échanges entre collaborateurs et rendre la démarche RSE concrète au quotidien.</p>
       </div>
     </div>
   </section>
