@@ -510,58 +510,150 @@
     .hero{padding-top:66px}
   }
 
-  /* ---------- CE QUE ÇA CHANGE : manifeste éditorial ---------- */
+  /* CE QUE CA CHANGE — LISTE EDITORIALE, STRUCTUREE ET LISIBLE */
   #promesses{
-    width:100%;max-width:none;padding:100px max(28px,calc((100vw - 1120px)/2 + 28px)) 104px;
-    background:#EAF0E3;overflow:hidden;
+    width:100%;
+    max-width:none;
+    padding:88px max(28px,calc((100vw - 1120px)/2 + 28px)) 100px;
+    background:#EAF0E3;
+    overflow:hidden;
   }
-  .promesses-header{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:64px}
-  .promesses-kicker{font:700 .71rem 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--green-deep);margin:0 0 18px}
-  .promesses-header h2{font-size:clamp(3.1rem,6vw,5.5rem);line-height:.98;letter-spacing:-.05em;max-width:12ch}
-  .promesses-header h2 .accent{color:var(--green-deep);font-weight:400}
-  .promesses-intro{color:var(--ink-soft);font-size:1.09rem;line-height:1.65;max-width:43ch;margin:0 0 5px}
-  .promesses-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(9,75,60,.22)}
-  .promesses-list-item{
-    position:relative;display:flex;flex-direction:column;
-    min-width:0;min-height:290px;gap:0;padding:31px 33px 12px 0;
-    border:0;border-radius:0;background:transparent !important;
+  .promesses-header{
+    display:grid;
+    grid-template-columns:minmax(0,1.1fr) minmax(270px,.9fr);
+    gap:clamp(26px,6vw,100px);
+    align-items:end;
+    margin-bottom:46px;
   }
-  .promesses-list-item:not(:first-child){padding-left:34px;border-left:1px solid rgba(9,75,60,.20)}
-  .promesses-list-item::before{display:none}
-  .promesses-index{
-    display:block;width:auto;height:auto;padding:0;margin:0 0 58px;
-    background:none !important;color:var(--green-deep) !important;
-    font:700 .7rem 'Space Mono',monospace;letter-spacing:.1em;
+  .promesses-kicker{
+    margin:0 0 18px;
+    color:var(--green-deep);
+    font:600 .72rem 'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.13em;
   }
-  .promesses-list-item:nth-child(2) .promesses-index{color:var(--green-deep) !important}
+  .promesses-header h2{
+    max-width:14ch;
+    font-size:clamp(3rem,5.5vw,5rem);
+    line-height:1.02;
+    letter-spacing:-.055em;
+    font-weight:500;
+    text-wrap:balance;
+  }
+  .promesses-header h2 .accent{color:var(--orange);font-weight:500}
+  .promesses-intro{
+    max-width:43ch;
+    margin:0 0 5px;
+    color:var(--ink-soft);
+    font-size:1.04rem;
+    line-height:1.75;
+  }
+  .promesses-list{
+    display:block;
+    border-top:1px solid rgba(9,75,60,.26);
+  }
+  .promesses-list-item,
+  .promesses-list-item:not(:first-child){
+    position:relative;
+    display:grid;
+    grid-template-columns:145px minmax(0,1fr) minmax(245px,.85fr);
+    align-items:center;
+    column-gap:clamp(22px,3.5vw,58px);
+    min-height:0;
+    margin:0;
+    padding:33px 0;
+    border:0;
+    border-bottom:1px solid rgba(9,75,60,.23);
+    border-radius:0;
+    background:transparent !important;
+    transition:padding .32s cubic-bezier(.22,1,.36,1);
+  }
+  .promesses-list-item::before{
+    display:block;
+    content:"";
+    position:absolute;
+    top:-1px;
+    left:0;
+    width:0;
+    height:2px;
+    background:var(--orange);
+    transition:width .35s cubic-bezier(.22,1,.36,1);
+  }
+  .promesses-list-item:hover{padding-left:10px}
+  .promesses-list-item:hover::before{width:90px}
+  .promesses-index,
+  .promesses-list-item:nth-child(2) .promesses-index{
+    display:block;
+    width:auto;height:auto;
+    margin:0;
+    padding:0;
+    background:none !important;
+    color:var(--green-deep) !important;
+    font:600 .67rem 'Space Mono',monospace;
+    letter-spacing:.065em;
+    line-height:1.5;
+  }
+  .promesses-number{
+    display:block;
+    margin-bottom:12px;
+    font-family:'Fraunces',serif;
+    font-size:2rem;
+    font-weight:400;
+    letter-spacing:-.055em;
+    line-height:1;
+    color:#8BA17A;
+  }
   .promesses-list-item h3{
-    margin:auto 0 15px;font-size:clamp(1.7rem,2.7vw,2.45rem);
-    font-weight:500;line-height:1.13;letter-spacing:-.035em;max-width:18ch;
+    max-width:20ch;
+    margin:0;
+    color:var(--ink);
+    font-size:clamp(1.55rem,2.35vw,2.3rem);
+    font-weight:500;
+    line-height:1.17;
+    letter-spacing:-.032em;
   }
-  .promesses-list-item p{margin:0;color:var(--ink-soft);font-size:.93rem;line-height:1.6;max-width:34ch}
-  .promesses-list-item strong{font-weight:600;color:var(--green-deep) !important}
-  @media(max-width:900px){
-    #promesses{padding:74px 28px 80px}
-    .promesses-header{grid-template-columns:1fr;gap:22px;margin-bottom:35px}
-    .promesses-header h2{font-size:clamp(2.9rem,8vw,4.5rem)}
-    .promesses-list{grid-template-columns:1fr}
-    .promesses-list-item,.promesses-list-item:not(:first-child){
-      display:grid;grid-template-columns:1fr 1.3fr;gap:10px 30px;min-height:0;
-      padding:25px 0;border-left:0;border-bottom:1px solid rgba(9,75,60,.19)
+  .promesses-list-item p{
+    max-width:40ch;
+    margin:0;
+    font-size:.97rem;
+    line-height:1.68;
+    color:var(--ink-soft);
+  }
+  .promesses-list-item strong{
+    font-weight:600;
+    color:var(--green-deep) !important;
+  }
+  @media(max-width:950px){
+    #promesses{padding:77px 28px 83px}
+    .promesses-header{gap:26px;margin-bottom:38px}
+    .promesses-list-item,
+    .promesses-list-item:not(:first-child){
+      grid-template-columns:95px 1fr 1fr;
+      gap:23px;
+      padding:29px 0;
     }
-    .promesses-index{grid-column:1/-1;margin-bottom:0}
-    .promesses-list-item h3{margin:0;font-size:1.75rem}
+    .promesses-list-item h3{font-size:clamp(1.55rem,2.7vw,1.95rem)}
   }
-  @media(max-width:560px){
-    #promesses{padding:65px 24px 70px}
-    .promesses-header h2{font-size:clamp(2.65rem,11vw,3.6rem)}
-    .promesses-intro{font-size:1rem}
-    .promesses-list-item,.promesses-list-item:not(:first-child){display:block;padding:25px 0}
-    .promesses-index{margin-bottom:20px}
-    .promesses-list-item h3{margin:0 0 12px;font-size:1.75rem}
+  @media(max-width:720px){
+    #promesses{padding:65px 24px 73px}
+    .promesses-header{grid-template-columns:1fr;gap:22px;margin-bottom:30px}
+    .promesses-header h2{font-size:clamp(2.75rem,9.2vw,4rem)}
+    .promesses-intro{font-size:1rem;max-width:55ch}
+    .promesses-list-item,
+    .promesses-list-item:not(:first-child){
+      grid-template-columns:65px minmax(0,1fr);
+      gap:8px 17px;
+      padding:25px 0;
+    }
+    .promesses-number{font-size:1.6rem;margin-bottom:6px}
+    .promesses-index{font-size:.63rem}
+    .promesses-list-item h3{font-size:clamp(1.55rem,5.7vw,1.9rem)}
+    .promesses-list-item p{grid-column:2;margin-top:2px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .promesses-list-item,.promesses-list-item::before{transition:none}
   }
 
-  
   /* Logo SVG original et navigation harmonisée */
   .nav-inner{background:#094B3C;border:1px solid rgba(217,241,195,.26);box-shadow:0 14px 32px -23px rgba(9,75,60,.55)}
   .nav-inner .logo,.nav-inner .logo:hover{background:transparent;border-radius:0}
@@ -880,17 +972,17 @@
     </div>
     <div class="promesses-list">
       <div class="promesses-list-item">
-        <span class="promesses-index">LES ESPACES</span>
+        <div class="promesses-meta"><span class="promesses-number">01</span><span class="promesses-index">LES ESPACES</span></div>
         <h3>Se sentir mieux au bureau.</h3>
         <p>Des lieux plus accueillants et végétalisés, pensés pour offrir <strong>une respiration dans la journée.</strong></p>
       </div>
       <div class="promesses-list-item">
-        <span class="promesses-index">LE COLLECTIF</span>
+        <div class="promesses-meta"><span class="promesses-number">02</span><span class="promesses-index">LE COLLECTIF</span></div>
         <h3>Faire ensemble, tout simplement.</h3>
         <p>Planter, bouturer, échanger : des moments qui favorisent <strong>les rencontres et l'implication des équipes.</strong></p>
       </div>
       <div class="promesses-list-item">
-        <span class="promesses-index">LES ENGAGEMENTS</span>
+        <div class="promesses-meta"><span class="promesses-number">03</span><span class="promesses-index">LES ENGAGEMENTS</span></div>
         <h3>Passer des intentions aux gestes.</h3>
         <p>Bouturage, compost, économie d'eau : des pratiques accessibles pour <strong>faire vivre la démarche RSE au quotidien.</strong></p>
       </div>
