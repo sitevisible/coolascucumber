@@ -455,7 +455,59 @@
     section{padding:68px 0}
     .hero{padding-top:66px}
   }
-</style>
+
+  /* ---------- CE QUE ÇA CHANGE : manifeste éditorial ---------- */
+  #promesses{
+    width:100%;max-width:none;padding:100px max(28px,calc((100vw - 1120px)/2 + 28px)) 104px;
+    background:#EAF0E3;overflow:hidden;
+  }
+  .promesses-header{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:64px}
+  .promesses-kicker{font:700 .71rem 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--green-deep);margin:0 0 18px}
+  .promesses-header h2{font-size:clamp(3.1rem,6vw,5.5rem);line-height:.98;letter-spacing:-.05em;max-width:12ch}
+  .promesses-header h2 .accent{color:var(--green-deep);font-weight:400}
+  .promesses-intro{color:var(--ink-soft);font-size:1.09rem;line-height:1.65;max-width:43ch;margin:0 0 5px}
+  .promesses-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(9,75,60,.22)}
+  .promesses-list-item{
+    position:relative;display:flex;flex-direction:column;
+    min-width:0;min-height:290px;gap:0;padding:31px 33px 12px 0;
+    border:0;border-radius:0;background:transparent !important;
+  }
+  .promesses-list-item:not(:first-child){padding-left:34px;border-left:1px solid rgba(9,75,60,.20)}
+  .promesses-list-item::before{display:none}
+  .promesses-index{
+    display:block;width:auto;height:auto;padding:0;margin:0 0 58px;
+    background:none !important;color:var(--green-deep) !important;
+    font:700 .7rem 'Space Mono',monospace;letter-spacing:.1em;
+  }
+  .promesses-list-item:nth-child(2) .promesses-index{color:var(--green-deep) !important}
+  .promesses-list-item h3{
+    margin:auto 0 15px;font-size:clamp(1.7rem,2.7vw,2.45rem);
+    font-weight:500;line-height:1.13;letter-spacing:-.035em;max-width:18ch;
+  }
+  .promesses-list-item p{margin:0;color:var(--ink-soft);font-size:.93rem;line-height:1.6;max-width:34ch}
+  .promesses-list-item strong{font-weight:600;color:var(--green-deep) !important}
+  @media(max-width:900px){
+    #promesses{padding:74px 28px 80px}
+    .promesses-header{grid-template-columns:1fr;gap:22px;margin-bottom:35px}
+    .promesses-header h2{font-size:clamp(2.9rem,8vw,4.5rem)}
+    .promesses-list{grid-template-columns:1fr}
+    .promesses-list-item,.promesses-list-item:not(:first-child){
+      display:grid;grid-template-columns:1fr 1.3fr;gap:10px 30px;min-height:0;
+      padding:25px 0;border-left:0;border-bottom:1px solid rgba(9,75,60,.19)
+    }
+    .promesses-index{grid-column:1/-1;margin-bottom:0}
+    .promesses-list-item h3{margin:0;font-size:1.75rem}
+  }
+  @media(max-width:560px){
+    #promesses{padding:65px 24px 70px}
+    .promesses-header h2{font-size:clamp(2.65rem,11vw,3.6rem)}
+    .promesses-intro{font-size:1rem}
+    .promesses-list-item,.promesses-list-item:not(:first-child){display:block;padding:25px 0}
+    .promesses-index{margin-bottom:20px}
+    .promesses-list-item h3{margin:0 0 12px;font-size:1.75rem}
+  }
+
+  </style>
 </head>
 
 <body>
@@ -520,7 +572,35 @@
     </div>
   </section>
 
-  <section class="wrap hero">
+  <!-- PROMESSES -->
+  <section id="promesses">
+    <div class="promesses-header">
+      <div>
+        <p class="promesses-kicker">Ce que ça change</p>
+        <h2>Le vivant, <span class="accent">au quotidien.</span></h2>
+      </div>
+      <p class="promesses-intro">Pas seulement des plantes dans un bureau. Des espaces plus agréables, des occasions de se retrouver et des engagements qui prennent vie dans les gestes du quotidien.</p>
+    </div>
+    <div class="promesses-list">
+      <div class="promesses-list-item">
+        <span class="promesses-index">LES ESPACES</span>
+        <h3>Se sentir mieux au bureau.</h3>
+        <p>Des lieux plus accueillants et végétalisés, pensés pour offrir <strong>une respiration dans la journée.</strong></p>
+      </div>
+      <div class="promesses-list-item">
+        <span class="promesses-index">LE COLLECTIF</span>
+        <h3>Faire ensemble, tout simplement.</h3>
+        <p>Planter, bouturer, échanger : des moments qui favorisent <strong>les rencontres et l'implication des équipes.</strong></p>
+      </div>
+      <div class="promesses-list-item">
+        <span class="promesses-index">LES ENGAGEMENTS</span>
+        <h3>Passer des intentions aux gestes.</h3>
+        <p>Bouturage, compost, économie d'eau : des pratiques accessibles pour <strong>faire vivre la démarche RSE au quotidien.</strong></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="wrap hero">
     <div>
       <p class="eyebrow">Notre démarche</p>
       <h1>Faire entrer le vivant.<span>Et le faire durer.</span></h1>
