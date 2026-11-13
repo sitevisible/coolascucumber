@@ -164,13 +164,23 @@ footer .tagline{display:block;margin-top:6px;color:var(--soil)}
   .hero{padding-top:66px}
   .usage-item{grid-template-columns:1fr;gap:6px}
 }
+
+  /* Logo SVG original et navigation harmonisée */
+  .nav-inner{background:#094B3C;border:1px solid rgba(217,241,195,.26);box-shadow:0 14px 32px -23px rgba(9,75,60,.55)}
+  .nav-inner .logo,.nav-inner .logo:hover{background:transparent;border-radius:0}
+  .nav-inner .logo-img{width:auto;height:56px;max-width:182px;object-fit:contain;filter:none}
+  .nav-inner nav.links a{color:#ECF6E6}
+  .nav-inner nav.links a:hover,.nav-inner nav.links a.active{color:#E9FFCF;background:rgba(255,255,255,.08)}
+  .nav-inner .nav-cta{background:#FF682C;color:#fff}
+  @media(max-width:950px){.nav-inner .logo-img{height:49px;max-width:160px}}
+  @media(max-width:760px){.nav-inner .logo-img{height:45px;max-width:150px}}
 </style>
 </head>
 <body>
 
 <header class="site-nav">
   <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="logoCC.png" alt="Cool As Cucumber" class="logo-img"></a>
+    <a href="index.html" class="logo"><img src="logo-wordmark-coolascucumber.svg" alt="Cool As Cucumber" class="logo-img"></a>
     <nav class="links">
       <a href="demarche.html">Notre démarche</a>
       <a href="ateliers-qvt.html" class="active">Nos ateliers QVT</a>
