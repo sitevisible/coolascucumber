@@ -426,215 +426,117 @@
     .hero-glow{ display:none; }
   }
 
-  /* ---------- OUVERTURE FUSIONNÉE ---------- */
+  /* ---------- ACCUEIL : proposition claire et contemporaine ---------- */
   .hero-combined{
-    padding: 132px 10px 86px;
+    padding: 148px 10px 76px;
     display:grid;
-    grid-template-columns: minmax(0, 1.02fr) minmax(380px, .98fr);
-    gap: 68px;
+    grid-template-columns:minmax(0,1.06fr) minmax(340px,.94fr);
+    column-gap:clamp(36px,5vw,76px);
+    row-gap:58px;
     align-items:center;
   }
-
-  .hero-copy{
-    max-width: 620px;
-  }
-
+  .hero-copy{max-width:650px}
+  .hero-copy .eyebrow{margin-bottom:25px}
   .hero-copy h1{
-    font-size: clamp(2.65rem, 5vw, 4.35rem);
-    line-height: .98;
-    letter-spacing: -0.035em;
+    font-size:clamp(3.2rem,5.1vw,5.3rem);
+    line-height:1.02;
+    letter-spacing:-.045em;
   }
-
   .hero-copy h1 .accent-line{
     display:block;
-    color: var(--green-deep);
-    font-weight: 400;
-    font-size: .6em;
-    line-height: 1.12;
-    margin-top: .38em;
-    letter-spacing: -0.02em;
+    color:var(--green-deep);
+    font-size:.72em;
+    line-height:1.13;
+    font-weight:400;
+    margin-top:.20em;
+    letter-spacing:-.025em;
   }
-
   .hero-copy .lead{
-    margin: 28px 0 0;
-    max-width: 50ch;
-    color: var(--ink-soft);
-    font-size: 1.06rem;
-    line-height: 1.7;
+    margin:27px 0 0;
+    max-width:49ch;
+    color:var(--ink-soft);
+    font-size:1.09rem;
+    line-height:1.65;
   }
-
-  .mission-block{
-    position: relative;
-    margin-top: 34px;
-    padding: 28px 30px 28px;
-    background: linear-gradient(135deg, rgba(174,196,105,.14), rgba(255,255,255,.9));
-    border: 1px solid rgba(9,75,60,.10);
-    border-radius: 22px;
-    box-shadow: 0 18px 40px -34px rgba(9,75,60,.45);
-    overflow: hidden;
-  }
-
-  .mission-block::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:30px;
-    width:72px;
-    height:4px;
-    border-radius:0 0 999px 999px;
-    background: var(--orange);
-  }
-
-  .hero-copy .mission-title{
-    margin: 0;
-    font-size: clamp(1.55rem, 2.4vw, 2rem);
-    line-height: 1.16;
-    letter-spacing: -0.015em;
-  }
-
-  .hero-copy .mission-text{
-    color: var(--ink-soft);
-    margin: 15px 0 0;
-    max-width: 54ch;
-    font-size: .97rem;
-    line-height: 1.68;
-  }
-
-  .hero-combined .mission-art{
-    width: 100%;
-    aspect-ratio: 4 / 4.25;
-    min-height: 570px;
-  }
-
-  .hero-combined .mission-photo{
-    border-radius: 34px 12px 34px 12px;
-    box-shadow: 0 28px 58px -34px rgba(9,75,60,.42);
-  }
-
-  .hero-combined .mission-shape-dark{
-    top:-34px;
-    left:-34px;
-    width:150px;
-    height:150px;
-    opacity:.94;
-  }
-
-  .hero-combined .mission-shape-light{
-    bottom:-18px;
-    left:12%;
-    width:190px;
-    height:92px;
-    opacity:.34;
-  }
-
-  .hero-combined .mission-shape-ring{
-    bottom:-24px;
-    right:-14px;
-    width:118px;
-    height:118px;
-  }
-
-  .mission-block > .text-link{ display:inline-block; margin-top:22px; }
-
-  .hero-benefits{
-    display:grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap:0;
+  .hero-quickline{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:9px 12px;
     margin-top:24px;
-    padding-top:20px;
-    border-top:1px solid rgba(9,75,60,.10);
+    color:var(--green-deep);
+    font-weight:600;
+    font-size:.84rem;
   }
-
-  .hero-benefit{
-    position:relative;
-    min-height:58px;
-    padding:0 18px;
-    border-right:1px solid rgba(9,75,60,.08);
-  }
-
-  .hero-benefit:first-child{
-    padding-left:0;
-  }
-
-  .hero-benefit:last-child{
-    border-right:none;
-    padding-right:0;
-  }
-
-  .hero-benefit-index{
-    display:block;
-    margin-bottom:8px;
-    font-family:'Space Mono', monospace;
-    font-size:.62rem;
-    line-height:1;
-    letter-spacing:.12em;
+  .hero-quickline span:not(:last-child)::after{
+    content:"·";
+    padding-left:12px;
     color:var(--soil);
   }
-
-  .hero-benefit-title{
-    margin:0;
-    font-family:'Work Sans', sans-serif;
-    font-size:.84rem;
-    line-height:1.3;
-    font-weight:600;
-    color:var(--ink);
-    letter-spacing:0;
+  .hero-cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 21px;
+    align-items:center;
+    margin-top:31px;
   }
-
-  @media (max-width: 980px){
-    .hero-combined{
-      grid-template-columns: 1fr;
-      gap: 44px;
-      padding: 98px 0 64px;
-    }
-
-    .hero-copy{
-      max-width: none;
-    }
-
-    .hero-combined .mission-art{
-      min-height: 0;
-      aspect-ratio: 4 / 3.3;
-    }
-
-    .hero-benefits{
-      grid-template-columns: 1fr;
-      gap:0;
-      margin-top:20px;
-      padding-top:12px;
-    }
-
-    .hero-benefit,
-    .hero-benefit:first-child,
-    .hero-benefit:last-child{
-      min-height:0;
-      padding:12px 0;
-      border-right:none;
-      border-bottom:1px solid rgba(9,75,60,.07);
-    }
-
-    .hero-benefit:last-child{
-      border-bottom:none;
-    }
+  .hero-cta-row .text-link{font-size:.92rem}
+  .hero-combined .mission-art{
+    width:100%;
+    aspect-ratio:4/4.25;
+    min-height:510px;
   }
-
-  @media (max-width: 560px){
-    .hero-copy h1{
-      font-size: clamp(2.35rem, 11vw, 3.4rem);
+  .hero-combined .mission-photo{
+    border-radius:110px 12px 110px 12px;
+    box-shadow:0 28px 58px -34px rgba(9,75,60,.42);
+  }
+  .hero-combined .mission-shape-dark{
+    top:-34px;left:-34px;width:150px;height:150px;opacity:.94;
+  }
+  .hero-combined .mission-shape-light{
+    bottom:-18px;left:12%;width:190px;height:92px;opacity:.34;
+  }
+  .hero-combined .mission-shape-ring{
+    bottom:-24px;right:-14px;width:118px;height:118px;
+  }
+  .hero-services{
+    grid-column:1/-1;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    padding:30px 0 0;
+    border-top:1px solid rgba(9,75,60,.18);
+    gap:0;
+  }
+  .hero-service{padding:0 31px;border-right:1px solid rgba(9,75,60,.13)}
+  .hero-service:first-child{padding-left:0}
+  .hero-service:last-child{border-right:0;padding-right:0}
+  .hero-service-number{
+    font:700 .69rem 'Space Mono',monospace;
+    letter-spacing:.09em;color:var(--orange);display:block;margin-bottom:12px;
+  }
+  .hero-service h2{
+    font-family:'Work Sans',sans-serif;
+    font-size:1.04rem;line-height:1.3;letter-spacing:-.01em;
+  }
+  .hero-service p{font-size:.89rem;line-height:1.55;color:var(--ink-soft);margin:9px 0 0;max-width:30ch}
+  @media(max-width:980px){
+    .hero-combined{grid-template-columns:1fr;gap:38px;padding:110px 0 65px}
+    .hero-copy{max-width:720px}
+    .hero-combined .mission-art{min-height:0;aspect-ratio:4/2.8;max-height:450px}
+    .hero-services{gap:0}
+    .hero-service{padding:0 18px}
+  }
+  @media(max-width:620px){
+    .hero-copy h1{font-size:clamp(2.65rem,10vw,3.8rem)}
+    .hero-copy .lead{font-size:1rem}
+    .hero-combined .mission-art{aspect-ratio:4/3.3}
+    .hero-services{grid-template-columns:1fr;gap:0;padding-top:8px}
+    .hero-service,.hero-service:first-child,.hero-service:last-child{
+      padding:19px 0;border-right:0;border-bottom:1px solid rgba(9,75,60,.11)
     }
-
-    .mission-block{
-      padding: 26px 22px 24px;
-      border-radius: 18px;
-    }
-
-    .mission-block::before{
-      left:22px;
-    }
-
-    .hero-combined .mission-art{
-      aspect-ratio: 4 / 3.8;
-    }
+    .hero-service:last-child{border-bottom:0}
+    .hero-service-number{margin-bottom:6px}
+    .hero-service p{max-width:none}
   }
 
   /* ---------- DARK SECTION ---------- */
@@ -1508,50 +1410,52 @@
 
 <main>
 
-  <!-- OUVERTURE FUSIONNÉE : proposition de valeur -->
+  <!-- ACCUEIL : offre et démarche -->
   <section id="accueil" class="wrap hero-combined">
     <div class="hero-copy">
-      <p class="eyebrow">Végétalisation participative · QVT</p>
-
+      <p class="eyebrow">QVT · RSE · Le vivant en entreprise</p>
       <h1>
-        Des bureaux plus vivants.
-        <span class="accent-line">Des équipes plus engagées.</span>
+        Cultivons ensemble
+        <span class="accent-line">des entreprises plus vivantes.</span>
       </h1>
-
       <p class="lead">
-        Nous végétalisons vos espaces de travail avec vos équipes :
-        conception, installation et ateliers pour faire vivre les plantes au quotidien.
+        Nous concevons des espaces de travail végétalisés avec vos équipes
+        et animons des ateliers pour faire du vivant un projet collectif durable.
       </p>
-
-      <div id="mission" class="mission-block">
-        <h2 class="mission-title">Plus que des plantes,<br>
-          <span style="color: var(--orange);">un projet collectif.</span>
-        </h2>
-        <div class="hero-benefits" aria-label="Bénéfices de la démarche">
-          <div class="hero-benefit">
-            <span class="hero-benefit-index">01</span>
-            <p class="hero-benefit-title">Espaces végétalisés</p>
-          </div>
-          <div class="hero-benefit">
-            <span class="hero-benefit-index">02</span>
-            <p class="hero-benefit-title">Équipes impliquées</p>
-          </div>
-          <div class="hero-benefit">
-            <span class="hero-benefit-index">03</span>
-            <p class="hero-benefit-title">Bien-être au travail</p>
-          </div>
-        </div>
+      <div class="hero-quickline" aria-label="Notre approche">
+        <span>Végétalisation</span>
+        <span>Participation</span>
+        <span>Accompagnement</span>
+      </div>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="contact.html">Parlons de votre projet</a>
         <a class="text-link" href="demarche.html">Découvrir notre démarche</a>
       </div>
     </div>
-
     <div class="mission-art" aria-hidden="true">
       <div class="mission-shape-dark"></div>
       <div class="mission-shape-light"></div>
       <div class="mission-photo">
-        <img src="mission1.png" alt="Espace de travail avec des plantes et une équipe">
+        <img src="mission1.png" alt="Espace de travail végétalisé et équipe">
       </div>
       <div class="mission-shape-ring"></div>
+    </div>
+    <div id="mission" class="hero-services" aria-label="Ce que nous proposons">
+      <div class="hero-service">
+        <span class="hero-service-number">01 / IMAGINER</span>
+        <h2>Concevoir vos espaces végétalisés</h2>
+        <p>Un projet adapté à vos lieux, vos usages et vos équipes.</p>
+      </div>
+      <div class="hero-service">
+        <span class="hero-service-number">02 / FAIRE ENSEMBLE</span>
+        <h2>Installer et impliquer vos équipes</h2>
+        <p>Des installations et ateliers participatifs pour s'approprier les plantes.</p>
+      </div>
+      <div class="hero-service">
+        <span class="hero-service-number">03 / FAIRE VIVRE</span>
+        <h2>Entretenir la dynamique</h2>
+        <p>Des rendez-vous et un accompagnement pour inscrire le vivant dans le quotidien.</p>
+      </div>
     </div>
   </section>
 
