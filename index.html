@@ -793,9 +793,9 @@
   .diff-visual-note{
     position:absolute;
     top:26px;
-    right:24px;
+    right:auto;
     bottom:auto;
-    left:auto;
+    left:24px;
     max-width:270px;
     padding:19px 22px 20px;
     background:rgba(250,252,246,.86);
@@ -836,13 +836,13 @@
     .diff-layout{grid-template-columns:1fr;gap:40px}
     .diff-visual{min-height:0;height:420px;max-width:730px}
     .diff-visual img{min-height:0;height:100%}
-    .diff-visual-note{top:20px;right:20px;bottom:auto;left:auto}
+    .diff-visual-note{top:20px;right:auto;bottom:auto;left:20px}
   }
   @media(max-width:560px){
     .diff-section{padding:66px 0 75px}
     .diff-content h2{font-size:clamp(2.2rem,9vw,3rem)}
     .diff-visual{height:340px}
-    .diff-visual-note{top:14px;right:14px;max-width:min(238px,calc(100% - 28px));padding:15px 17px}
+    .diff-visual-note{top:14px;right:auto;left:14px;max-width:min(238px,calc(100% - 28px));padding:15px 17px}
     .diff-visual-note strong{font-size:1.22rem}
   }
 
