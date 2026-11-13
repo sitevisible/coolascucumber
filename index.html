@@ -845,7 +845,73 @@
     .diff-visual-note span{max-width:240px;font-size:.82rem;margin-top:9px}
   }
 
-    /* ---------- PARCOURS (courbe signature) ---------- */
+    /* ---------- CE QUE ÇA CHANGE : grille éditoriale sans cartes ---------- */
+  #promesses{padding-top:102px;padding-bottom:116px}
+  .promesses-header{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    align-items:end;gap:clamp(32px,7vw,110px);
+    padding-bottom:46px;
+  }
+  .promesses-kicker{
+    margin:0 0 18px;color:var(--green-deep);
+    font:700 .69rem 'Space Mono',monospace;
+    letter-spacing:.13em;text-transform:uppercase;
+  }
+  .promesses-header h2{
+    max-width:13ch;font-size:clamp(2.8rem,5.2vw,5rem);
+    line-height:1.02;letter-spacing:-.045em;
+  }
+  .promesses-header h2 .accent{color:var(--orange);font-weight:400}
+  .promesses-intro{
+    max-width:48ch;margin:0 0 5px;
+    color:var(--ink-soft);font-size:1.08rem;line-height:1.65;
+  }
+  .promesses-list{border-top:1px solid rgba(9,75,60,.22)}
+  .promesses-list-item{
+    display:grid;grid-template-columns:clamp(94px,14vw,180px) minmax(220px,.95fr) minmax(270px,1.05fr);
+    align-items:center;gap:clamp(18px,3vw,50px);
+    padding:34px 6px 36px;
+    border:0;border-bottom:1px solid rgba(9,75,60,.19);
+    border-radius:0;background:none !important;
+    transition:padding-left .25s ease,background .25s ease;
+  }
+  .promesses-list-item:hover{padding-left:18px;background:rgba(174,196,105,.085) !important}
+  .promesses-list-item::before{display:none}
+  .promesses-index{
+    display:block;width:auto;height:auto;padding:0;
+    color:rgba(9,75,60,.40) !important;background:none !important;
+    font-family:'Fraunces',serif;font-size:clamp(3.8rem,7.8vw,7.2rem);
+    line-height:.9;letter-spacing:-.06em;font-weight:400;
+  }
+  .promesses-list-item:nth-child(2) .promesses-index{color:var(--orange) !important}
+  .promesses-list-item h3{
+    font-size:clamp(1.45rem,2.15vw,2rem);
+    line-height:1.15;letter-spacing:-.03em;margin:0;
+    max-width:19ch;
+  }
+  .promesses-list-item p{
+    margin:0;max-width:46ch;
+    color:var(--ink-soft);font-size:.97rem;line-height:1.65;
+  }
+  .promesses-list-item strong{color:var(--green-deep) !important;font-weight:600}
+  @media(max-width:900px){
+    .promesses-header{grid-template-columns:1fr;gap:20px;padding-bottom:34px}
+    .promesses-list-item{grid-template-columns:92px 1fr;gap:10px 22px;align-items:start;padding:28px 0}
+    .promesses-list-item p{grid-column:2}
+    .promesses-list-item h3{max-width:none}
+    .promesses-index{font-size:4.6rem}
+  }
+  @media(max-width:560px){
+    #promesses{padding-top:74px;padding-bottom:80px}
+    .promesses-header h2{font-size:clamp(2.5rem,10vw,3.6rem)}
+    .promesses-intro{font-size:1rem}
+    .promesses-list-item{grid-template-columns:60px 1fr;gap:8px 15px;padding:25px 0}
+    .promesses-index{font-size:3.3rem}
+    .promesses-list-item h3{font-size:1.4rem}
+    .promesses-list-item p{font-size:.92rem}
+  }
+
+  /* ---------- PARCOURS (courbe signature) ---------- */
   #parcours{
     overflow:hidden;
     padding-top:92px;
@@ -1435,7 +1501,41 @@
     </div>
   </section>
 
-      <!-- PARCOURS -->
+      <!-- PROMESSES -->
+  <section id="promesses" class="wrap reveal">
+    <div class="promesses-header">
+      <div>
+        <p class="promesses-kicker">Ce que ça change</p>
+        <h2>Le vivant, <span class="accent">au quotidien.</span></h2>
+      </div>
+      <p class="promesses-intro">
+        Des bureaux plus agréables, des équipes qui font ensemble et des gestes concrets :
+        notre démarche donne au végétal une place dans la vie de l'entreprise.
+      </p>
+    </div>
+
+    <div class="promesses-list">
+      <div class="promesses-list-item">
+        <span class="promesses-index">01 / LES ESPACES</span>
+        <h3>Se sentir mieux au bureau.</h3>
+        <p>Des lieux plus accueillants et végétalisés, pensés pour offrir <strong>une respiration dans la journée.</strong></p>
+      </div>
+
+      <div class="promesses-list-item">
+        <span class="promesses-index">02 / LE COLLECTIF</span>
+        <h3>Faire ensemble, tout simplement.</h3>
+        <p>Planter, bouturer, échanger : des moments qui favorisent <strong>les rencontres et l'implication des équipes.</strong></p>
+      </div>
+
+      <div class="promesses-list-item">
+        <span class="promesses-index">03 / LES ENGAGEMENTS</span>
+        <h3>Passer des intentions aux gestes.</h3>
+        <p>Bouturage, compost, économie d'eau : des pratiques accessibles pour <strong>faire vivre la démarche RSE au quotidien.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
   <section id="parcours" class="reveal">
     <div class="wrap">
       <div class="parcours-shell on-dark">
