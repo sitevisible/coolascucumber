@@ -790,21 +790,59 @@
   .diff-visual{position:relative;min-height:590px;height:100%;isolation:isolate}
   .diff-visual img{width:100%;height:100%;min-height:590px;object-fit:cover;object-position:center;border-radius:140px 14px 14px 14px}
   .diff-visual::before{content:"";position:absolute;inset:19px -17px -17px 24px;border:1.5px solid var(--lime);border-radius:140px 14px 14px 14px;z-index:-1}
-  .diff-visual-note{position:absolute;left:-26px;bottom:34px;max-width:285px;background:var(--green-deep);color:white;border-radius:13px;padding:22px 26px;box-shadow:0 18px 48px rgba(9,75,60,.17)}
-  .diff-visual-note strong{display:block;font-family:'Fraunces',serif;font-size:1.48rem;line-height:1.16;font-weight:500;color:#F4F8F0}
-  .diff-visual-note span{display:block;margin-top:9px;color:#D5E7D6;font-size:.84rem;line-height:1.5}
+  .diff-visual-note{
+    position:absolute;
+    top:26px;
+    right:24px;
+    bottom:auto;
+    left:auto;
+    max-width:270px;
+    padding:19px 22px 20px;
+    background:rgba(250,252,246,.86);
+    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.74);
+    border-radius:18px;
+    box-shadow:0 12px 36px rgba(9,75,60,.10);
+    color:var(--green-deep);
+  }
+  .diff-visual-note::before{
+    content:"";
+    display:block;
+    width:30px;
+    height:3px;
+    margin-bottom:14px;
+    border-radius:99px;
+    background:var(--orange);
+  }
+  .diff-visual-note strong{
+    display:block;
+    font-family:'Fraunces',serif;
+    font-size:1.4rem;
+    line-height:1.16;
+    letter-spacing:-.025em;
+    font-weight:500;
+    color:var(--green-deep);
+  }
+  .diff-visual-note span{
+    display:block;
+    margin-top:9px;
+    color:var(--ink-soft);
+    font-size:.82rem;
+    line-height:1.52;
+  }
   @media(max-width:900px){
     .diff-section{padding:78px 0 90px}
     .diff-layout{grid-template-columns:1fr;gap:40px}
     .diff-visual{min-height:0;height:420px;max-width:730px}
     .diff-visual img{min-height:0;height:100%}
-    .diff-visual-note{left:18px;bottom:18px}
+    .diff-visual-note{top:20px;right:20px;bottom:auto;left:auto}
   }
   @media(max-width:560px){
     .diff-section{padding:66px 0 75px}
     .diff-content h2{font-size:clamp(2.2rem,9vw,3rem)}
     .diff-visual{height:340px}
-    .diff-visual-note{max-width:240px;padding:17px 18px}
+    .diff-visual-note{top:14px;right:14px;max-width:min(238px,calc(100% - 28px));padding:15px 17px}
     .diff-visual-note strong{font-size:1.22rem}
   }
 
