@@ -1220,86 +1220,161 @@
   }
 
 
-  /* ---------- RYTHME DE PAGE ---------- */
+  /* ---------- HARMONISATION GLOBALE DE LA PAGE D'ACCUEIL ---------- */
+  :root{
+    --home-space:clamp(76px,8vw,108px);
+    --home-heading:clamp(2.35rem,4.2vw,3.7rem);
+    --home-body:1.025rem;
+  }
+
+  /* Même logique typographique, mêmes couleurs d'accent et mêmes espacements. */
+  #accueil .eyebrow,
+  #difference .eyebrow,
+  #ateliers .eyebrow,
+  #parcours .eyebrow{
+    font-size:.7rem;
+    letter-spacing:.12em;
+    font-weight:600;
+  }
+  .hero-copy .lead,.workshops-intro p,.diff-lead,.parcours-subtitle{
+    font-size:var(--home-body);
+    line-height:1.7;
+  }
+  .workshops-header h2,
+  .diff-content h2,
+  .parcours-title{
+    font-size:var(--home-heading);
+    line-height:1.1;
+    letter-spacing:-.032em;
+  }
+  .hero-copy h1{letter-spacing:-.04em;line-height:1.04}
+  .hero-copy h1 .accent-line{line-height:1.14}
+  .btn,.nav-cta{
+    transition:background-color .2s ease,transform .2s ease,box-shadow .2s ease;
+  }
+  .btn:focus-visible,.text-link:focus-visible,.workshop-tile:focus-visible{
+    outline:2px solid var(--orange);
+    outline-offset:4px;
+  }
+
+  /* L'introduction et les prestations partagent une grille et un rythme réguliers. */
   .hero-combined{
-    padding-bottom:82px;
+    padding-top:clamp(130px,12vw,160px);
+    padding-bottom:var(--home-space);
+    row-gap:clamp(52px,6vw,76px);
   }
+  .hero-services{padding-top:30px}
+  .hero-service{padding-right:26px;padding-left:26px}
+  .hero-service:first-child{padding-left:0}
+  .hero-service:last-child{padding-right:0}
+  .hero-service h2{font-size:1.08rem;line-height:1.34}
+  .hero-service p{line-height:1.6}
+  .hero-combined .mission-photo{border-radius:88px 16px 88px 16px}
 
-  .diff-section{
-    padding:0 28px;
+  /* Section ateliers : les cartes restent cliquables, mais deviennent plus discrètes. */
+  .workshops-section{
+    padding:var(--home-space) 0;
   }
-
-  .diff-media{
-    max-width:1240px;
-    margin:0 auto;
-    border:0;
-    border-radius:30px 10px 30px 10px;
+  .workshops-header{gap:clamp(30px,5vw,68px);margin-bottom:36px}
+  .workshops-intro p{margin-bottom:24px}
+  .workshops-grid{gap:14px}
+  .workshop-tile{
+    min-height:220px;
+    padding:28px 27px 50px;
+    border-radius:16px;
+    background:#EFF4E9;
+    border:1px solid rgba(255,255,255,.12);
     box-shadow:none;
   }
+  .workshop-tile h3{font-size:1.55rem;line-height:1.2}
+  .workshop-tile p{line-height:1.6}
+  .workshop-tile:hover{transform:translateY(-3px);background:#F8FAF3}
+  .workshops-note{margin-top:23px}
 
-  #promesses{
-    padding-top:92px;
-    padding-bottom:54px;
+  /* Notre différence : même largeur de lecture et même profondeur visuelle. */
+  .diff-section{
+    padding:var(--home-space) 0;
+    background:#F7F8F3;
+  }
+  .diff-layout{gap:clamp(42px,5vw,76px)}
+  .diff-content .eyebrow{margin-bottom:22px}
+  .diff-lead{max-width:49ch;margin:25px 0 29px}
+  .diff-visual{min-height:545px}
+  .diff-visual img{
+    min-height:545px;
+    border-radius:88px 16px 16px 16px;
+  }
+  .diff-visual::before{border-radius:88px 16px 16px 16px}
+  .diff-visual-note{
+    border-radius:88px 16px 0 0;
+    padding:68px 36px 64px 40px;
   }
 
-  #parcours{
-    padding-top:54px;
-    padding-bottom:54px;
+  /* Le parcours constitue une respiration, sans surcharger la fin de page. */
+  #parcours{padding:var(--home-space) 0}
+  .parcours-shell{border-radius:24px;padding:60px 56px 56px}
+  .parcours-head{gap:clamp(30px,5vw,64px);margin-bottom:34px}
+  .parcours-title{max-width:15ch}
+  .parcours-subtitle{max-width:45ch}
+  .parcours-close{margin-top:38px}
+
+  /* Dernier appel à l'action aligné sur le parcours. */
+  #contact{padding-top:0;padding-bottom:var(--home-space)}
+  .contact-box{padding-top:45px;gap:36px}
+  .contact-box h2{font-size:clamp(2.3rem,3.6vw,3.4rem);line-height:1.1}
+  .footer-inner{padding-top:40px;padding-bottom:36px}
+
+  @media(max-width:980px){
+    .hero-combined{padding-top:120px;row-gap:44px}
+    .hero-copy{max-width:720px}
+    .hero-services{padding-top:22px}
+    .diff-layout{gap:44px}
+    .diff-visual{min-height:0;height:450px}
+    .diff-visual img{min-height:0;height:100%}
   }
-
-  #contact{
-    padding-top:54px;
-    padding-bottom:68px;
+  @media(max-width:850px){
+    .workshops-header{gap:20px}
+    .workshops-grid{grid-template-columns:1fr;gap:12px}
+    .workshop-tile{min-height:0;padding:24px 55px 24px 25px}
+    .workshop-tile-no{margin-bottom:14px}
   }
-
-  .promesses-header,
-  .parcours-head{
-    gap:52px;
-  }
-
-  @media(max-width:900px){
-    .diff-section{ padding:0 18px; }
-    .diff-media{ border-radius:24px 8px 24px 8px; }
-
-    #promesses{
-      padding-top:74px;
-      padding-bottom:42px;
+  @media(max-width:760px){
+    :root{--home-space:72px}
+    .hero-combined{padding-top:112px;padding-bottom:var(--home-space)}
+    .hero-services{grid-template-columns:1fr;padding-top:12px}
+    .hero-service,.hero-service:first-child,.hero-service:last-child{
+      border-right:0;border-bottom:1px solid rgba(9,75,60,.13);
+      padding:19px 0;
     }
-
-    #parcours{
-      padding-top:42px;
-      padding-bottom:42px;
-    }
-
-    #contact{
-      padding-top:42px;
-      padding-bottom:56px;
-    }
+    .hero-service:last-child{border-bottom:0}
+    .hero-combined .mission-art{min-height:0}
+    .workshops-section{padding:var(--home-space) 0}
+    .diff-section{padding:var(--home-space) 0}
+    .diff-visual{height:430px}
+    .parcours-shell{padding:44px 27px 40px;border-radius:20px}
+    .parcours-head{gap:18px}
+    #parcours{padding:var(--home-space) 0}
+    #contact{padding-top:0;padding-bottom:var(--home-space)}
+    .contact-box{padding-top:36px}
   }
-
   @media(max-width:560px){
-    .hero-combined{
-      padding-bottom:64px;
-    }
-
-    .diff-section{ padding:0 12px; }
-    .diff-media{ border-radius:20px 6px 20px 6px; }
-
-    #promesses{
-      padding-top:62px;
-      padding-bottom:34px;
-    }
-
-    #parcours{
-      padding-top:34px;
-      padding-bottom:34px;
-    }
-
-    #contact{
-      padding-top:34px;
-      padding-bottom:48px;
-    }
-
+    :root{--home-space:62px;--home-heading:clamp(2.25rem,9vw,2.8rem)}
+    .hero-combined{padding-top:105px;row-gap:34px}
+    .hero-copy h1{font-size:clamp(2.6rem,10vw,3.6rem)}
+    .hero-combined .mission-photo{border-radius:60px 12px 60px 12px}
+    .hero-quickline{gap:7px 9px;font-size:.77rem}
+    .hero-quickline span:not(:last-child)::after{padding-left:9px}
+    .workshops-header h2,.diff-content h2,.parcours-title{font-size:var(--home-heading)}
+    .workshop-tile h3{font-size:1.43rem}
+    .diff-visual{height:350px}
+    .diff-visual img{border-radius:60px 12px 12px 12px}
+    .diff-visual::before{border-radius:60px 12px 12px 12px}
+    .diff-visual-note{border-radius:60px 12px 0 0;padding:54px 23px 38px 27px}
+    .diff-visual-note strong{font-size:1.48rem}
+    .parcours-shell{padding:36px 23px 35px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .workshop-tile:hover,.btn:hover{transform:none}
   }
 
 </style>
