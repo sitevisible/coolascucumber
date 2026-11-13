@@ -775,73 +775,37 @@
   .hero-benefit:nth-child(2) .hero-benefit-index{ color:var(--orange); }
   .hero-benefit:nth-child(3) .hero-benefit-index{ color:var(--soil); }
 
-  /* ---------- DIFFERENCE (full-bleed, editorial) ---------- */
-  .diff-section{ padding: 0; }
-  .diff-media{
-    position: relative;
-    min-height: 560px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+  /* ---------- DIFFERENCE : accompagnement QVT au-delà des plantes ---------- */
+  .diff-section{padding:110px 0 120px;background:#F7F8F3;overflow:hidden}
+  .diff-layout{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(36px,6vw,90px);align-items:center}
+  .diff-content .eyebrow{margin-bottom:24px}
+  .diff-content h2{font-size:clamp(2.35rem,4.5vw,4.25rem);line-height:1.07;letter-spacing:-.035em}
+  .diff-content h2 em{color:var(--green-deep);font-weight:400}
+  .diff-lead{max-width:54ch;margin:25px 0 30px;font-size:1.04rem;line-height:1.7;color:var(--ink-soft)}
+  .diff-pillars{border-top:1px solid rgba(9,75,60,.18);margin-bottom:30px}
+  .diff-pillar{display:grid;grid-template-columns:38px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(9,75,60,.15)}
+  .diff-pillar-index{font:700 .72rem 'Space Mono',monospace;color:var(--orange);padding-top:3px}
+  .diff-pillar h3{font-family:'Work Sans',sans-serif;font-size:1.02rem;line-height:1.3;letter-spacing:-.015em}
+  .diff-pillar p{font-size:.9rem;line-height:1.5;color:var(--ink-soft);margin:5px 0 0}
+  .diff-visual{position:relative;min-height:590px;height:100%;isolation:isolate}
+  .diff-visual img{width:100%;height:100%;min-height:590px;object-fit:cover;object-position:center;border-radius:140px 14px 14px 14px}
+  .diff-visual::before{content:"";position:absolute;inset:19px -17px -17px 24px;border:1.5px solid var(--lime);border-radius:140px 14px 14px 14px;z-index:-1}
+  .diff-visual-note{position:absolute;left:-26px;bottom:34px;max-width:285px;background:var(--green-deep);color:white;border-radius:13px;padding:22px 26px;box-shadow:0 18px 48px rgba(9,75,60,.17)}
+  .diff-visual-note strong{display:block;font-family:'Fraunces',serif;font-size:1.48rem;line-height:1.16;font-weight:500;color:#F4F8F0}
+  .diff-visual-note span{display:block;margin-top:9px;color:#D5E7D6;font-size:.84rem;line-height:1.5}
+  @media(max-width:900px){
+    .diff-section{padding:78px 0 90px}
+    .diff-layout{grid-template-columns:1fr;gap:40px}
+    .diff-visual{min-height:0;height:420px;max-width:730px}
+    .diff-visual img{min-height:0;height:100%}
+    .diff-visual-note{left:18px;bottom:18px}
   }
-  .diff-media img{
-    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
-  }
-  .diff-media::after{
-    content:"";
-    position:absolute; inset:0; z-index:1;
-    background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 38%, rgba(255,255,255,.28) 68%, rgba(255,255,255,.04) 100%);
-  }
-  .diff-panel{
-    position:relative; z-index:2;
-    width:min(520px, calc(100% - 56px));
-    margin-left:max(28px, calc((100% - var(--maxw)) / 2 + 28px));
-    padding:64px 0;
-  }
-  .diff-statement{
-    margin:24px 0 28px;
-    padding:0 0 26px;
-    border-bottom:1px solid var(--line);
-    font-family:'Fraunces', serif;
-    font-size:clamp(1.65rem, 3vw, 2.35rem);
-    line-height:1.12;
-    letter-spacing:-.02em;
-    color:var(--ink);
-  }
-  .diff-statement .muted{
-    display:block;
-    margin-bottom:8px;
-    color:var(--ink-soft);
-    font-size:.72em;
-    font-weight:400;
-  }
-  .diff-statement .accent{
-    display:block;
-    color:var(--green-deep);
-  }
-  .diff-text{
-    color:var(--ink-soft);
-    margin:0;
-    max-width:48ch;
-    font-size:1rem;
-  }
-  .diff-quote{
-    margin:24px 0 0;
-    padding-left:18px;
-    border-left:3px solid var(--orange);
-    font-family:'Fraunces', serif;
-    font-size:1.12rem;
-    line-height:1.4;
-    color:var(--green-deep);
-  }
-  @media (max-width: 900px){
-    .diff-media{ min-height:520px; align-items:flex-end; }
-    .diff-media::after{
-      background:linear-gradient(180deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.82) 40%, rgba(255,255,255,.98) 72%);
-    }
-    .diff-panel{
-      width:auto; max-width:none; margin:0 28px; padding:150px 0 48px;
-    }
+  @media(max-width:560px){
+    .diff-section{padding:66px 0 75px}
+    .diff-content h2{font-size:clamp(2.2rem,9vw,3rem)}
+    .diff-visual{height:340px}
+    .diff-visual-note{max-width:240px;padding:17px 18px}
+    .diff-visual-note strong{font-size:1.22rem}
   }
 
   /* ---------- PROMESSES ---------- */
@@ -1522,21 +1486,33 @@
 
     <!-- DIFFERENCE -->
   <section id="difference" class="diff-section reveal">
-    <div class="diff-media">
-      <img src="racine.png" alt="Plantes à différents stades de croissance, racines visibles, devant un bureau végétalisé">
-      <div class="diff-panel">
-        <p class="eyebrow">Ce qui nous différencie</p>
-        <div class="diff-statement">
-          <span class="muted">Installer des plantes, c'est un début.</span>
-          <span class="accent">Faire vivre le projet <span class="accent-orange">dans la durée</span>, c'est notre métier.</span>
+    <div class="wrap diff-layout">
+      <div class="diff-content">
+        <p class="eyebrow">Notre différence</p>
+        <h2>Nous n'installons pas seulement des plantes.<br><em>Nous faisons vivre un projet QVT.</em></h2>
+        <p class="diff-lead">La végétalisation est notre point de départ. Notre métier, c'est de construire avec vos équipes un environnement de travail plus agréable et une dynamique collective qui dure.</p>
+        <div class="diff-pillars" aria-label="Notre accompagnement">
+          <div class="diff-pillar">
+            <span class="diff-pillar-index">01</span>
+            <div><h3>Comprendre vos besoins</h3><p>Échanger avec vos équipes et imaginer des espaces adaptés à leurs usages.</p></div>
+          </div>
+          <div class="diff-pillar">
+            <span class="diff-pillar-index">02</span>
+            <div><h3>Faire participer</h3><p>Installer ensemble, animer des ateliers et créer des occasions de se retrouver.</p></div>
+          </div>
+          <div class="diff-pillar">
+            <span class="diff-pillar-index">03</span>
+            <div><h3>Accompagner dans la durée</h3><p>Transmettre les bons gestes et aider le projet à devenir autonome.</p></div>
+          </div>
         </div>
-        <p class="diff-text">
-          Nous construisons avec les équipes une dynamique qui s'installe progressivement,
-          jusqu'à devenir autonome.
-        </p>
-        <p class="diff-quote">
-          Deux ans après notre passage, le projet doit être encore vivant.
-        </p>
+        <a class="text-link" href="demarche.html">Comprendre notre approche</a>
+      </div>
+      <div class="diff-visual">
+        <img src="racine.png" alt="Différents stades de croissance de plantes dans un espace de travail" loading="lazy">
+        <div class="diff-visual-note">
+          <strong>Plus que du végétal.</strong>
+          <span>Une démarche participative au service de la qualité de vie au travail.</span>
+        </div>
       </div>
     </div>
   </section>
